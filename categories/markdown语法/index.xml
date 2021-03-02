@@ -1,0 +1,15 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>Markdown语法 - 分类 - 速冻小鹿包的博客</title>
+        <link>http://example.org/categories/markdown%E8%AF%AD%E6%B3%95/</link>
+        <description>Markdown语法 - 分类 - 速冻小鹿包的博客</description>
+        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><lastBuildDate>Tue, 02 Mar 2021 13:41:52 &#43;0800</lastBuildDate><atom:link href="http://example.org/categories/markdown%E8%AF%AD%E6%B3%95/" rel="self" type="application/rss+xml" /><item>
+    <title>Markdown基本语法指导</title>
+    <link>http://example.org/posts/markdown/</link>
+    <pubDate>Tue, 02 Mar 2021 13:41:52 &#43;0800</pubDate>
+    <author>作者</author>
+    <guid>http://example.org/posts/markdown/</guid>
+    <description><![CDATA[<h1 id="markdown-基本语法">Markdown 基本语法</h1>
+<p>这篇文章提供了可以在 Hugo 的文章中使用的基本 Markdown 语法示例.</p>]]></description>
+</item></channel>
+</rss>

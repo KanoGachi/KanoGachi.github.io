@@ -5,28 +5,28 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="robots" content="noodp" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
-        <title>我的第一篇文章 - ♪</title><meta name="Description" content=""><meta property="og:title" content="我的第一篇文章" />
-<meta property="og:description" content="测试测试测试测试 让我试试看" />
+        <title>1.两数之和 - 速冻小鹿包的博客</title><meta name="Description" content="速冻小鹿包的博客"><meta property="og:title" content="1.两数之和" />
+<meta property="og:description" content="暴力解法【时间：$O(n^2)$ 空间：$O(1)$】 思路 对于数组中的每一个位置的数字x，寻找位于该数字后方的所有数字中，是否有能与它匹配的数" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="http://example.org/posts/my_first_post/" /><meta property="article:section" content="posts" />
-<meta property="article:published_time" content="2021-03-02T09:40:35&#43;08:00" />
-<meta property="article:modified_time" content="2021-03-02T09:40:35&#43;08:00" />
+<meta property="article:published_time" content="2021-03-02T15:15:35&#43;08:00" />
+<meta property="article:modified_time" content="2021-03-02T15:15:35&#43;08:00" />
 
 <meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="我的第一篇文章"/>
-<meta name="twitter:description" content="测试测试测试测试 让我试试看"/>
-<meta name="application-name" content="♪">
-<meta name="apple-mobile-web-app-title" content="♪"><link rel="icon" href="../../favicon.ico"><link rel="apple-touch-icon" sizes="180x180" href="../../apple-touch-icon.png"><link rel="manifest" href="../../site.webmanifest"><link rel="canonical" href="http://example.org/posts/my_first_post/" /><link rel="stylesheet" href="../../lib/normalize/normalize.min.css"><link rel="stylesheet" href="../../css/style.min.css"><link rel="stylesheet" href="../../lib/fontawesome-free/all.min.css"><link rel="stylesheet" href="../../lib/animate/animate.min.css"><script type="application/ld+json">
+<meta name="twitter:title" content="1.两数之和"/>
+<meta name="twitter:description" content="暴力解法【时间：$O(n^2)$ 空间：$O(1)$】 思路 对于数组中的每一个位置的数字x，寻找位于该数字后方的所有数字中，是否有能与它匹配的数"/>
+<meta name="application-name" content="速冻小鹿包的博客">
+<meta name="apple-mobile-web-app-title" content="速冻小鹿包的博客"><link rel="icon" href="../../favicon.ico"><link rel="apple-touch-icon" sizes="180x180" href="../../apple-touch-icon.png"><link rel="manifest" href="../../site.webmanifest"><link rel="canonical" href="http://example.org/posts/my_first_post/" /><link rel="prev" href="http://example.org/posts/markdown/" /><link rel="stylesheet" href="../../lib/normalize/normalize.min.css"><link rel="stylesheet" href="../../css/style.min.css"><link rel="stylesheet" href="../../lib/fontawesome-free/all.min.css"><link rel="stylesheet" href="../../lib/animate/animate.min.css"><script type="application/ld+json">
     {
         "@context": "http://schema.org",
         "@type": "BlogPosting",
-        "headline": "我的第一篇文章",
+        "headline": "1.两数之和",
         "inLanguage": "zh-CN",
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "http:\/\/example.org\/posts\/my_first_post\/"
-        },"genre": "posts","keywords": "测试","wordcount":  13 ,
-        "url": "http:\/\/example.org\/posts\/my_first_post\/","datePublished": "2021-03-02T09:40:35+08:00","dateModified": "2021-03-02T09:40:35+08:00","publisher": {
+        },"genre": "posts","keywords": "Python, 双指针, 哈希表","wordcount":  253 ,
+        "url": "http:\/\/example.org\/posts\/my_first_post\/","datePublished": "2021-03-02T15:15:35+08:00","dateModified": "2021-03-02T15:15:35+08:00","publisher": {
             "@type": "Organization",
             "name": "作者"},"author": {
                 "@type": "Person",
@@ -34,15 +34,33 @@
             },"description": ""
     }
     </script></head>
-    <body header-desktop="" header-mobile=""><script type="text/javascript">(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : '' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
+    <body header-desktop="fixed" header-mobile="fixed"><script type="text/javascript">(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('dark' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'dark' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
 
         <div id="mask"></div><div class="wrapper"><header class="desktop" id="header-desktop">
     <div class="header-wrapper">
         <div class="header-title">
-            <a href="../../" title="♪">♪</a>
+            <a href="../../" title="速冻小鹿包的博客"><img
+        class="lazyload logo"
+        src="../../svg/loading.min.svg"
+        data-src="../../favicon.ico"
+        data-srcset="../../favicon.ico, ../../favicon.ico 1.5x, ../../favicon.ico 2x"
+        data-sizes="auto"
+        alt="/favicon.ico"
+        title="/favicon.ico" />Alice...</a>
         </div>
         <div class="menu">
-            <div class="menu-inner"><a class="menu-item" href="../../posts/"> 文章 </a><a class="menu-item" href="../../tags/"> 标签 </a><a class="menu-item" href="../../categories/"> 分类 </a><span class="menu-item delimiter"></span><a href="javascript:void(0);" class="menu-item theme-switch" title="切换主题">
+            <div class="menu-inner"><a class="menu-item" href="../../categories/"> 分类 </a><a class="menu-item" href="../../tags/"> 标签 </a><a class="menu-item" href="../../posts/"> 文章 </a><span class="menu-item delimiter"></span><span class="menu-item search" id="search-desktop">
+                        <input type="text" placeholder="LeetCode" id="search-input-desktop">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="搜索">
+                            <i class="fas fa-search fa-fw"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-desktop" title="清空">
+                            <i class="fas fa-times-circle fa-fw"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-desktop">
+                            <i class="fas fa-spinner fa-fw fa-spin"></i>
+                        </span>
+                    </span><a href="javascript:void(0);" class="menu-item theme-switch" title="切换主题">
                     <i class="fas fa-adjust fa-fw"></i>
                 </a>
             </div>
@@ -52,13 +70,36 @@
     <div class="header-container">
         <div class="header-wrapper">
             <div class="header-title">
-                <a href="../../" title="♪">♪</a>
+                <a href="../../" title="速冻小鹿包的博客"><img
+        class="lazyload logo"
+        src="../../svg/loading.min.svg"
+        data-src="../../favicon.ico"
+        data-srcset="../../favicon.ico, ../../favicon.ico 1.5x, ../../favicon.ico 2x"
+        data-sizes="auto"
+        alt="/favicon.ico"
+        title="/favicon.ico" />Alice...</a>
             </div>
             <div class="menu-toggle" id="menu-toggle-mobile">
                 <span></span><span></span><span></span>
             </div>
         </div>
-        <div class="menu" id="menu-mobile"><a class="menu-item" href="../../posts/" title="">文章</a><a class="menu-item" href="../../tags/" title="">标签</a><a class="menu-item" href="../../categories/" title="">分类</a><a href="javascript:void(0);" class="menu-item theme-switch" title="切换主题">
+        <div class="menu" id="menu-mobile"><div class="search-wrapper">
+                    <div class="search mobile" id="search-mobile">
+                        <input type="text" placeholder="LeetCode" id="search-input-mobile">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-mobile" title="搜索">
+                            <i class="fas fa-search fa-fw"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-mobile" title="清空">
+                            <i class="fas fa-times-circle fa-fw"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-mobile">
+                            <i class="fas fa-spinner fa-fw fa-spin"></i>
+                        </span>
+                    </div>
+                    <a href="javascript:void(0);" class="search-cancel" id="search-cancel-mobile">
+                        取消
+                    </a>
+                </div><a class="menu-item" href="../../categories/" title="">分类</a><a class="menu-item" href="../../tags/" title="">标签</a><a class="menu-item" href="../../posts/" title="">文章</a><a href="javascript:void(0);" class="menu-item theme-switch" title="切换主题">
                 <i class="fas fa-adjust fa-fw"></i>
             </a></div>
     </div>
@@ -73,19 +114,57 @@
                 <div class="container"><div class="toc" id="toc-auto">
             <h2 class="toc-title">目录</h2>
             <div class="toc-content" id="toc-content-auto"></div>
-        </div><article class="page single"><h1 class="single-title animated flipInX">我的第一篇文章</h1><div class="post-meta">
-            <div class="post-meta-line"><span class="post-author"><a href="../../" title="Author" rel=" author" class="author"><i class="fas fa-user-circle fa-fw"></i>作者</a></span>&nbsp;<span class="post-category">收录于 <a href="../../categories/%E6%B5%8B%E8%AF%95/"><i class="far fa-folder fa-fw"></i>测试</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2021-03-02">2021-03-02</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 13 字&nbsp;
+        </div><article class="page single"><h1 class="single-title animated flipInX">1.两数之和</h1><div class="post-meta">
+            <div class="post-meta-line"><span class="post-author"><a href="../../" title="Author" rel=" author" class="author"><i class="fas fa-user-circle fa-fw"></i>作者</a></span>&nbsp;<span class="post-category">收录于 <a href="../../categories/leetcode/"><i class="far fa-folder fa-fw"></i>LeetCode</a></span></div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2021-03-02">2021-03-02</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 253 字&nbsp;
                 <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 1 分钟&nbsp;</div>
-        </div><div class="details toc" id="toc-static"  kept="">
+        </div><div class="details toc" id="toc-static"  kept="true">
                 <div class="details-summary toc-title">
                     <span>目录</span>
                     <span><i class="details-icon fas fa-angle-right"></i></span>
                 </div>
-                <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents"></nav></div>
-            </div><div class="content" id="content"><h1 id="测试测试测试测试">测试测试测试测试</h1>
-<p>让我试试看</p>
-</div><div class="post-footer" id="post-footer">
+                <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#01">暴力解法【时间：$O(n^2)$ 空间：$O(1)$】</a>
+      <ul>
+        <li><a href="#思路">思路</a></li>
+        <li><a href="#代码">代码</a></li>
+      </ul>
+    </li>
+    <li><a href="#02">使用哈希表【时间：$O(n)$ 空间：$O(n)$】</a>
+      <ul>
+        <li><a href="#思路-1">思路</a></li>
+        <li><a href="#代码-1">代码</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav></div>
+            </div><div class="content" id="content"><h2 id="01">暴力解法【时间：$O(n^2)$ 空间：$O(1)$】</h2>
+<h3 id="思路">思路</h3>
+<p>对于数组中的每一个位置的数字<code>x</code>，寻找位于该数字后方的所有数字中，是否有能与它匹配的数字<code>target-x</code>。</p>
+<h3 id="代码">代码</h3>
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="k">class</span> <span class="nc">Solution</span><span class="p">:</span>
+    <span class="k">def</span> <span class="nf">twoSum</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">nums</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">int</span><span class="p">],</span> <span class="n">target</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="nb">int</span><span class="p">]:</span>
+        <span class="n">n</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">nums</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+            <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="n">n</span><span class="p">):</span>
+                <span class="k">if</span> <span class="n">nums</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">+</span> <span class="n">nums</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="o">==</span> <span class="n">target</span><span class="p">:</span>
+                    <span class="k">return</span> <span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">]</span>
+        
+        <span class="k">return</span> <span class="p">[]</span>
+</code></pre></div><h2 id="02">使用哈希表【时间：$O(n)$ 空间：$O(n)$】</h2>
+<h3 id="思路-1">思路</h3>
+<p>从题意出发，可以想到：进行遍历时，使用哈希表记录已经遍历过的数字和数字的索引，对于当前位置的值<code>x</code>，在哈希表中寻找能与它匹配的数字<code>target-x</code>。</p>
+<h3 id="代码-1">代码</h3>
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="k">class</span> <span class="nc">Solution</span><span class="p">:</span>
+    <span class="k">def</span> <span class="nf">twoSum</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">nums</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">int</span><span class="p">],</span> <span class="n">target</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="nb">int</span><span class="p">]:</span>
+        <span class="n">hashtable</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">()</span>
+        <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">num</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">nums</span><span class="p">):</span>
+            <span class="k">if</span> <span class="n">target</span> <span class="o">-</span> <span class="n">num</span> <span class="ow">in</span> <span class="n">hashtable</span><span class="p">:</span>
+                <span class="k">return</span> <span class="p">[</span><span class="n">hashtable</span><span class="p">[</span><span class="n">target</span> <span class="o">-</span> <span class="n">num</span><span class="p">],</span> <span class="n">i</span><span class="p">]</span>
+            <span class="n">hashtable</span><span class="p">[</span><span class="n">nums</span><span class="p">[</span><span class="n">i</span><span class="p">]]</span> <span class="o">=</span> <span class="n">i</span>
+        <span class="k">return</span> <span class="p">[]</span>
+</code></pre></div></div><div class="post-footer" id="post-footer">
     <div class="post-info">
         <div class="post-info-line">
             <div class="post-info-mod">
@@ -102,15 +181,17 @@
     </div>
 
     <div class="post-info-more">
-        <section class="post-tags"><i class="fas fa-tags fa-fw"></i>&nbsp;<a href="../../tags/%E6%B5%8B%E8%AF%95/">测试</a></section>
+        <section class="post-tags"><i class="fas fa-tags fa-fw"></i>&nbsp;<a href="../../tags/python/">Python</a>,&nbsp;<a href="../../tags/%E5%8F%8C%E6%8C%87%E9%92%88/">双指针</a>,&nbsp;<a href="../../tags/%E5%93%88%E5%B8%8C%E8%A1%A8/">哈希表</a></section>
         <section>
             <span><a href="javascript:void(0);" onclick="window.history.back();">返回</a></span>&nbsp;|&nbsp;<span><a href="../../">主页</a></span>
         </section>
     </div>
 
-    <div class="post-nav"></div>
+    <div class="post-nav"><a href="../../posts/markdown/" class="prev" rel="prev" title="Markdown基本语法指导"><i class="fas fa-angle-left fa-fw"></i>Markdown基本语法指导</a></div>
 </div>
-</article></div>
+<div id="comments"><div id="gitalk" class="comment"></div><noscript>
+                Please enable JavaScript to view the comments powered by <a href="https://github.com/gitalk/gitalk"></a>Gitalk</a>.
+            </noscript></div></article></div>
             </main><footer class="footer">
         <div class="footer-container"><div class="footer-line">由 <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.81.0">Hugo</a> 强力驱动 | 主题 - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 0.2.10"><i class="far fa-kiss-wink-heart fa-fw"></i> LoveIt</a>
                 </div><div class="footer-line"><i class="far fa-copyright fa-fw"></i><span itemprop="copyrightYear">2021</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="../../" target="_blank"></a></span></div>
@@ -122,5 +203,5 @@
             </a><a href="#" id="view-comments" class="fixed-button" title="查看评论">
                 <i class="fas fa-comment fa-fw"></i>
             </a>
-        </div><script type="text/javascript" src="../../lib/smooth-scroll/smooth-scroll.min.js"></script><script type="text/javascript" src="../../lib/lazysizes/lazysizes.min.js"></script><script type="text/javascript" src="../../lib/clipboard/clipboard.min.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"复制到剪贴板","maxShownLines":10},"comment":{}};</script><script type="text/javascript" src="../../js/theme.min.js"></script></body>
+        </div><link rel="stylesheet" href="../../lib/gitalk/gitalk.min.css"><link rel="stylesheet" href="../../lib/katex/katex.min.css"><link rel="stylesheet" href="../../lib/katex/copy-tex.min.css"><script type="text/javascript" src="../../lib/gitalk/gitalk.min.js"></script><script type="text/javascript" src="../../lib/smooth-scroll/smooth-scroll.min.js"></script><script type="text/javascript" src="../../lib/autocomplete/autocomplete.min.js"></script><script type="text/javascript" src="../../lib/lunr/lunr.min.js"></script><script type="text/javascript" src="../../lib/lunr/lunr.stemmer.support.min.js"></script><script type="text/javascript" src="../../lib/lunr/lunr.zh.min.js"></script><script type="text/javascript" src="../../lib/lazysizes/lazysizes.min.js"></script><script type="text/javascript" src="../../lib/clipboard/clipboard.min.js"></script><script type="text/javascript" src="../../lib/katex/katex.min.js"></script><script type="text/javascript" src="../../lib/katex/auto-render.min.js"></script><script type="text/javascript" src="../../lib/katex/copy-tex.min.js"></script><script type="text/javascript" src="../../lib/katex/mhchem.min.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"复制到剪贴板","maxShownLines":10},"comment":{"gitalk":{"admin":[null],"clientID":null,"clientSecret":null,"id":"2021-03-02T15:15:35+08:00","owner":null,"repo":null,"title":"1.两数之和"}},"math":{"delimiters":[{"display":true,"left":"$$","right":"$$"},{"display":true,"left":"\\[","right":"\\]"},{"display":false,"left":"$","right":"$"},{"display":false,"left":"\\(","right":"\\)"}],"strict":false},"search":{"highlightTag":"em","lunrLanguageCode":"zh","lunrSegmentitURL":"/lib/lunr/lunr.segmentit.js","maxResultLength":10,"noResultsFound":"没有找到结果","snippetLength":50}};</script><script type="text/javascript" src="../../js/theme.min.js"></script></body>
 </html>

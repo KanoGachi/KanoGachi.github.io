@@ -1,16 +1,24 @@
 <rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
     <channel>
-        <title>♪</title>
+        <title>速冻小鹿包的博客</title>
         <link>http://example.org/</link>
-        <description>♪</description>
-        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><lastBuildDate>Tue, 02 Mar 2021 09:40:35 &#43;0800</lastBuildDate>
+        <description>速冻小鹿包的博客</description>
+        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><lastBuildDate>Tue, 02 Mar 2021 15:15:35 &#43;0800</lastBuildDate>
             <atom:link href="http://example.org/index.xml" rel="self" type="application/rss+xml" />
         <item>
-    <title>我的第一篇文章</title>
+    <title>1.两数之和</title>
     <link>http://example.org/posts/my_first_post/</link>
-    <pubDate>Tue, 02 Mar 2021 09:40:35 &#43;0800</pubDate>
+    <pubDate>Tue, 02 Mar 2021 15:15:35 &#43;0800</pubDate>
     <author>作者</author>
     <guid>http://example.org/posts/my_first_post/</guid>
-    <description><![CDATA[测试测试测试测试 让我试试看]]></description>
+    <description><![CDATA[暴力解法【时间：$O(n^2)$ 空间：$O(1)$】 思路 对于数组中的每一个位置的数字x，寻找位于该数字后方的所有数字中，是否有能与它匹配的数]]></description>
+</item><item>
+    <title>Markdown基本语法指导</title>
+    <link>http://example.org/posts/markdown/</link>
+    <pubDate>Tue, 02 Mar 2021 13:41:52 &#43;0800</pubDate>
+    <author>作者</author>
+    <guid>http://example.org/posts/markdown/</guid>
+    <description><![CDATA[<h1 id="markdown-基本语法">Markdown 基本语法</h1>
+<p>这篇文章提供了可以在 Hugo 的文章中使用的基本 Markdown 语法示例.</p>]]></description>
 </item></channel>
 </rss>
