@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="robots" content="noodp" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
+        <title>【C&#43;&#43;】vector容器 - 速冻小鹿包的博客</title><meta name="Description" content="速冻小鹿包的博客"><meta property="og:title" content="【C&#43;&#43;】vector容器" />
+<meta property="og:description" content="什么是vector？ 向量（Vector） 是一个封装了动态大小数组的顺序容器（Sequence Container）。跟任意其它类型容器一样，它" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://example.org/posts/vector/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2021-03-02T22:11:29&#43;08:00" />
+<meta property="article:modified_time" content="2021-03-02T22:11:29&#43;08:00" />
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="【C&#43;&#43;】vector容器"/>
+<meta name="twitter:description" content="什么是vector？ 向量（Vector） 是一个封装了动态大小数组的顺序容器（Sequence Container）。跟任意其它类型容器一样，它"/>
+<meta name="application-name" content="速冻小鹿包的博客">
+<meta name="apple-mobile-web-app-title" content="速冻小鹿包的博客"><link rel="icon" href="../../favicon.ico"><link rel="apple-touch-icon" sizes="180x180" href="../../apple-touch-icon.png"><link rel="manifest" href="../../site.webmanifest"><link rel="canonical" href="http://example.org/posts/vector/" /><link rel="prev" href="http://example.org/posts/my_first_post/" /><link rel="next" href="http://example.org/posts/338/" /><link rel="stylesheet" href="../../lib/normalize/normalize.min.css"><link rel="stylesheet" href="../../css/style.min.css"><link rel="stylesheet" href="../../lib/fontawesome-free/all.min.css"><link rel="stylesheet" href="../../lib/animate/animate.min.css"><script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "headline": "【C++】vector容器",
+        "inLanguage": "zh-CN",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "http:\/\/example.org\/posts\/vector\/"
+        },"genre": "posts","wordcount":  1524 ,
+        "url": "http:\/\/example.org\/posts\/vector\/","datePublished": "2021-03-02T22:11:29+08:00","dateModified": "2021-03-02T22:11:29+08:00","publisher": {
+            "@type": "Organization",
+            "name": "作者"},"author": {
+                "@type": "Person",
+                "name": "作者"
+            },"description": ""
+    }
+    </script></head>
+    <body header-desktop="fixed" header-mobile="fixed"><script type="text/javascript">(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('dark' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'dark' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
+
+        <div id="mask"></div><div class="wrapper"><header class="desktop" id="header-desktop">
+    <div class="header-wrapper">
+        <div class="header-title">
+            <a href="../../" title="速冻小鹿包的博客"><img
+        class="lazyload logo"
+        src="../../svg/loading.min.svg"
+        data-src="../../favicon.ico"
+        data-srcset="../../favicon.ico, ../../favicon.ico 1.5x, ../../favicon.ico 2x"
+        data-sizes="auto"
+        alt="/favicon.ico"
+        title="/favicon.ico" />Alice...</a>
+        </div>
+        <div class="menu">
+            <div class="menu-inner"><a class="menu-item" href="../../categories/"> 分类 </a><a class="menu-item" href="../../tags/"> 标签 </a><a class="menu-item" href="../../posts/"> 文章 </a><span class="menu-item delimiter"></span><span class="menu-item search" id="search-desktop">
+                        <input type="text" placeholder="LeetCode" id="search-input-desktop">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="搜索">
+                            <i class="fas fa-search fa-fw"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-desktop" title="清空">
+                            <i class="fas fa-times-circle fa-fw"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-desktop">
+                            <i class="fas fa-spinner fa-fw fa-spin"></i>
+                        </span>
+                    </span><a href="javascript:void(0);" class="menu-item theme-switch" title="切换主题">
+                    <i class="fas fa-adjust fa-fw"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+</header><header class="mobile" id="header-mobile">
+    <div class="header-container">
+        <div class="header-wrapper">
+            <div class="header-title">
+                <a href="../../" title="速冻小鹿包的博客"><img
+        class="lazyload logo"
+        src="../../svg/loading.min.svg"
+        data-src="../../favicon.ico"
+        data-srcset="../../favicon.ico, ../../favicon.ico 1.5x, ../../favicon.ico 2x"
+        data-sizes="auto"
+        alt="/favicon.ico"
+        title="/favicon.ico" />Alice...</a>
+            </div>
+            <div class="menu-toggle" id="menu-toggle-mobile">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+        <div class="menu" id="menu-mobile"><div class="search-wrapper">
+                    <div class="search mobile" id="search-mobile">
+                        <input type="text" placeholder="LeetCode" id="search-input-mobile">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-mobile" title="搜索">
+                            <i class="fas fa-search fa-fw"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-mobile" title="清空">
+                            <i class="fas fa-times-circle fa-fw"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-mobile">
+                            <i class="fas fa-spinner fa-fw fa-spin"></i>
+                        </span>
+                    </div>
+                    <a href="javascript:void(0);" class="search-cancel" id="search-cancel-mobile">
+                        取消
+                    </a>
+                </div><a class="menu-item" href="../../categories/" title="">分类</a><a class="menu-item" href="../../tags/" title="">标签</a><a class="menu-item" href="../../posts/" title="">文章</a><a href="javascript:void(0);" class="menu-item theme-switch" title="切换主题">
+                <i class="fas fa-adjust fa-fw"></i>
+            </a></div>
+    </div>
+</header>
+<div class="search-dropdown desktop">
+    <div id="search-dropdown-desktop"></div>
+</div>
+<div class="search-dropdown mobile">
+    <div id="search-dropdown-mobile"></div>
+</div>
+<main class="main">
+                <div class="container"><div class="toc" id="toc-auto">
+            <h2 class="toc-title">目录</h2>
+            <div class="toc-content" id="toc-content-auto"></div>
+        </div><article class="page single"><h1 class="single-title animated flipInX">【C&#43;&#43;】vector容器</h1><div class="post-meta">
+            <div class="post-meta-line"><span class="post-author"><a href="../../" title="Author" rel=" author" class="author"><i class="fas fa-user-circle fa-fw"></i>作者</a></span>&nbsp;<span class="post-category">收录于 <a href="../../categories/c++%E5%9F%BA%E7%A1%80/"><i class="far fa-folder fa-fw"></i>C++基础</a></span></div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2021-03-02">2021-03-02</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 1524 字&nbsp;
+                <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 4 分钟&nbsp;</div>
+        </div><div class="details toc" id="toc-static"  kept="true">
+                <div class="details-summary toc-title">
+                    <span>目录</span>
+                    <span><i class="details-icon fas fa-angle-right"></i></span>
+                </div>
+                <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#什么是vector">什么是vector？</a></li>
+    <li><a href="#容器特性">容器特性</a>
+      <ul>
+        <li><a href="#顺序序列">顺序序列</a></li>
+        <li><a href="#动态数组">动态数组</a></li>
+        <li><a href="#能够感知内存分配器的allocator-aware">能够感知内存分配器的(Allocator-aware)</a></li>
+      </ul>
+    </li>
+    <li><a href="#对象创建方法和成员函数介绍">对象创建方法和成员函数介绍</a>
+      <ul>
+        <li><a href="#对象创建方法">对象创建方法</a></li>
+        <li><a href="#成员函数介绍">成员函数介绍</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav></div>
+            </div><div class="content" id="content"><h2 id="什么是vector">什么是vector？</h2>
+<p><strong>向量（Vector）</strong> 是一个封装了<strong>动态大小数组的顺序容器（Sequence Container）</strong>。跟任意其它类型容器一样，它能够存放各种类型的对象。可以简单的认为，<strong>向量是一个能够存放任意类型的动态数组</strong>。</p>
+<h2 id="容器特性">容器特性</h2>
+<h3 id="顺序序列">顺序序列</h3>
+<p>顺序容器中的元素按照严格的<strong>线性顺序</strong>排序。可以通过元素在序列中的位置访问对应的元素。</p>
+<h3 id="动态数组">动态数组</h3>
+<p>支持对序列中的任意元素进行快速直接访问，甚至可以通过<strong>指针算术</strong>进行该操作。提供了在序列末尾相对快速地添加/删除元素的操作。</p>
+<h3 id="能够感知内存分配器的allocator-aware">能够感知内存分配器的(Allocator-aware)</h3>
+<p>容器使用一个内存分配器对象来动态地处理它的存储需求。</p>
+<h2 id="对象创建方法和成员函数介绍">对象创建方法和成员函数介绍</h2>
+<h3 id="对象创建方法">对象创建方法</h3>
+<p><code>vector&lt;类型&gt;标识符</code>：创建一个存储某类型元素的空向量。</p>
+<p><code>vector&lt;类型&gt;标识符(初始容量)</code>：创建一个具有初始容量长度，其中元素值全为默认初值的向量。</p>
+<p><code>vector&lt;类型&gt;标识符(初始容量,初始所有值)</code>：创建一个具有初始容量长度，其中元素值全为初始所有值的向量。</p>
+<div class="highlight"><pre class="chroma"><code class="language-cpp" data-lang="cpp"><span class="c1">// 创建对象
+</span><span class="c1"></span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">nums1</span><span class="p">;</span> <span class="c1">// nums1 ={}
+</span><span class="c1"></span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">nums2</span><span class="p">(</span><span class="mi">4</span><span class="p">);</span> <span class="c1">// nums2 = {0,0,0,0}
+</span><span class="c1"></span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">nums3</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">1</span><span class="p">);</span> <span class="c1">// nums3 = {1,1,1,1}
+</span><span class="c1">// 创建对象的同时进行初始化
+</span><span class="c1"></span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">nums4</span> <span class="o">=</span> <span class="p">{</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">};</span>
+<span class="n">vector</span><span class="o">&lt;</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;&gt;</span> <span class="n">nums5</span> <span class="o">=</span> <span class="p">{{</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">},</span> <span class="p">{</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">}};</span>
+</code></pre></div><h3 id="成员函数介绍">成员函数介绍</h3>
+<ol>
+<li>
+<p><code>push_back</code>在数组的最后添加一个数据</p>
+</li>
+<li>
+<p><code>pop_back</code>去掉数组的最后一个数据</p>
+</li>
+<li>
+<p><code>at</code>得到编号位置的数据</p>
+</li>
+<li>
+<p><code>begin</code>得到数组头的指针</p>
+</li>
+<li>
+<p><code>end</code>得到数组的<strong>最后一个单元+1</strong>的指针</p>
+</li>
+<li>
+<p><code>front</code>得到数组头的引用</p>
+</li>
+<li>
+<p><code>back</code>得到数组的最后一个单元的引用</p>
+</li>
+<li>
+<p><code>max_size</code>得到vector最大可以是多大</p>
+</li>
+<li>
+<p><code>capacity</code>当前vector分配的大小</p>
+</li>
+<li>
+<p><code>size</code>当前使用数据的大小</p>
+</li>
+<li>
+<p><code>resize</code>改变当前使用数据的大小，如果它比当前使用的大，则填充默认值</p>
+</li>
+<li>
+<p><code>reserve</code>改变当前vector所分配空间的大小</p>
+</li>
+<li>
+<p><code>erase</code>删除指针指向的数据项</p>
+</li>
+<li>
+<p><code>clear</code>清空当前的vector</p>
+</li>
+<li>
+<p><code>rbegin</code>将vector反转后的开始指针返回(其实就是原来的end-1)</p>
+</li>
+<li>
+<p><code>rend</code>将vector反转构的结束指针返回(其实就是原来的begin-1)</p>
+</li>
+<li>
+<p><code>empty</code>判断vector是否为空</p>
+</li>
+<li>
+<p><code>swap</code>与另一个vector交换数据</p>
+</li>
+</ol>
+<div class="highlight"><pre class="chroma"><code class="language-cpp" data-lang="cpp"><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">nums1</span> <span class="o">=</span> <span class="p">{</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">};</span>
+<span class="c1">// 增删操作
+</span><span class="c1"></span><span class="n">nums1</span><span class="p">.</span><span class="n">push_back</span><span class="p">(</span><span class="mi">5</span><span class="p">);</span>            <span class="c1">//{1,2,3,4,5}
+</span><span class="c1"></span><span class="n">nums1</span><span class="p">.</span><span class="n">pop_back</span><span class="p">();</span>              <span class="c1">//{1,2,3,4} 【注意：5只是被移出了nums1，未在内存中被移除，当前的end()仍指向5的位置】
+</span><span class="c1"></span><span class="n">nums1</span><span class="p">.</span><span class="n">erase</span><span class="p">(</span><span class="n">nums1</span><span class="p">.</span><span class="n">end</span><span class="p">()</span> <span class="o">-</span> <span class="mi">1</span><span class="p">);</span>  <span class="c1">//{1,2,3}【注意：4只是被移出了nums1，未在内存中被移除，当前的end()指向4】
+</span><span class="c1">// 获取容量
+</span><span class="c1"></span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">nums1</span><span class="p">.</span><span class="n">empty</span><span class="p">()</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>     <span class="c1">//输出0
+</span><span class="c1"></span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">nums1</span><span class="p">.</span><span class="n">size</span><span class="p">()</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>      <span class="c1">//输出3
+</span><span class="c1"></span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">nums1</span><span class="p">.</span><span class="n">capacity</span><span class="p">()</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>  <span class="c1">//输出8【让capacity大于size的原因是为了避免每次添加新元素都要重新分配内存，各编译器对capacity的分配处理不同】
+</span><span class="c1"></span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">nums1</span><span class="p">.</span><span class="n">max_size</span><span class="p">()</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>  <span class="c1">//输出4611686018427387903【vector分配的大小：2^62-1】
+</span><span class="c1">// 改变大小
+</span><span class="c1"></span><span class="n">nums1</span><span class="p">.</span><span class="n">resize</span><span class="p">(</span><span class="mi">7</span><span class="p">);</span>                   <span class="c1">//{1,2,3,0,0,0,0}【resize操作改变的是size】
+</span><span class="c1"></span><span class="n">nums1</span><span class="p">.</span><span class="n">reserve</span><span class="p">(</span><span class="mi">9</span><span class="p">);</span>                  <span class="c1">//{1,2,3,0,0,0,0}【reserve操作改变的是capacity】
+</span><span class="c1"></span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">nums1</span><span class="p">.</span><span class="n">capacity</span><span class="p">()</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>  <span class="c1">//输出9
+</span><span class="c1">// 取值操作
+</span><span class="c1"></span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">nums1</span><span class="p">.</span><span class="n">at</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>                            <span class="c1">//输出1
+</span><span class="c1"></span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="o">*</span><span class="n">nums1</span><span class="p">.</span><span class="n">begin</span><span class="p">()</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;,&#34;</span> <span class="o">&lt;&lt;</span> <span class="o">*</span><span class="n">nums1</span><span class="p">.</span><span class="n">end</span><span class="p">()</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>  <span class="c1">//输出1,-1163005939【注意：begin()和end()得到的是指针，需要用星号取得数值】
+</span><span class="c1"></span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">nums1</span><span class="p">.</span><span class="n">front</span><span class="p">()</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;,&#34;</span> <span class="o">&lt;&lt;</span> <span class="n">nums1</span><span class="p">.</span><span class="n">back</span><span class="p">()</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>   <span class="c1">//输出1,0【注意：front()和back()得到的是引用，即不能通过改变它们改变vector原来的数值】
+</span><span class="c1">// 反转取值
+</span><span class="c1"></span><span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">nums1</span><span class="p">.</span><span class="n">size</span><span class="p">();</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="o">*</span><span class="p">(</span><span class="n">nums1</span><span class="p">.</span><span class="n">rbegin</span><span class="p">()</span> <span class="o">+</span> <span class="n">i</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;,&#34;</span><span class="p">;</span>  <span class="c1">//依次输出0,0,0,0,3,2,1,
+</span><span class="c1"></span><span class="p">}</span>
+<span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+<span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">nums1</span><span class="p">.</span><span class="n">size</span><span class="p">();</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="o">*</span><span class="p">(</span><span class="n">nums1</span><span class="p">.</span><span class="n">rend</span><span class="p">()</span> <span class="o">-</span> <span class="mi">1</span> <span class="o">-</span> <span class="n">i</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;,&#34;</span><span class="p">;</span>  <span class="c1">//依次输出1,2,3,0,0,0,0
+</span><span class="c1"></span><span class="p">}</span>
+<span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+<span class="c1">// 交换数据
+</span><span class="c1"></span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">nums2</span> <span class="o">=</span> <span class="p">{</span><span class="mi">4</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">};</span>
+<span class="n">nums1</span><span class="p">.</span><span class="n">swap</span><span class="p">(</span><span class="n">nums2</span><span class="p">);</span>  <span class="c1">//nums1变为{4,3,2,1},nums2变为{1,2,3,0,0,0,0}
+</span><span class="c1">// 清空数据
+</span><span class="c1"></span><span class="n">nums1</span><span class="p">.</span><span class="n">clear</span><span class="p">();</span>                  <span class="c1">//nums1变为{}
+</span><span class="c1"></span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">nums1</span><span class="p">.</span><span class="n">empty</span><span class="p">()</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>  <span class="c1">//输出1
+</span></code></pre></div></div><div class="post-footer" id="post-footer">
+    <div class="post-info">
+        <div class="post-info-line">
+            <div class="post-info-mod">
+                <span>更新于 2021-03-02</span>
+            </div>
+            <div class="post-info-license"></div>
+        </div>
+        <div class="post-info-line">
+            <div class="post-info-md"></div>
+            <div class="post-info-share">
+                <span></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="post-info-more">
+        <section class="post-tags"></section>
+        <section>
+            <span><a href="javascript:void(0);" onclick="window.history.back();">返回</a></span>&nbsp;|&nbsp;<span><a href="../../">主页</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav"><a href="../../posts/my_first_post/" class="prev" rel="prev" title="1. Two Sum"><i class="fas fa-angle-left fa-fw"></i>1. Two Sum</a>
+            <a href="../../posts/338/" class="next" rel="next" title="338. Counting Bits">338. Counting Bits<i class="fas fa-angle-right fa-fw"></i></a></div>
+</div>
+<div id="comments"><div id="gitalk" class="comment"></div><noscript>
+                Please enable JavaScript to view the comments powered by <a href="https://github.com/gitalk/gitalk"></a>Gitalk</a>.
+            </noscript></div></article></div>
+            </main><footer class="footer">
+        <div class="footer-container"><div class="footer-line">由 <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.81.0">Hugo</a> 强力驱动 | 主题 - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 0.2.10"><i class="far fa-kiss-wink-heart fa-fw"></i> LoveIt</a>
+                </div><div class="footer-line"><i class="far fa-copyright fa-fw"></i><span itemprop="copyrightYear">2021</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="../../" target="_blank"></a></span></div>
+        </div>
+    </footer></div>
+
+        <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="回到顶部">
+                <i class="fas fa-arrow-up fa-fw"></i>
+            </a><a href="#" id="view-comments" class="fixed-button" title="查看评论">
+                <i class="fas fa-comment fa-fw"></i>
+            </a>
+        </div><link rel="stylesheet" href="../../lib/gitalk/gitalk.min.css"><link rel="stylesheet" href="../../lib/katex/katex.min.css"><link rel="stylesheet" href="../../lib/katex/copy-tex.min.css"><script type="text/javascript" src="../../lib/gitalk/gitalk.min.js"></script><script type="text/javascript" src="../../lib/smooth-scroll/smooth-scroll.min.js"></script><script type="text/javascript" src="../../lib/autocomplete/autocomplete.min.js"></script><script type="text/javascript" src="../../lib/lunr/lunr.min.js"></script><script type="text/javascript" src="../../lib/lunr/lunr.stemmer.support.min.js"></script><script type="text/javascript" src="../../lib/lunr/lunr.zh.min.js"></script><script type="text/javascript" src="../../lib/lazysizes/lazysizes.min.js"></script><script type="text/javascript" src="../../lib/clipboard/clipboard.min.js"></script><script type="text/javascript" src="../../lib/katex/katex.min.js"></script><script type="text/javascript" src="../../lib/katex/auto-render.min.js"></script><script type="text/javascript" src="../../lib/katex/copy-tex.min.js"></script><script type="text/javascript" src="../../lib/katex/mhchem.min.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"复制到剪贴板","maxShownLines":10},"comment":{"gitalk":{"admin":[null],"clientID":null,"clientSecret":null,"id":"2021-03-02T22:11:29+08:00","owner":null,"repo":null,"title":"【C++】vector容器"}},"math":{"delimiters":[{"display":true,"left":"$$","right":"$$"},{"display":true,"left":"\\[","right":"\\]"},{"display":false,"left":"$","right":"$"},{"display":false,"left":"\\(","right":"\\)"}],"strict":false},"search":{"highlightTag":"em","lunrLanguageCode":"zh","lunrSegmentitURL":"/lib/lunr/lunr.segmentit.js","maxResultLength":10,"noResultsFound":"没有找到结果","snippetLength":50}};</script><script type="text/javascript" src="../../js/theme.min.js"></script></body>
+</html>

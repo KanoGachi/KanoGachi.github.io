@@ -3,8 +3,22 @@
         <title>所有文章 - 速冻小鹿包的博客</title>
         <link>http://example.org/posts/</link>
         <description>所有文章 | 速冻小鹿包的博客</description>
-        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><lastBuildDate>Tue, 02 Mar 2021 15:15:35 &#43;0800</lastBuildDate><atom:link href="http://example.org/posts/" rel="self" type="application/rss+xml" /><item>
-    <title>1.两数之和</title>
+        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><lastBuildDate>Wed, 03 Mar 2021 20:22:45 &#43;0800</lastBuildDate><atom:link href="http://example.org/posts/" rel="self" type="application/rss+xml" /><item>
+    <title>338. Counting Bits</title>
+    <link>http://example.org/posts/338/</link>
+    <pubDate>Wed, 03 Mar 2021 20:22:45 &#43;0800</pubDate>
+    <author>作者</author>
+    <guid>http://example.org/posts/338/</guid>
+    <description><![CDATA[位运算 对于[0,n]的每个数字x，我们使用位运算对其进行二进制下1的个数的计算。 计算某个数字x二进制下1的个数count有以下方法： 1.用x]]></description>
+</item><item>
+    <title>【C&#43;&#43;】vector容器</title>
+    <link>http://example.org/posts/vector/</link>
+    <pubDate>Tue, 02 Mar 2021 22:11:29 &#43;0800</pubDate>
+    <author>作者</author>
+    <guid>http://example.org/posts/vector/</guid>
+    <description><![CDATA[什么是vector？ 向量（Vector） 是一个封装了动态大小数组的顺序容器（Sequence Container）。跟任意其它类型容器一样，它]]></description>
+</item><item>
+    <title>1. Two Sum</title>
     <link>http://example.org/posts/my_first_post/</link>
     <pubDate>Tue, 02 Mar 2021 15:15:35 &#43;0800</pubDate>
     <author>作者</author>

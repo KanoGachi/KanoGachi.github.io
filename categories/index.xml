@@ -3,12 +3,19 @@
         <title>Categories - 分类 - 速冻小鹿包的博客</title>
         <link>http://example.org/categories/</link>
         <description>Categories - 分类 - 速冻小鹿包的博客</description>
-        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><lastBuildDate>Tue, 02 Mar 2021 15:15:35 &#43;0800</lastBuildDate><atom:link href="http://example.org/categories/" rel="self" type="application/rss+xml" /><item>
+        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><lastBuildDate>Wed, 03 Mar 2021 20:22:45 &#43;0800</lastBuildDate><atom:link href="http://example.org/categories/" rel="self" type="application/rss+xml" /><item>
     <title>LeetCode</title>
     <link>http://example.org/categories/leetcode/</link>
-    <pubDate>Tue, 02 Mar 2021 15:15:35 &#43;0800</pubDate>
+    <pubDate>Wed, 03 Mar 2021 20:22:45 &#43;0800</pubDate>
     <author>作者</author>
     <guid>http://example.org/categories/leetcode/</guid>
+    <description><![CDATA[]]></description>
+</item><item>
+    <title>C&#43;&#43;基础</title>
+    <link>http://example.org/categories/c&#43;&#43;%E5%9F%BA%E7%A1%80/</link>
+    <pubDate>Tue, 02 Mar 2021 22:11:29 &#43;0800</pubDate>
+    <author>作者</author>
+    <guid>http://example.org/categories/c&#43;&#43;%E5%9F%BA%E7%A1%80/</guid>
     <description><![CDATA[]]></description>
 </item><item>
     <title>Markdown语法</title>
