@@ -3,12 +3,19 @@
         <title>C&#43;&#43;基础 - 分类 - 速冻小鹿包的博客</title>
         <link>http://example.org/categories/c&#43;&#43;%E5%9F%BA%E7%A1%80/</link>
         <description>C&#43;&#43;基础 - 分类 - 速冻小鹿包的博客</description>
-        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><lastBuildDate>Tue, 02 Mar 2021 22:11:29 &#43;0800</lastBuildDate><atom:link href="http://example.org/categories/c&#43;&#43;%E5%9F%BA%E7%A1%80/" rel="self" type="application/rss+xml" /><item>
-    <title>【C&#43;&#43;】vector容器</title>
+        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><lastBuildDate>Thu, 04 Mar 2021 11:11:57 &#43;0800</lastBuildDate><atom:link href="http://example.org/categories/c&#43;&#43;%E5%9F%BA%E7%A1%80/" rel="self" type="application/rss+xml" /><item>
+    <title>【模板类】Map &amp; Unordered_Map</title>
+    <link>http://example.org/posts/map/</link>
+    <pubDate>Thu, 04 Mar 2021 11:11:57 &#43;0800</pubDate>
+    <author>作者</author>
+    <guid>http://example.org/posts/map/</guid>
+    <description><![CDATA[Map &amp; Unordered_map Map使用红黑树组织数据，Unordered_map使用哈希表组织数据。 对于Map而言： 存储数据占用内存比哈希表更小，构造速度更快，但]]></description>
+</item><item>
+    <title>【模板类】Vector</title>
     <link>http://example.org/posts/vector/</link>
     <pubDate>Tue, 02 Mar 2021 22:11:29 &#43;0800</pubDate>
     <author>作者</author>
     <guid>http://example.org/posts/vector/</guid>
-    <description><![CDATA[什么是vector？ 向量（Vector） 是一个封装了动态大小数组的顺序容器（Sequence Container）。跟任意其它类型容器一样，它]]></description>
+    <description><![CDATA[Vector简介 向量（Vector） 是一个封装了动态大小数组的顺序容器（Sequence Container）。跟任意其它类型容器一样，它能够]]></description>
 </item></channel>
 </rss>

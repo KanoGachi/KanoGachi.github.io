@@ -5,27 +5,27 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="robots" content="noodp" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
-        <title>【C&#43;&#43;】vector容器 - 速冻小鹿包的博客</title><meta name="Description" content="速冻小鹿包的博客"><meta property="og:title" content="【C&#43;&#43;】vector容器" />
-<meta property="og:description" content="什么是vector？ 向量（Vector） 是一个封装了动态大小数组的顺序容器（Sequence Container）。跟任意其它类型容器一样，它" />
+        <title>【模板类】Vector - 速冻小鹿包的博客</title><meta name="Description" content="速冻小鹿包的博客"><meta property="og:title" content="【模板类】Vector" />
+<meta property="og:description" content="Vector简介 向量（Vector） 是一个封装了动态大小数组的顺序容器（Sequence Container）。跟任意其它类型容器一样，它能够" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="http://example.org/posts/vector/" /><meta property="article:section" content="posts" />
 <meta property="article:published_time" content="2021-03-02T22:11:29&#43;08:00" />
 <meta property="article:modified_time" content="2021-03-02T22:11:29&#43;08:00" />
 
 <meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="【C&#43;&#43;】vector容器"/>
-<meta name="twitter:description" content="什么是vector？ 向量（Vector） 是一个封装了动态大小数组的顺序容器（Sequence Container）。跟任意其它类型容器一样，它"/>
+<meta name="twitter:title" content="【模板类】Vector"/>
+<meta name="twitter:description" content="Vector简介 向量（Vector） 是一个封装了动态大小数组的顺序容器（Sequence Container）。跟任意其它类型容器一样，它能够"/>
 <meta name="application-name" content="速冻小鹿包的博客">
 <meta name="apple-mobile-web-app-title" content="速冻小鹿包的博客"><link rel="icon" href="../../favicon.ico"><link rel="apple-touch-icon" sizes="180x180" href="../../apple-touch-icon.png"><link rel="manifest" href="../../site.webmanifest"><link rel="canonical" href="http://example.org/posts/vector/" /><link rel="prev" href="http://example.org/posts/my_first_post/" /><link rel="next" href="http://example.org/posts/338/" /><link rel="stylesheet" href="../../lib/normalize/normalize.min.css"><link rel="stylesheet" href="../../css/style.min.css"><link rel="stylesheet" href="../../lib/fontawesome-free/all.min.css"><link rel="stylesheet" href="../../lib/animate/animate.min.css"><script type="application/ld+json">
     {
         "@context": "http://schema.org",
         "@type": "BlogPosting",
-        "headline": "【C++】vector容器",
+        "headline": "【模板类】Vector",
         "inLanguage": "zh-CN",
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "http:\/\/example.org\/posts\/vector\/"
-        },"genre": "posts","wordcount":  1524 ,
+        },"genre": "posts","wordcount":  1552 ,
         "url": "http:\/\/example.org\/posts\/vector\/","datePublished": "2021-03-02T22:11:29+08:00","dateModified": "2021-03-02T22:11:29+08:00","publisher": {
             "@type": "Organization",
             "name": "作者"},"author": {
@@ -114,9 +114,9 @@
                 <div class="container"><div class="toc" id="toc-auto">
             <h2 class="toc-title">目录</h2>
             <div class="toc-content" id="toc-content-auto"></div>
-        </div><article class="page single"><h1 class="single-title animated flipInX">【C&#43;&#43;】vector容器</h1><div class="post-meta">
+        </div><article class="page single"><h1 class="single-title animated flipInX">【模板类】Vector</h1><div class="post-meta">
             <div class="post-meta-line"><span class="post-author"><a href="../../" title="Author" rel=" author" class="author"><i class="fas fa-user-circle fa-fw"></i>作者</a></span>&nbsp;<span class="post-category">收录于 <a href="../../categories/c++%E5%9F%BA%E7%A1%80/"><i class="far fa-folder fa-fw"></i>C++基础</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2021-03-02">2021-03-02</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 1524 字&nbsp;
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2021-03-02">2021-03-02</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 1552 字&nbsp;
                 <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 4 分钟&nbsp;</div>
         </div><div class="details toc" id="toc-static"  kept="true">
                 <div class="details-summary toc-title">
@@ -125,7 +125,7 @@
                 </div>
                 <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
   <ul>
-    <li><a href="#什么是vector">什么是vector？</a></li>
+    <li><a href="#vector简介">Vector简介</a></li>
     <li><a href="#容器特性">容器特性</a>
       <ul>
         <li><a href="#顺序序列">顺序序列</a></li>
@@ -135,14 +135,15 @@
     </li>
     <li><a href="#对象创建方法和成员函数介绍">对象创建方法和成员函数介绍</a>
       <ul>
+        <li><a href="#注意">注意</a></li>
         <li><a href="#对象创建方法">对象创建方法</a></li>
         <li><a href="#成员函数介绍">成员函数介绍</a></li>
       </ul>
     </li>
   </ul>
 </nav></div>
-            </div><div class="content" id="content"><h2 id="什么是vector">什么是vector？</h2>
-<p><strong>向量（Vector）</strong> 是一个封装了<strong>动态大小数组的顺序容器（Sequence Container）</strong>。跟任意其它类型容器一样，它能够存放各种类型的对象。可以简单的认为，<strong>向量是一个能够存放任意类型的动态数组</strong>。</p>
+            </div><div class="content" id="content"><h2 id="vector简介">Vector简介</h2>
+<p><strong>向量（Vector）</strong> 是一个<strong>封装了动态大小数组的顺序容器（Sequence Container）</strong>。跟任意其它类型容器一样，它能够存放各种类型的对象。可以简单的认为，<strong>向量是一个能够存放任意类型的动态数组</strong>。</p>
 <h2 id="容器特性">容器特性</h2>
 <h3 id="顺序序列">顺序序列</h3>
 <p>顺序容器中的元素按照严格的<strong>线性顺序</strong>排序。可以通过元素在序列中的位置访问对应的元素。</p>
@@ -151,6 +152,9 @@
 <h3 id="能够感知内存分配器的allocator-aware">能够感知内存分配器的(Allocator-aware)</h3>
 <p>容器使用一个内存分配器对象来动态地处理它的存储需求。</p>
 <h2 id="对象创建方法和成员函数介绍">对象创建方法和成员函数介绍</h2>
+<h3 id="注意">注意</h3>
+<p>使用vector需要包含vector类所在的头文件：</p>
+<p><code>#include &lt;vector&gt;</code></p>
 <h3 id="对象创建方法">对象创建方法</h3>
 <p><code>vector&lt;类型&gt;标识符</code>：创建一个存储某类型元素的空向量。</p>
 <p><code>vector&lt;类型&gt;标识符(初始容量)</code>：创建一个具有初始容量长度，其中元素值全为默认初值的向量。</p>
@@ -292,5 +296,5 @@
             </a><a href="#" id="view-comments" class="fixed-button" title="查看评论">
                 <i class="fas fa-comment fa-fw"></i>
             </a>
-        </div><link rel="stylesheet" href="../../lib/gitalk/gitalk.min.css"><link rel="stylesheet" href="../../lib/katex/katex.min.css"><link rel="stylesheet" href="../../lib/katex/copy-tex.min.css"><script type="text/javascript" src="../../lib/gitalk/gitalk.min.js"></script><script type="text/javascript" src="../../lib/smooth-scroll/smooth-scroll.min.js"></script><script type="text/javascript" src="../../lib/autocomplete/autocomplete.min.js"></script><script type="text/javascript" src="../../lib/lunr/lunr.min.js"></script><script type="text/javascript" src="../../lib/lunr/lunr.stemmer.support.min.js"></script><script type="text/javascript" src="../../lib/lunr/lunr.zh.min.js"></script><script type="text/javascript" src="../../lib/lazysizes/lazysizes.min.js"></script><script type="text/javascript" src="../../lib/clipboard/clipboard.min.js"></script><script type="text/javascript" src="../../lib/katex/katex.min.js"></script><script type="text/javascript" src="../../lib/katex/auto-render.min.js"></script><script type="text/javascript" src="../../lib/katex/copy-tex.min.js"></script><script type="text/javascript" src="../../lib/katex/mhchem.min.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"复制到剪贴板","maxShownLines":10},"comment":{"gitalk":{"admin":[null],"clientID":null,"clientSecret":null,"id":"2021-03-02T22:11:29+08:00","owner":null,"repo":null,"title":"【C++】vector容器"}},"math":{"delimiters":[{"display":true,"left":"$$","right":"$$"},{"display":true,"left":"\\[","right":"\\]"},{"display":false,"left":"$","right":"$"},{"display":false,"left":"\\(","right":"\\)"}],"strict":false},"search":{"highlightTag":"em","lunrLanguageCode":"zh","lunrSegmentitURL":"/lib/lunr/lunr.segmentit.js","maxResultLength":10,"noResultsFound":"没有找到结果","snippetLength":50}};</script><script type="text/javascript" src="../../js/theme.min.js"></script></body>
+        </div><link rel="stylesheet" href="../../lib/gitalk/gitalk.min.css"><link rel="stylesheet" href="../../lib/katex/katex.min.css"><link rel="stylesheet" href="../../lib/katex/copy-tex.min.css"><script type="text/javascript" src="../../lib/gitalk/gitalk.min.js"></script><script type="text/javascript" src="../../lib/smooth-scroll/smooth-scroll.min.js"></script><script type="text/javascript" src="../../lib/autocomplete/autocomplete.min.js"></script><script type="text/javascript" src="../../lib/lunr/lunr.min.js"></script><script type="text/javascript" src="../../lib/lunr/lunr.stemmer.support.min.js"></script><script type="text/javascript" src="../../lib/lunr/lunr.zh.min.js"></script><script type="text/javascript" src="../../lib/lazysizes/lazysizes.min.js"></script><script type="text/javascript" src="../../lib/clipboard/clipboard.min.js"></script><script type="text/javascript" src="../../lib/katex/katex.min.js"></script><script type="text/javascript" src="../../lib/katex/auto-render.min.js"></script><script type="text/javascript" src="../../lib/katex/copy-tex.min.js"></script><script type="text/javascript" src="../../lib/katex/mhchem.min.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"复制到剪贴板","maxShownLines":10},"comment":{"gitalk":{"admin":[null],"clientID":null,"clientSecret":null,"id":"2021-03-02T22:11:29+08:00","owner":null,"repo":null,"title":"【模板类】Vector"}},"math":{"delimiters":[{"display":true,"left":"$$","right":"$$"},{"display":true,"left":"\\[","right":"\\]"},{"display":false,"left":"$","right":"$"},{"display":false,"left":"\\(","right":"\\)"}],"strict":false},"search":{"highlightTag":"em","lunrLanguageCode":"zh","lunrSegmentitURL":"/lib/lunr/lunr.segmentit.js","maxResultLength":10,"noResultsFound":"没有找到结果","snippetLength":50}};</script><script type="text/javascript" src="../../js/theme.min.js"></script></body>
 </html>

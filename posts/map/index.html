@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="robots" content="noodp" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
+        <title>【模板类】Map &amp; Unordered_Map - 速冻小鹿包的博客</title><meta name="Description" content="速冻小鹿包的博客"><meta property="og:title" content="【模板类】Map &amp; Unordered_Map" />
+<meta property="og:description" content="Map &amp; Unordered_map Map使用红黑树组织数据，Unordered_map使用哈希表组织数据。 对于Map而言： 存储数据占用内存比哈希表更小，构造速度更快，但" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://example.org/posts/map/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2021-03-04T11:11:57&#43;08:00" />
+<meta property="article:modified_time" content="2021-03-04T11:11:57&#43;08:00" />
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="【模板类】Map &amp; Unordered_Map"/>
+<meta name="twitter:description" content="Map &amp; Unordered_map Map使用红黑树组织数据，Unordered_map使用哈希表组织数据。 对于Map而言： 存储数据占用内存比哈希表更小，构造速度更快，但"/>
+<meta name="application-name" content="速冻小鹿包的博客">
+<meta name="apple-mobile-web-app-title" content="速冻小鹿包的博客"><link rel="icon" href="../../favicon.ico"><link rel="apple-touch-icon" sizes="180x180" href="../../apple-touch-icon.png"><link rel="manifest" href="../../site.webmanifest"><link rel="canonical" href="http://example.org/posts/map/" /><link rel="prev" href="http://example.org/posts/338/" /><link rel="stylesheet" href="../../lib/normalize/normalize.min.css"><link rel="stylesheet" href="../../css/style.min.css"><link rel="stylesheet" href="../../lib/fontawesome-free/all.min.css"><link rel="stylesheet" href="../../lib/animate/animate.min.css"><script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "headline": "【模板类】Map \u0026 Unordered_Map",
+        "inLanguage": "zh-CN",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "http:\/\/example.org\/posts\/map\/"
+        },"genre": "posts","wordcount":  1876 ,
+        "url": "http:\/\/example.org\/posts\/map\/","datePublished": "2021-03-04T11:11:57+08:00","dateModified": "2021-03-04T11:11:57+08:00","publisher": {
+            "@type": "Organization",
+            "name": "作者"},"author": {
+                "@type": "Person",
+                "name": "作者"
+            },"description": ""
+    }
+    </script></head>
+    <body header-desktop="fixed" header-mobile="fixed"><script type="text/javascript">(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('dark' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'dark' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
+
+        <div id="mask"></div><div class="wrapper"><header class="desktop" id="header-desktop">
+    <div class="header-wrapper">
+        <div class="header-title">
+            <a href="../../" title="速冻小鹿包的博客"><img
+        class="lazyload logo"
+        src="../../svg/loading.min.svg"
+        data-src="../../favicon.ico"
+        data-srcset="../../favicon.ico, ../../favicon.ico 1.5x, ../../favicon.ico 2x"
+        data-sizes="auto"
+        alt="/favicon.ico"
+        title="/favicon.ico" />Alice...</a>
+        </div>
+        <div class="menu">
+            <div class="menu-inner"><a class="menu-item" href="../../categories/"> 分类 </a><a class="menu-item" href="../../tags/"> 标签 </a><a class="menu-item" href="../../posts/"> 文章 </a><span class="menu-item delimiter"></span><span class="menu-item search" id="search-desktop">
+                        <input type="text" placeholder="LeetCode" id="search-input-desktop">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="搜索">
+                            <i class="fas fa-search fa-fw"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-desktop" title="清空">
+                            <i class="fas fa-times-circle fa-fw"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-desktop">
+                            <i class="fas fa-spinner fa-fw fa-spin"></i>
+                        </span>
+                    </span><a href="javascript:void(0);" class="menu-item theme-switch" title="切换主题">
+                    <i class="fas fa-adjust fa-fw"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+</header><header class="mobile" id="header-mobile">
+    <div class="header-container">
+        <div class="header-wrapper">
+            <div class="header-title">
+                <a href="../../" title="速冻小鹿包的博客"><img
+        class="lazyload logo"
+        src="../../svg/loading.min.svg"
+        data-src="../../favicon.ico"
+        data-srcset="../../favicon.ico, ../../favicon.ico 1.5x, ../../favicon.ico 2x"
+        data-sizes="auto"
+        alt="/favicon.ico"
+        title="/favicon.ico" />Alice...</a>
+            </div>
+            <div class="menu-toggle" id="menu-toggle-mobile">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+        <div class="menu" id="menu-mobile"><div class="search-wrapper">
+                    <div class="search mobile" id="search-mobile">
+                        <input type="text" placeholder="LeetCode" id="search-input-mobile">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-mobile" title="搜索">
+                            <i class="fas fa-search fa-fw"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-mobile" title="清空">
+                            <i class="fas fa-times-circle fa-fw"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-mobile">
+                            <i class="fas fa-spinner fa-fw fa-spin"></i>
+                        </span>
+                    </div>
+                    <a href="javascript:void(0);" class="search-cancel" id="search-cancel-mobile">
+                        取消
+                    </a>
+                </div><a class="menu-item" href="../../categories/" title="">分类</a><a class="menu-item" href="../../tags/" title="">标签</a><a class="menu-item" href="../../posts/" title="">文章</a><a href="javascript:void(0);" class="menu-item theme-switch" title="切换主题">
+                <i class="fas fa-adjust fa-fw"></i>
+            </a></div>
+    </div>
+</header>
+<div class="search-dropdown desktop">
+    <div id="search-dropdown-desktop"></div>
+</div>
+<div class="search-dropdown mobile">
+    <div id="search-dropdown-mobile"></div>
+</div>
+<main class="main">
+                <div class="container"><div class="toc" id="toc-auto">
+            <h2 class="toc-title">目录</h2>
+            <div class="toc-content" id="toc-content-auto"></div>
+        </div><article class="page single"><h1 class="single-title animated flipInX">【模板类】Map &amp; Unordered_Map</h1><div class="post-meta">
+            <div class="post-meta-line"><span class="post-author"><a href="../../" title="Author" rel=" author" class="author"><i class="fas fa-user-circle fa-fw"></i>作者</a></span>&nbsp;<span class="post-category">收录于 <a href="../../categories/c++%E5%9F%BA%E7%A1%80/"><i class="far fa-folder fa-fw"></i>C++基础</a></span></div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2021-03-04">2021-03-04</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 1876 字&nbsp;
+                <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 4 分钟&nbsp;</div>
+        </div><div class="details toc" id="toc-static"  kept="true">
+                <div class="details-summary toc-title">
+                    <span>目录</span>
+                    <span><i class="details-icon fas fa-angle-right"></i></span>
+                </div>
+                <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#map简介">map简介</a></li>
+    <li><a href="#对象初始化和成员函数">对象初始化和成员函数</a>
+      <ul>
+        <li><a href="#注意">注意</a></li>
+        <li><a href="#对象初始化">对象初始化</a></li>
+        <li><a href="#键值对插入">键值对插入</a></li>
+        <li><a href="#成员函数">成员函数</a></li>
+      </ul>
+    </li>
+    <li><a href="#unordered_map简介">unordered_map简介</a></li>
+    <li><a href="#对象初始化和成员函数-1">对象初始化和成员函数</a>
+      <ul>
+        <li><a href="#注意-1">注意</a></li>
+        <li><a href="#对象初始化-1">对象初始化</a></li>
+        <li><a href="#成员函数-1">成员函数</a></li>
+      </ul>
+    </li>
+    <li><a href="#实战49-group-anagrams">实战（49. Group Anagrams）</a></li>
+  </ul>
+</nav></div>
+            </div><div class="content" id="content"><h1 id="map--unordered_map">Map &amp; Unordered_map</h1>
+<p>Map使用红黑树组织数据，Unordered_map使用哈希表组织数据。</p>
+<p><strong>对于Map而言：</strong></p>
+<p>存储数据占用内存比哈希表更小，构造速度更快，但查找数据的速度更慢。构造函数只需要比较函数(less)。</p>
+<p>查找对象的时间：$O(log{(n)})$</p>
+<p><strong>对于unordered_map而言：</strong></p>
+<p>占用内存比Map大，构造速度慢，但查找速度快。构造函数需要hash函数，等于函数(equal)。</p>
+<p>查找对象的时间：近似为$O(1)$</p>
+<h2 id="map简介">map简介</h2>
+<p>map是STL的一个关联容器，它提供一对一的hash。</p>
+<p>第一个可以称为<strong>关键字(key)</strong>，每个关键字只能在map中出现一次；
+第二个可能称为该关键字的<strong>值(value)</strong>；</p>
+<p>map以模板(泛型)方式实现，可以存储任意类型的数据，包括使用者自定义的数据类型。</p>
+<p>Map主要用于资料 <strong>一对一映射(one-to-one)</strong> 的情況，map內部的实现自建一棵红黑树，这棵树具有对数据自动排序的功能。在map内部，所有的数据都是有序的。</p>
+<h2 id="对象初始化和成员函数">对象初始化和成员函数</h2>
+<h3 id="注意">注意</h3>
+<p>使用map需要包含map类所在的头文件：</p>
+<p><code>#include &lt;map&gt;  //注意，STL头文件没有扩展名.h</code></p>
+<h3 id="对象初始化">对象初始化</h3>
+<p><code>map&lt;键类型, 值类型&gt; 标识符</code></p>
+<h3 id="键值对插入">键值对插入</h3>
+<p>插入键值对的方法有三种：</p>
+<div class="highlight"><pre class="chroma"><code class="language-cpp" data-lang="cpp"><span class="c1">// 初始化
+</span><span class="c1"></span><span class="n">map</span><span class="o">&lt;</span><span class="kt">int</span><span class="p">,</span> <span class="n">string</span><span class="o">&gt;</span> <span class="n">mapStudent</span><span class="p">;</span>
+<span class="c1">// 第一种 用insert函數插入pair
+</span><span class="c1"></span><span class="n">mapStudent</span><span class="p">.</span><span class="n">insert</span><span class="p">(</span><span class="n">pair</span><span class="o">&lt;</span><span class="kt">int</span><span class="p">,</span> <span class="n">string</span><span class="o">&gt;</span><span class="p">(</span><span class="mo">000</span><span class="p">,</span> <span class="s">&#34;student_zero&#34;</span><span class="p">));</span>
+<span class="c1">// 第二种 用insert函数插入value_type数据
+</span><span class="c1"></span><span class="n">mapStudent</span><span class="p">.</span><span class="n">insert</span><span class="p">(</span><span class="n">map</span><span class="o">&lt;</span><span class="kt">int</span><span class="p">,</span> <span class="n">string</span><span class="o">&gt;::</span><span class="n">value_type</span><span class="p">(</span><span class="mo">001</span><span class="p">,</span> <span class="s">&#34;student_one&#34;</span><span class="p">));</span>
+<span class="c1">// 第三种 用&#34;array&#34;方式插入
+</span><span class="c1"></span><span class="n">mapStudent</span><span class="p">[</span><span class="mo">002</span><span class="p">]</span> <span class="o">=</span> <span class="s">&#34;student_two&#34;</span><span class="p">;</span>
+</code></pre></div><p>以上三种用法，虽然都可以实现数据的插入，但是它们是有区别的！</p>
+<p>第一种和第二种在效果上是完成一样的，用insert函数插入数据，在数据的插入上涉及到集合的唯一性这个概念，即<strong>当map中有当前关键字时，insert操作是不能再插入数据</strong>的，但是<strong>用数组方式可以覆盖以前该关键字对应的值</strong>。</p>
+<h3 id="成员函数">成员函数</h3>
+<p><code>begin()</code>返回指向map头部的迭代器</p>
+<p><code>clear()</code>删除所有元素</p>
+<p><code>count()</code>返回指定元素出现的次数</p>
+<p><code>empty()</code>如果map为空则返回true</p>
+<p><code>end()</code>返回指向map末尾的迭代器</p>
+<p><code>equal_range()</code>返回特殊条目的迭代器对</p>
+<p><code>erase()</code>删除一个元素</p>
+<p><code>find()</code>查找一个元素</p>
+<p><code>get_allocator()</code>返回map的配置器</p>
+<p><code>insert()</code>插入元素</p>
+<p><code>key_comp()</code>返回比较元素key的函数</p>
+<p><code>lower_bound()</code>返回键值&gt;=给定元素的第一个位置</p>
+<p><code>max_size()</code>返回可以容纳的最大元素个数</p>
+<p><code>rbegin()</code>返回一个指向map尾部的逆向迭代器</p>
+<p><code>rend()</code>返回一个指向map头部的逆向迭代器</p>
+<p><code>size()</code>返回map中元素的个数</p>
+<p><code>swap()</code>交换两个map</p>
+<p><code>upper_bound()</code>返回键值&gt;给定元素的第一个位置</p>
+<p><code>value_comp()</code>返回比较元素value的函数</p>
+<h2 id="unordered_map简介">unordered_map简介</h2>
+<p>unordered_map基于hash table（哈希表）。功能与map相似。</p>
+<p>哈希表最大的优点，就是把数据的存储和查找消耗的时间大大降低，几乎可以看成是<strong>常数时间</strong>；而代价仅仅是消耗比较多的内存。然而在当前可利用内存越来越多的情况下，用空间换时间的做法是值得的。另外，编码比较容易也是它的特点之一。</p>
+<p>其基本原理是：使用一个下标范围比较大的数组来存储元素。可以设计一个函数（哈希函数，也叫做散列函数），使得每个元素的关键字都与一个函数值（即数组下标，hash值）相对应，于是用这个数组单元来存储这个元素；也可以简单的理解为，按照关键字为每一个元素“分类”，然后将这个元素存储在相应“类”所对应的地方，称为桶。</p>
+<p>但是，不能够保证每个元素的关键字与函数值是一一对应的，因此极有可能出现对于不同的元素，却计算出了相同的函数值，这样就产生了“冲突”，换句话说，就是把不同的元素分在了相同的“类”之中。</p>
+<p>总的来说，<strong>“直接定址”与“解决冲突”是哈希表的两大特点。</strong></p>
+<h2 id="对象初始化和成员函数-1">对象初始化和成员函数</h2>
+<h3 id="注意-1">注意</h3>
+<p>使用unordered_map需要包含unordered_map类所在的头文件：</p>
+<p><code>#include &lt;unordered_map&gt;</code></p>
+<h3 id="对象初始化-1">对象初始化</h3>
+<p><code>unordered_map&lt;键类型, 值类型&gt; 标识符;</code></p>
+<h3 id="成员函数-1">成员函数</h3>
+<p>成员函数与map相似。</p>
+<h2 id="实战49-group-anagrams">实战（49. Group Anagrams）</h2>
+<p>这一题的关键在于字母异位词排序后得到的字符串相同，可以用map记录每种字母异位词排序后的字符串的出现情况，并记录其存放在结果数组中的索引位置。</p>
+<div class="highlight"><pre class="chroma"><code class="language-cpp" data-lang="cpp"><span class="cp">#include</span> <span class="cpf">&lt;algorithm&gt;</span><span class="cp">
+</span><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp">
+</span><span class="cp">#include</span> <span class="cpf">&lt;map&gt;</span><span class="cp">
+</span><span class="cp">#include</span> <span class="cpf">&lt;string&gt;</span><span class="cp">
+</span><span class="cp">#include</span> <span class="cpf">&lt;vector&gt;</span><span class="cp">
+</span><span class="cp"></span><span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
+
+<span class="k">class</span> <span class="nc">Solution</span> <span class="p">{</span>
+<span class="k">public</span><span class="o">:</span>
+    <span class="n">vector</span><span class="o">&lt;</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">string</span><span class="o">&gt;&gt;</span> <span class="n">groupAnagrams</span><span class="p">(</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">string</span><span class="o">&gt;&amp;</span> <span class="n">strs</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">map</span><span class="o">&lt;</span><span class="n">string</span><span class="p">,</span> <span class="kt">int</span><span class="o">&gt;</span> <span class="n">count</span><span class="p">;</span> <span class="c1">// map记录每个字符串排序后字符串和在结果数组的索引
+</span><span class="c1"></span>        <span class="n">vector</span><span class="o">&lt;</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">string</span><span class="o">&gt;&gt;</span> <span class="n">ans</span><span class="p">;</span> <span class="c1">// 结果数组
+</span><span class="c1"></span>        <span class="kt">int</span> <span class="n">cur_index</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="c1">// 当前结果数组的长度
+</span><span class="c1"></span>        <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">strs</span><span class="p">.</span><span class="n">size</span><span class="p">();</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+            <span class="n">string</span> <span class="n">temp</span> <span class="o">=</span> <span class="n">strs</span><span class="p">[</span><span class="n">i</span><span class="p">];</span>
+            <span class="n">sort</span><span class="p">(</span><span class="n">temp</span><span class="p">.</span><span class="n">begin</span><span class="p">(),</span> <span class="n">temp</span><span class="p">.</span><span class="n">end</span><span class="p">());</span>
+            <span class="k">if</span> <span class="p">(</span><span class="n">count</span><span class="p">.</span><span class="n">count</span><span class="p">(</span><span class="n">temp</span><span class="p">))</span> <span class="p">{</span> <span class="c1">// map里有同款的字母异位词
+</span><span class="c1"></span>                <span class="n">ans</span><span class="p">[</span><span class="n">count</span><span class="p">[</span><span class="n">temp</span><span class="p">]].</span><span class="n">push_back</span><span class="p">(</span><span class="n">strs</span><span class="p">[</span><span class="n">i</span><span class="p">]);</span>
+            <span class="p">}</span> <span class="k">else</span> <span class="p">{</span> <span class="c1">// map里没有当前同款的字母异位词
+</span><span class="c1"></span>                <span class="n">count</span><span class="p">[</span><span class="n">temp</span><span class="p">]</span> <span class="o">=</span> <span class="n">cur_index</span><span class="p">;</span>
+                <span class="n">ans</span><span class="p">.</span><span class="n">push_back</span><span class="p">({</span><span class="n">strs</span><span class="p">[</span><span class="n">i</span><span class="p">]});</span>
+                <span class="n">cur_index</span><span class="o">++</span><span class="p">;</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+        <span class="k">return</span> <span class="n">ans</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">};</span>
+</code></pre></div></div><div class="post-footer" id="post-footer">
+    <div class="post-info">
+        <div class="post-info-line">
+            <div class="post-info-mod">
+                <span>更新于 2021-03-04</span>
+            </div>
+            <div class="post-info-license"></div>
+        </div>
+        <div class="post-info-line">
+            <div class="post-info-md"></div>
+            <div class="post-info-share">
+                <span></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="post-info-more">
+        <section class="post-tags"></section>
+        <section>
+            <span><a href="javascript:void(0);" onclick="window.history.back();">返回</a></span>&nbsp;|&nbsp;<span><a href="../../">主页</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav"><a href="../../posts/338/" class="prev" rel="prev" title="338. Counting Bits"><i class="fas fa-angle-left fa-fw"></i>338. Counting Bits</a></div>
+</div>
+<div id="comments"><div id="gitalk" class="comment"></div><noscript>
+                Please enable JavaScript to view the comments powered by <a href="https://github.com/gitalk/gitalk"></a>Gitalk</a>.
+            </noscript></div></article></div>
+            </main><footer class="footer">
+        <div class="footer-container"><div class="footer-line">由 <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.81.0">Hugo</a> 强力驱动 | 主题 - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 0.2.10"><i class="far fa-kiss-wink-heart fa-fw"></i> LoveIt</a>
+                </div><div class="footer-line"><i class="far fa-copyright fa-fw"></i><span itemprop="copyrightYear">2021</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="../../" target="_blank"></a></span></div>
+        </div>
+    </footer></div>
+
+        <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="回到顶部">
+                <i class="fas fa-arrow-up fa-fw"></i>
+            </a><a href="#" id="view-comments" class="fixed-button" title="查看评论">
+                <i class="fas fa-comment fa-fw"></i>
+            </a>
+        </div><link rel="stylesheet" href="../../lib/gitalk/gitalk.min.css"><link rel="stylesheet" href="../../lib/katex/katex.min.css"><link rel="stylesheet" href="../../lib/katex/copy-tex.min.css"><script type="text/javascript" src="../../lib/gitalk/gitalk.min.js"></script><script type="text/javascript" src="../../lib/smooth-scroll/smooth-scroll.min.js"></script><script type="text/javascript" src="../../lib/autocomplete/autocomplete.min.js"></script><script type="text/javascript" src="../../lib/lunr/lunr.min.js"></script><script type="text/javascript" src="../../lib/lunr/lunr.stemmer.support.min.js"></script><script type="text/javascript" src="../../lib/lunr/lunr.zh.min.js"></script><script type="text/javascript" src="../../lib/lazysizes/lazysizes.min.js"></script><script type="text/javascript" src="../../lib/clipboard/clipboard.min.js"></script><script type="text/javascript" src="../../lib/katex/katex.min.js"></script><script type="text/javascript" src="../../lib/katex/auto-render.min.js"></script><script type="text/javascript" src="../../lib/katex/copy-tex.min.js"></script><script type="text/javascript" src="../../lib/katex/mhchem.min.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"复制到剪贴板","maxShownLines":10},"comment":{"gitalk":{"admin":[null],"clientID":null,"clientSecret":null,"id":"2021-03-04T11:11:57+08:00","owner":null,"repo":null,"title":"【模板类】Map \u0026 Unordered_Map"}},"math":{"delimiters":[{"display":true,"left":"$$","right":"$$"},{"display":true,"left":"\\[","right":"\\]"},{"display":false,"left":"$","right":"$"},{"display":false,"left":"\\(","right":"\\)"}],"strict":false},"search":{"highlightTag":"em","lunrLanguageCode":"zh","lunrSegmentitURL":"/lib/lunr/lunr.segmentit.js","maxResultLength":10,"noResultsFound":"没有找到结果","snippetLength":50}};</script><script type="text/javascript" src="../../js/theme.min.js"></script></body>
+</html>
