@@ -3,14 +3,7 @@
         <title>所有文章 - 速冻小鹿包的博客</title>
         <link>http://example.org/posts/</link>
         <description>所有文章 | 速冻小鹿包的博客</description>
-        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><lastBuildDate>Tue, 09 Mar 2021 11:01:44 &#43;0800</lastBuildDate><atom:link href="http://example.org/posts/" rel="self" type="application/rss+xml" /><item>
-    <title>4.操作系统的运行机制和体系结构</title>
-    <link>http://example.org/posts/caozuo4/</link>
-    <pubDate>Tue, 09 Mar 2021 11:01:44 &#43;0800</pubDate>
-    <author>作者</author>
-    <guid>http://example.org/posts/caozuo4/</guid>
-    <description><![CDATA[运行机制 指令： 指令是处理器可以识别、执行的最基本命令。 特权指令可以理解为影响重大，不能轻易允许执行的指令，非特权指令则是影响相对较小的普通指]]></description>
-</item><item>
+        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><lastBuildDate>Tue, 09 Mar 2021 10:35:44 &#43;0800</lastBuildDate><atom:link href="http://example.org/posts/" rel="self" type="application/rss+xml" /><item>
     <title>3.操作系统的发展和分类</title>
     <link>http://example.org/posts/caozuo3/</link>
     <pubDate>Tue, 09 Mar 2021 10:35:44 &#43;0800</pubDate>
@@ -75,5 +68,12 @@
     <guid>http://example.org/posts/tou2/</guid>
     <description><![CDATA[<h1 id="主题文档---扩展-shortcodes">主题文档 - 扩展 Shortcodes</h1>
 <p><strong>LoveIt</strong> 主题在 Hugo 内置的 shortcode 的基础上提供多个扩展的 shortcode.</p>]]></description>
+</item><item>
+    <title>欢迎来到我的博客！！！</title>
+    <link>http://example.org/posts/welcome/</link>
+    <pubDate>Mon, 01 Mar 2021 19:14:57 &#43;0800</pubDate>
+    <author>作者</author>
+    <guid>http://example.org/posts/welcome/</guid>
+    <description><![CDATA[这个博客里会有什么？ Wow 什么都会有哦！！ 作者的GitHub链接 GitHub-KanoGachi]]></description>
 </item></channel>
 </rss>
