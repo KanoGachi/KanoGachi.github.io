@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="robots" content="noodp" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
+        <title>2.操作系统的四个特征 - 速冻小鹿包的博客</title><meta name="Description" content="速冻小鹿包的博客"><meta property="og:title" content="2.操作系统的四个特征" />
+<meta property="og:description" content="操作系统的特征 并发 并发 ：指两个或者多个事件在同一时间间隔内发生 ，这些事件在宏观上看是同时发生 ，但微观上是交替发生的。 易混淆概念：并行 - 指两个" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://example.org/posts/caozuo2/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2021-03-08T20:35:44&#43;08:00" />
+<meta property="article:modified_time" content="2021-03-08T20:35:44&#43;08:00" />
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="2.操作系统的四个特征"/>
+<meta name="twitter:description" content="操作系统的特征 并发 并发 ：指两个或者多个事件在同一时间间隔内发生 ，这些事件在宏观上看是同时发生 ，但微观上是交替发生的。 易混淆概念：并行 - 指两个"/>
+<meta name="application-name" content="速冻小鹿包的博客">
+<meta name="apple-mobile-web-app-title" content="速冻小鹿包的博客"><link rel="icon" href="../../favicon.ico"><link rel="apple-touch-icon" sizes="180x180" href="../../apple-touch-icon.png"><link rel="manifest" href="../../site.webmanifest"><link rel="canonical" href="http://example.org/posts/caozuo2/" /><link rel="prev" href="http://example.org/posts/caozuo1/" /><link rel="stylesheet" href="../../lib/normalize/normalize.min.css"><link rel="stylesheet" href="../../css/style.min.css"><link rel="stylesheet" href="../../lib/fontawesome-free/all.min.css"><link rel="stylesheet" href="../../lib/animate/animate.min.css"><script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "headline": "2.操作系统的四个特征",
+        "inLanguage": "zh-CN",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "http:\/\/example.org\/posts\/caozuo2\/"
+        },"genre": "posts","wordcount":  658 ,
+        "url": "http:\/\/example.org\/posts\/caozuo2\/","datePublished": "2021-03-08T20:35:44+08:00","dateModified": "2021-03-08T20:35:44+08:00","publisher": {
+            "@type": "Organization",
+            "name": "作者"},"author": {
+                "@type": "Person",
+                "name": "作者"
+            },"description": ""
+    }
+    </script></head>
+    <body header-desktop="fixed" header-mobile="fixed"><script type="text/javascript">(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('dark' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'dark' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
+
+        <div id="mask"></div><div class="wrapper"><header class="desktop" id="header-desktop">
+    <div class="header-wrapper">
+        <div class="header-title">
+            <a href="../../" title="速冻小鹿包的博客"><img
+        class="lazyload logo"
+        src="../../svg/loading.min.svg"
+        data-src="../../favicon.ico"
+        data-srcset="../../favicon.ico, ../../favicon.ico 1.5x, ../../favicon.ico 2x"
+        data-sizes="auto"
+        alt="/favicon.ico"
+        title="/favicon.ico" />Alice...</a>
+        </div>
+        <div class="menu">
+            <div class="menu-inner"><a class="menu-item" href="../../categories/"> 分类 </a><a class="menu-item" href="../../tags/"> 标签 </a><a class="menu-item" href="../../posts/"> 文章 </a><span class="menu-item delimiter"></span><span class="menu-item search" id="search-desktop">
+                        <input type="text" placeholder="LeetCode" id="search-input-desktop">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="搜索">
+                            <i class="fas fa-search fa-fw"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-desktop" title="清空">
+                            <i class="fas fa-times-circle fa-fw"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-desktop">
+                            <i class="fas fa-spinner fa-fw fa-spin"></i>
+                        </span>
+                    </span><a href="javascript:void(0);" class="menu-item theme-switch" title="切换主题">
+                    <i class="fas fa-adjust fa-fw"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+</header><header class="mobile" id="header-mobile">
+    <div class="header-container">
+        <div class="header-wrapper">
+            <div class="header-title">
+                <a href="../../" title="速冻小鹿包的博客"><img
+        class="lazyload logo"
+        src="../../svg/loading.min.svg"
+        data-src="../../favicon.ico"
+        data-srcset="../../favicon.ico, ../../favicon.ico 1.5x, ../../favicon.ico 2x"
+        data-sizes="auto"
+        alt="/favicon.ico"
+        title="/favicon.ico" />Alice...</a>
+            </div>
+            <div class="menu-toggle" id="menu-toggle-mobile">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+        <div class="menu" id="menu-mobile"><div class="search-wrapper">
+                    <div class="search mobile" id="search-mobile">
+                        <input type="text" placeholder="LeetCode" id="search-input-mobile">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-mobile" title="搜索">
+                            <i class="fas fa-search fa-fw"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-mobile" title="清空">
+                            <i class="fas fa-times-circle fa-fw"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-mobile">
+                            <i class="fas fa-spinner fa-fw fa-spin"></i>
+                        </span>
+                    </div>
+                    <a href="javascript:void(0);" class="search-cancel" id="search-cancel-mobile">
+                        取消
+                    </a>
+                </div><a class="menu-item" href="../../categories/" title="">分类</a><a class="menu-item" href="../../tags/" title="">标签</a><a class="menu-item" href="../../posts/" title="">文章</a><a href="javascript:void(0);" class="menu-item theme-switch" title="切换主题">
+                <i class="fas fa-adjust fa-fw"></i>
+            </a></div>
+    </div>
+</header>
+<div class="search-dropdown desktop">
+    <div id="search-dropdown-desktop"></div>
+</div>
+<div class="search-dropdown mobile">
+    <div id="search-dropdown-mobile"></div>
+</div>
+<main class="main">
+                <div class="container"><div class="toc" id="toc-auto">
+            <h2 class="toc-title">目录</h2>
+            <div class="toc-content" id="toc-content-auto"></div>
+        </div><article class="page single"><h1 class="single-title animated flipInX">2.操作系统的四个特征</h1><div class="post-meta">
+            <div class="post-meta-line"><span class="post-author"><a href="../../" title="Author" rel=" author" class="author"><i class="fas fa-user-circle fa-fw"></i>作者</a></span>&nbsp;<span class="post-category">收录于 <a href="../../categories/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E7%AC%94%E8%AE%B0/"><i class="far fa-folder fa-fw"></i>操作系统笔记</a></span></div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2021-03-08">2021-03-08</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 658 字&nbsp;
+                <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 2 分钟&nbsp;</div>
+        </div><div class="details toc" id="toc-static"  kept="true">
+                <div class="details-summary toc-title">
+                    <span>目录</span>
+                    <span><i class="details-icon fas fa-angle-right"></i></span>
+                </div>
+                <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#操作系统的特征">操作系统的特征</a>
+      <ul>
+        <li><a href="#并发">并发</a></li>
+        <li><a href="#共享">共享</a></li>
+        <li><a href="#虚拟">虚拟</a></li>
+        <li><a href="#异步">异步</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav></div>
+            </div><div class="content" id="content"><h2 id="操作系统的特征">操作系统的特征</h2>
+<div class="mermaid" id="id-1"></div>
+<h3 id="并发">并发</h3>
+<p><strong>并发</strong> ：指<strong>两个或者多个事件在同一时间间隔内发生</strong> ，这些事件在<strong>宏观上看是同时发生</strong> ，但<strong>微观上是交替发生</strong>的。</p>
+<p>易混淆概念：<strong>并行</strong> - 指<strong>两个或多个事件在同一时刻同时发生</strong></p>
+<p><strong>操作系统的并发性</strong>指的是计算机系统同时存在着多个运行的程序。一个单核处理机在同一时刻只能执行一个程序，因此操作系统会负责协调这些程序交替执行。</p>
+<p>补充：虽然多核CPU可以并行执行多个程序，但执行的程序数仍可能超过CPU的核心数，因此操作系统的并发性仍然必不可少。</p>
+<h3 id="共享">共享</h3>
+<p><strong>共享</strong> ：即资源共享，指系统中的资源可以供多个并发执行的进程共同使用。</p>
+<div class="mermaid" id="id-2"></div>
+<p><strong>互斥共享方式</strong> ：系统中的某些资源虽然可以提供给多个进程使用，但<strong>一个时间段只能允许一个进程访问该资源。</strong></p>
+<p>案例：使用QQ和微信同时进行视频聊天，但同一时间段内摄像头只能分配给其中一个进程。</p>
+<p><strong>同时共享模式</strong> ：系统中的某些资源，<strong>允许一个时间段内有多个进程“同时”对它们进行访问。</strong></p>
+<p>案例：使用QQ发送文件A，使用微信发送文件B，虽然看起来文件同时在发送，但其实程序是交替访问硬盘。</p>
+<p><strong>补充</strong>：程序确实可以同时访问某些系统资源，如后台播放音乐，前台播放视频，音乐和视频声音都同时在使用扬声器。</p>
+<h3 id="虚拟">虚拟</h3>
+<p><strong>虚拟</strong> ：将一个物理上的实体变为若干个逻辑上的对应物。</p>
+<div class="mermaid" id="id-3"></div>
+<p>空分复用实例：物理内存只有4G，但却可以允许应用程序使用超过4G的内存（小内存看起来像大内存）</p>
+<p>时分复用实例：单核CPU可以允许多个软件同时运行（单核看起来像多核）</p>
+<h3 id="异步">异步</h3>
+<p><strong>异步</strong> ：在多道程序的环境下，允许多个程序并发执行。但由于系统资源有限，每个程序的执行不是一贯到底，而是走走停停的，以不可预知的速度向前推进。</p>
+</div><div class="post-footer" id="post-footer">
+    <div class="post-info">
+        <div class="post-info-line">
+            <div class="post-info-mod">
+                <span>更新于 2021-03-08</span>
+            </div>
+            <div class="post-info-license"></div>
+        </div>
+        <div class="post-info-line">
+            <div class="post-info-md"></div>
+            <div class="post-info-share">
+                <span></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="post-info-more">
+        <section class="post-tags"></section>
+        <section>
+            <span><a href="javascript:void(0);" onclick="window.history.back();">返回</a></span>&nbsp;|&nbsp;<span><a href="../../">主页</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav"><a href="../../posts/caozuo1/" class="prev" rel="prev" title="1.操作系统的概念、功能、目标"><i class="fas fa-angle-left fa-fw"></i>1.操作系统的概念、功能、目标</a></div>
+</div>
+<div id="comments"><div id="gitalk" class="comment"></div><noscript>
+                Please enable JavaScript to view the comments powered by <a href="https://github.com/gitalk/gitalk"></a>Gitalk</a>.
+            </noscript></div></article></div>
+            </main><footer class="footer">
+        <div class="footer-container"><div class="footer-line">由 <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.81.0">Hugo</a> 强力驱动 | 主题 - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 0.2.10"><i class="far fa-kiss-wink-heart fa-fw"></i> LoveIt</a>
+                </div><div class="footer-line"><i class="far fa-copyright fa-fw"></i><span itemprop="copyrightYear">2021</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="../../" target="_blank"></a></span></div>
+        </div>
+    </footer></div>
+
+        <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="回到顶部">
+                <i class="fas fa-arrow-up fa-fw"></i>
+            </a><a href="#" id="view-comments" class="fixed-button" title="查看评论">
+                <i class="fas fa-comment fa-fw"></i>
+            </a>
+        </div><link rel="stylesheet" href="../../lib/gitalk/gitalk.min.css"><link rel="stylesheet" href="../../lib/katex/katex.min.css"><link rel="stylesheet" href="../../lib/katex/copy-tex.min.css"><link rel="stylesheet" href="../../lib/mermaid/mermaid.min.css"><script type="text/javascript" src="../../lib/gitalk/gitalk.min.js"></script><script type="text/javascript" src="../../lib/smooth-scroll/smooth-scroll.min.js"></script><script type="text/javascript" src="../../lib/autocomplete/autocomplete.min.js"></script><script type="text/javascript" src="../../lib/lunr/lunr.min.js"></script><script type="text/javascript" src="../../lib/lunr/lunr.stemmer.support.min.js"></script><script type="text/javascript" src="../../lib/lunr/lunr.zh.min.js"></script><script type="text/javascript" src="../../lib/lazysizes/lazysizes.min.js"></script><script type="text/javascript" src="../../lib/clipboard/clipboard.min.js"></script><script type="text/javascript" src="../../lib/katex/katex.min.js"></script><script type="text/javascript" src="../../lib/katex/auto-render.min.js"></script><script type="text/javascript" src="../../lib/katex/copy-tex.min.js"></script><script type="text/javascript" src="../../lib/katex/mhchem.min.js"></script><script type="text/javascript" src="../../lib/mermaid/mermaid.min.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"复制到剪贴板","maxShownLines":10},"comment":{"gitalk":{"admin":[null],"clientID":null,"clientSecret":null,"id":"2021-03-08T20:35:44+08:00","owner":null,"repo":null,"title":"2.操作系统的四个特征"}},"data":{"id-1":"classDiagram\n    操作系统的特征 --\u003e 并发\n    操作系统的特征 --\u003e 共享\n    并发 \u003c-- 最基本的两个特征\n    共享 \u003c-- 最基本的两个特征\n    操作系统的特征 --\u003e 虚拟\n    操作系统的特征 --\u003e 异步","id-2":"graph LR;\n    A(两种资源共享方式) --\u003e B(互斥共享方式)\n    A(两种资源共享方式) --\u003e C(同时共享方式)","id-3":"graph LR;\n    A(虚拟) --\u003e B(空分复用技术)\n    A(虚拟) --\u003e C(时分复用技术)"},"math":{"delimiters":[{"display":true,"left":"$$","right":"$$"},{"display":true,"left":"\\[","right":"\\]"},{"display":false,"left":"$","right":"$"},{"display":false,"left":"\\(","right":"\\)"}],"strict":false},"search":{"highlightTag":"em","lunrLanguageCode":"zh","lunrSegmentitURL":"/lib/lunr/lunr.segmentit.js","maxResultLength":10,"noResultsFound":"没有找到结果","snippetLength":50}};</script><script type="text/javascript" src="../../js/theme.min.js"></script></body>
+</html>
