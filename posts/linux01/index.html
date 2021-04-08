@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="robots" content="noodp" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
+        <title>Linux基础命令 - 速冻小鹿包的博客</title><meta name="Description" content="速冻小鹿包的博客"><meta property="og:title" content="Linux基础命令" />
+<meta property="og:description" content="Linux基本操作 Tab补全 Tab补全是非常有用的一个功能，可以用来自动补全命令或文件名，省时准确。 未输入状态下连按两次 Tab 列出所有可用命令 已" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://example.org/posts/linux01/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2021-03-29T16:58:05&#43;08:00" />
+<meta property="article:modified_time" content="2021-03-29T16:58:05&#43;08:00" />
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Linux基础命令"/>
+<meta name="twitter:description" content="Linux基本操作 Tab补全 Tab补全是非常有用的一个功能，可以用来自动补全命令或文件名，省时准确。 未输入状态下连按两次 Tab 列出所有可用命令 已"/>
+<meta name="application-name" content="速冻小鹿包的博客">
+<meta name="apple-mobile-web-app-title" content="速冻小鹿包的博客"><link rel="icon" href="../../favicon.ico"><link rel="apple-touch-icon" sizes="180x180" href="../../apple-touch-icon.png"><link rel="manifest" href="../../site.webmanifest"><link rel="canonical" href="http://example.org/posts/linux01/" /><link rel="prev" href="http://example.org/posts/sql01/" /><link rel="next" href="http://example.org/posts/sql02/" /><link rel="stylesheet" href="../../lib/normalize/normalize.min.css"><link rel="stylesheet" href="../../css/style.min.css"><link rel="stylesheet" href="../../lib/fontawesome-free/all.min.css"><link rel="stylesheet" href="../../lib/animate/animate.min.css"><script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "headline": "Linux基础命令",
+        "inLanguage": "zh-CN",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "http:\/\/example.org\/posts\/linux01\/"
+        },"genre": "posts","wordcount":  2360 ,
+        "url": "http:\/\/example.org\/posts\/linux01\/","datePublished": "2021-03-29T16:58:05+08:00","dateModified": "2021-03-29T16:58:05+08:00","publisher": {
+            "@type": "Organization",
+            "name": "作者"},"author": {
+                "@type": "Person",
+                "name": "作者"
+            },"description": ""
+    }
+    </script></head>
+    <body header-desktop="fixed" header-mobile="fixed"><script type="text/javascript">(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('dark' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'dark' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
+
+        <div id="mask"></div><div class="wrapper"><header class="desktop" id="header-desktop">
+    <div class="header-wrapper">
+        <div class="header-title">
+            <a href="../../" title="速冻小鹿包的博客"><img
+        class="lazyload logo"
+        src="../../svg/loading.min.svg"
+        data-src="../../favicon.ico"
+        data-srcset="../../favicon.ico, ../../favicon.ico 1.5x, ../../favicon.ico 2x"
+        data-sizes="auto"
+        alt="/favicon.ico"
+        title="/favicon.ico" />Alice...</a>
+        </div>
+        <div class="menu">
+            <div class="menu-inner"><a class="menu-item" href="../../categories/"> 分类 </a><a class="menu-item" href="../../tags/"> 标签 </a><a class="menu-item" href="../../posts/"> 文章 </a><span class="menu-item delimiter"></span><span class="menu-item search" id="search-desktop">
+                        <input type="text" placeholder="LeetCode" id="search-input-desktop">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="搜索">
+                            <i class="fas fa-search fa-fw"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-desktop" title="清空">
+                            <i class="fas fa-times-circle fa-fw"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-desktop">
+                            <i class="fas fa-spinner fa-fw fa-spin"></i>
+                        </span>
+                    </span><a href="javascript:void(0);" class="menu-item theme-switch" title="切换主题">
+                    <i class="fas fa-adjust fa-fw"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+</header><header class="mobile" id="header-mobile">
+    <div class="header-container">
+        <div class="header-wrapper">
+            <div class="header-title">
+                <a href="../../" title="速冻小鹿包的博客"><img
+        class="lazyload logo"
+        src="../../svg/loading.min.svg"
+        data-src="../../favicon.ico"
+        data-srcset="../../favicon.ico, ../../favicon.ico 1.5x, ../../favicon.ico 2x"
+        data-sizes="auto"
+        alt="/favicon.ico"
+        title="/favicon.ico" />Alice...</a>
+            </div>
+            <div class="menu-toggle" id="menu-toggle-mobile">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+        <div class="menu" id="menu-mobile"><div class="search-wrapper">
+                    <div class="search mobile" id="search-mobile">
+                        <input type="text" placeholder="LeetCode" id="search-input-mobile">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-mobile" title="搜索">
+                            <i class="fas fa-search fa-fw"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-mobile" title="清空">
+                            <i class="fas fa-times-circle fa-fw"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-mobile">
+                            <i class="fas fa-spinner fa-fw fa-spin"></i>
+                        </span>
+                    </div>
+                    <a href="javascript:void(0);" class="search-cancel" id="search-cancel-mobile">
+                        取消
+                    </a>
+                </div><a class="menu-item" href="../../categories/" title="">分类</a><a class="menu-item" href="../../tags/" title="">标签</a><a class="menu-item" href="../../posts/" title="">文章</a><a href="javascript:void(0);" class="menu-item theme-switch" title="切换主题">
+                <i class="fas fa-adjust fa-fw"></i>
+            </a></div>
+    </div>
+</header>
+<div class="search-dropdown desktop">
+    <div id="search-dropdown-desktop"></div>
+</div>
+<div class="search-dropdown mobile">
+    <div id="search-dropdown-mobile"></div>
+</div>
+<main class="main">
+                <div class="container"><div class="toc" id="toc-auto">
+            <h2 class="toc-title">目录</h2>
+            <div class="toc-content" id="toc-content-auto"></div>
+        </div><article class="page single"><h1 class="single-title animated flipInX">Linux基础命令</h1><div class="post-meta">
+            <div class="post-meta-line"><span class="post-author"><a href="../../" title="Author" rel=" author" class="author"><i class="fas fa-user-circle fa-fw"></i>作者</a></span>&nbsp;<span class="post-category">收录于 <a href="../../categories/linux%E7%AC%94%E8%AE%B0/"><i class="far fa-folder fa-fw"></i>Linux笔记</a></span></div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2021-03-29">2021-03-29</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 2360 字&nbsp;
+                <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 5 分钟&nbsp;</div>
+        </div><div class="details toc" id="toc-static"  kept="true">
+                <div class="details-summary toc-title">
+                    <span>目录</span>
+                    <span><i class="details-icon fas fa-angle-right"></i></span>
+                </div>
+                <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#linux基本操作">Linux基本操作</a>
+      <ul>
+        <li><a href="#tab补全">Tab补全</a></li>
+        <li><a href="#帮助指令">帮助指令</a></li>
+      </ul>
+    </li>
+    <li><a href="#linux基础命令">Linux基础命令</a>
+      <ul>
+        <li><a href="#cd-change-directory">cd (change directory)</a></li>
+        <li><a href="#pwd-print-working-directory">pwd (print working directory)</a></li>
+        <li><a href="#mkdir-make-directory">mkdir (make directory)</a></li>
+        <li><a href="#cp-copy">cp (copy)</a></li>
+        <li><a href="#mv-move">mv (move)</a></li>
+        <li><a href="#touch">touch</a></li>
+        <li><a href="#rm-remove">rm (remove)</a></li>
+        <li><a href="#ls-list">ls (list)</a></li>
+        <li><a href="#find">find</a></li>
+        <li><a href="#locateslocate">locate/slocate</a></li>
+        <li><a href="#wget">wget</a></li>
+      </ul>
+    </li>
+    <li><a href="#用户权限设置">用户权限设置</a></li>
+    <li><a href="#vivimnano">vi/vim,nano</a>
+      <ul>
+        <li><a href="#vivim">vi/vim</a></li>
+        <li><a href="#nano">nano</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav></div>
+            </div><div class="content" id="content"><h2 id="linux基本操作">Linux基本操作</h2>
+<h3 id="tab补全">Tab补全</h3>
+<p><strong>Tab补全</strong>是非常有用的一个功能，可以用来自动补全命令或文件名，省时准确。</p>
+<ul>
+<li>
+<p>未输入状态下连按两次 Tab 列出所有可用命令</p>
+</li>
+<li>
+<p>已输入部分命令名或文件名，按 Tab 进行自动补全</p>
+</li>
+</ul>
+<h3 id="帮助指令">帮助指令</h3>
+<p><strong>man命令</strong>：Linux下的帮助指令，通过<code>man</code>指令可以查看Linux中的指令帮助、配置文件帮助和编程帮助等信息。</p>
+<p><strong>info命令</strong>：<code>info</code>显示Linux下info格式的帮助指令。就内容来说，info页面比man page编写得要更好、更容易理解，也更友好，但man page使用起来确实要更容易得多。</p>
+<p><strong>help命令</strong>：用于显示shell内部命令的帮助信息。<code>help</code>命令只能显示shell内部的命令帮助信息。而对于外部命令的帮助信息只能使用man或者info命令查看。</p>
+<h2 id="linux基础命令">Linux基础命令</h2>
+<h3 id="cd-change-directory">cd (change directory)</h3>
+<p><code>cd</code>命令用来切换工作目录至dirname。其中dirName表示法可为绝对路径或相对路径。</p>
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash"><span class="c1"># 进入用户主目录</span>
+<span class="o">[</span>root@localhost ~<span class="o">]</span> <span class="nb">cd</span> ~ 
+<span class="c1"># 返回进入此目录之前所在的目录</span>
+<span class="o">[</span>root@localhost ~<span class="o">]</span> <span class="nb">cd</span> -
+<span class="c1"># 返回上级目录（若当前目录为“/“，则执行完后还在“/&#34;；&#34;..&#34;为上级目录的意思）；  </span>
+<span class="o">[</span>root@localhost ~<span class="o">]</span> <span class="nb">cd</span> ..
+<span class="c1"># 返回上两级目录</span>
+<span class="o">[</span>root@localhost ~<span class="o">]</span> <span class="nb">cd</span> ../..
+<span class="c1"># 把上个命令的参数作为cd参数使用。  </span>
+<span class="o">[</span>root@localhost ~<span class="o">]</span> <span class="nb">cd</span> !$
+</code></pre></div><h3 id="pwd-print-working-directory">pwd (print working directory)</h3>
+<p><code>pwd</code>命令以绝对路径的方式显示用户当前工作目录。</p>
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash"><span class="o">[</span>root@localhost ~<span class="o">]</span> <span class="nb">pwd</span>
+</code></pre></div><h3 id="mkdir-make-directory">mkdir (make directory)</h3>
+<p><code>mkdir</code>命令用来创建目录。</p>
+<p><code>mkdir &lt;dirname&gt;</code>该命令创建由dirname命名的目录。如果在目录名的前面没有加任何路径名，则在当前目录下创建由dirname指定的目录；如果给出了一个已经存在的路径，将会在该目录下创建一个指定的目录。</p>
+<p>在创建目录时，应保证新建的目录与它所在目录下的文件没有重名（只有字母大小写不同的目录无法被创建）。</p>
+<h3 id="cp-copy">cp (copy)</h3>
+<p><code>cp</code>命令用来将一个或多个源文件或者目录复制到指定的目的文件或目录。</p>
+<p>所有目标文件指定的目录必须是己经存在的，<code>cp</code>命令<strong>不能创建目录</strong>。如果没有文件复制的权限，则系统会显示出错信息。</p>
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash"><span class="c1"># 将文件file复制到目录/usr/men/tmp下，并改名为file1</span>
+<span class="o">[</span>root@localhost ~<span class="o">]</span> cp file /usr/men/tmp/file1
+<span class="c1"># 复制目录aaa下所有文件到/bbb目录下，这时如果/bbb目录下有和aaa同名的文件，需要按Y来确认并且会略过aaa目录下的子目录。</span>
+<span class="o">[</span>root@localhost ~<span class="o">]</span> cp aaa/* /bbb
+</code></pre></div><h3 id="mv-move">mv (move)</h3>
+<p><code>mv</code>命令用来对文件或目录重新命名，或者将文件从一个目录移到另一个目录中,将一组文件移至一个目标目录中。</p>
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash"><span class="c1"># 重命名，将~目录下的文件名frank.html修改为abby.html</span>
+<span class="o">[</span>root@localhost ~<span class="o">]</span> mv frank.html abby.html
+<span class="c1"># 将目录/usr/men中的所有文件移到当前目录（用.表示）中</span>
+<span class="o">[</span>root@localhost ~<span class="o">]</span> mv /usr/men/* .
+</code></pre></div><h3 id="touch">touch</h3>
+<p><code>touch</code>命令有两个功能：</p>
+<ul>
+<li>用来创建新的空文件</li>
+<li>用于把已存在文件的时间标签更新为系统当前的时间（默认方式），它们的数据将原封不动地保留下来</li>
+</ul>
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash"><span class="c1"># 在当前目录下建立一个空文件ex2，然后，利用ls -l命令可以发现文件ex2的大小为0，表示它是空文件。</span>
+<span class="o">[</span>root@localhost ~<span class="o">]</span> touch ex2
+</code></pre></div><h3 id="rm-remove">rm (remove)</h3>
+<p><code>rm</code>命令可以删除一个目录中的一个或多个文件或目录，也可以将某个目录及其下属的所有文件及其子目录均删除掉。对于链接文件，只是删除整个链接文件，而原有文件保持不变。</p>
+<div class="details admonition tip open">
+        <div class="details-summary admonition-title">
+            <i class="icon fas fa-lightbulb fa-fw"></i>注意<i class="details-icon fas fa-angle-right fa-fw"></i>
+        </div>
+        <div class="details-content">
+            <div class="admonition-content"><p>使用<code>rm</code>命令要格外小心。因为一旦删除了一个文件，就无法再恢复它。所以，在删除文件之前，最好再看一下文件的内容，确定是否真要删除。</p>
+<p><code>rm</code>命令可以用<code>-i</code>选项，这个选项在使用文件扩展名字符删除多个文件时特别有用。使用这个选项，系统会要求你逐一确定是否要删除。这时，必须输入y并按Enter键，才能删除文件。如果仅按Enter键或其他字符，文件不会被删除。</p>
+<p>千万不要随便尝试rm -rf /这个命令行，否则系统会GG了。</p>
+</div>
+        </div>
+    </div>
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash"><span class="c1"># 删除当前目录下除隐含文件外的所有文件和子目录</span>
+<span class="o">[</span>root@localhost ~<span class="o">]</span> rm -r *
+<span class="c1"># 删除当前目录下，后缀为.cmd的所有文件</span>
+<span class="o">[</span>root@localhost ~<span class="o">]</span> rm *.cmd
+</code></pre></div><h3 id="ls-list">ls (list)</h3>
+<p><code>ls</code>命令用来显示目标列表，在Linux中是使用率较高的命令。<code>ls</code>命令的输出信息可以进行彩色加亮显示，以分区不同类型的文件。</p>
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash"><span class="c1"># 显示当前目录下非隐藏文件与目录</span>
+<span class="o">[</span>root@localhost ~<span class="o">]</span> ls
+<span class="c1"># 显示当前目录下包括隐藏文件在内的所有文件列表（这里要注意：.开头的文件就是隐藏文件）</span>
+<span class="o">[</span>root@localhost ~<span class="o">]</span> ls -a
+<span class="c1"># 输出长格式列表</span>
+<span class="o">[</span>root@localhost ~<span class="o">]</span> ls -l
+<span class="c1"># 查看文件大小更适合阅读的方式，可以加上-h(h = human)人类更适合阅读的方式。</span>
+<span class="o">[</span>root@localhost ~<span class="o">]</span> ls -lh
+</code></pre></div><h3 id="find">find</h3>
+<p><code>find</code>命令用来在指定目录下查找文件。</p>
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash"><span class="c1"># 在/home目录下查找以.txt结尾的文件名</span>
+<span class="o">[</span>root@localhost ~<span class="o">]</span> find /home -name <span class="s2">&#34;*.txt&#34;</span>
+<span class="c1"># 基于正则表达式匹配文件路径</span>
+<span class="o">[</span>root@localhost ~<span class="o">]</span> find . -regex <span class="s2">&#34;.*\(\.txt\|\.pdf\)</span>$<span class="s2">&#34;</span>
+</code></pre></div><h3 id="locateslocate">locate/slocate</h3>
+<p><code>locate</code>命令和<code>slocate</code>命令都用来查找文件或目录。</p>
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash"><span class="c1"># 搜索etc目录下所有以sh开头的文件</span>
+<span class="o">[</span>root@localhost ~<span class="o">]</span> locate /etc/sh
+<span class="c1"># 搜索用户主目录下，所有以m开头的文件</span>
+<span class="o">[</span>root@localhost ~<span class="o">]</span> locate ~/m
+<span class="c1"># 搜索用户主目录下，所有以m开头的文件，并且忽略大小写</span>
+<span class="o">[</span>root@localhost ~<span class="o">]</span> locate -i ~/m
+</code></pre></div><h3 id="wget">wget</h3>
+<p><code>wget</code>命令用来从指定的URL下载文件。</p>
+<p><code>wget</code>非常稳定，它在带宽很窄的情况下和不稳定网络中有很强的适应性，如果是由于网络的原因下载失败，wget会不断的尝试，直到整个文件下载完毕。如果是服务器打断下载过程，它会再次连到服务器上从停止的地方继续下载。这对从那些限定了链接时间的服务器上下载大文件非常有用。</p>
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash"><span class="c1"># 使用wget下载单个文件</span>
+<span class="o">[</span>root@localhost ~<span class="o">]</span> wget http://www.linuxde.net/testfile.zip
+<span class="c1"># 使用wget后台下载</span>
+<span class="o">[</span>root@localhost ~<span class="o">]</span> wget -b http://www.linuxde.net/testfile.zip
+<span class="c1"># 当你打算进行定时下载，你应该在预定时间测试下载链接是否有效。我们可以增加--spider参数进行检查。</span>
+<span class="o">[</span>root@localhost ~<span class="o">]</span> wget --spider URL
+<span class="c1"># 下载多个文件(filelist.txt保存了url信息，每行一个URL链接)</span>
+<span class="o">[</span>root@localhost ~<span class="o">]</span> wget -i filelist.txt
+</code></pre></div><h2 id="用户权限设置">用户权限设置</h2>
+<h2 id="vivimnano">vi/vim,nano</h2>
+<h3 id="vivim">vi/vim</h3>
+<p>它们都是多模式编辑器，不同的是vim是vi的升级版本，它不仅兼容vi的所有指令，而且还有一些新的特性在里面。</p>
+<a href="https://www.runoob.com/linux/linux-vim.html" title="vim学习页面" target="_blank" rel="noopener noreffer">LinuxVim学习-runoob</a>
+<h3 id="nano">nano</h3>
+<p>nano是一个字符终端的文本编辑器，有点像DOS下的editor程序。它比vi/vim要简单得多，比较适合Linux初学者使用。某些Linux发行版的默认编辑器就是nano。</p>
+<p>如果你没有安装nano编辑器的话，可以使用yum进行安装：<code>yum -y install nano</code></p>
+<a href="https://man.linuxde.net/nano" title="nano学习页面" target="_blank" rel="noopener noreffer">Nano命令集</a>
+</div><div class="post-footer" id="post-footer">
+    <div class="post-info">
+        <div class="post-info-line">
+            <div class="post-info-mod">
+                <span>更新于 2021-03-29</span>
+            </div>
+            <div class="post-info-license"></div>
+        </div>
+        <div class="post-info-line">
+            <div class="post-info-md"></div>
+            <div class="post-info-share">
+                <span></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="post-info-more">
+        <section class="post-tags"></section>
+        <section>
+            <span><a href="javascript:void(0);" onclick="window.history.back();">返回</a></span>&nbsp;|&nbsp;<span><a href="../../">主页</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav"><a href="../../posts/sql01/" class="prev" rel="prev" title="1.基础知识"><i class="fas fa-angle-left fa-fw"></i>1.基础知识</a>
+            <a href="../../posts/sql02/" class="next" rel="next" title="2.基础MySql数据库操作">2.基础MySql数据库操作<i class="fas fa-angle-right fa-fw"></i></a></div>
+</div>
+<div id="comments"></div></article></div>
+            </main><footer class="footer">
+        <div class="footer-container"><div class="footer-line">由 <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.81.0">Hugo</a> 强力驱动 | 主题 - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 0.2.10"><i class="far fa-kiss-wink-heart fa-fw"></i> LoveIt</a>
+                </div><div class="footer-line"><i class="far fa-copyright fa-fw"></i><span itemprop="copyrightYear">2021</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="../../" target="_blank"></a></span></div>
+        </div>
+    </footer></div>
+
+        <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="回到顶部">
+                <i class="fas fa-arrow-up fa-fw"></i>
+            </a><a href="#" id="view-comments" class="fixed-button" title="查看评论">
+                <i class="fas fa-comment fa-fw"></i>
+            </a>
+        </div><link rel="stylesheet" href="../../lib/katex/katex.min.css"><link rel="stylesheet" href="../../lib/katex/copy-tex.min.css"><script type="text/javascript" src="../../lib/smooth-scroll/smooth-scroll.min.js"></script><script type="text/javascript" src="../../lib/autocomplete/autocomplete.min.js"></script><script type="text/javascript" src="../../lib/lunr/lunr.min.js"></script><script type="text/javascript" src="../../lib/lunr/lunr.stemmer.support.min.js"></script><script type="text/javascript" src="../../lib/lunr/lunr.zh.min.js"></script><script type="text/javascript" src="../../lib/lazysizes/lazysizes.min.js"></script><script type="text/javascript" src="../../lib/clipboard/clipboard.min.js"></script><script type="text/javascript" src="../../lib/katex/katex.min.js"></script><script type="text/javascript" src="../../lib/katex/auto-render.min.js"></script><script type="text/javascript" src="../../lib/katex/copy-tex.min.js"></script><script type="text/javascript" src="../../lib/katex/mhchem.min.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"复制到剪贴板","maxShownLines":10},"comment":{},"math":{"delimiters":[{"display":true,"left":"$$","right":"$$"},{"display":true,"left":"\\[","right":"\\]"},{"display":false,"left":"$","right":"$"},{"display":false,"left":"\\(","right":"\\)"}],"strict":false},"search":{"highlightTag":"em","lunrLanguageCode":"zh","lunrSegmentitURL":"/lib/lunr/lunr.segmentit.js","maxResultLength":10,"noResultsFound":"没有找到结果","snippetLength":50}};</script><script type="text/javascript" src="../../js/theme.min.js"></script></body>
+</html>

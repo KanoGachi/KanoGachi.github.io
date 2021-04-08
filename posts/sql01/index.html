@@ -5,28 +5,28 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="robots" content="noodp" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
-        <title>5.中断和异常 - 速冻小鹿包的博客</title><meta name="Description" content="速冻小鹿包的博客"><meta property="og:title" content="5.中断和异常" />
-<meta property="og:description" content="中断的概念和作用 发生中断就意味着需要操作系统介入，开展管理工作。 中断的概念： 1.当中断发生时，CPU立即进入核心态 2.当中断发生时，当前运行" />
+        <title>1.基础知识 - 速冻小鹿包的博客</title><meta name="Description" content="速冻小鹿包的博客"><meta property="og:title" content="1.基础知识" />
+<meta property="og:description" content="DB,DBMS和SQL DB(Data Base):数据库，指按数据结构存储在计算机内的仓库 DBMS(Data Base Management System):数据库管理系统 SQL(Structured Query Language):结构" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="http://example.org/posts/caozuo5/" /><meta property="article:section" content="posts" />
-<meta property="article:published_time" content="2021-03-10T11:01:44&#43;08:00" />
-<meta property="article:modified_time" content="2021-03-10T11:01:44&#43;08:00" />
+<meta property="og:url" content="http://example.org/posts/sql01/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2021-03-28T20:07:31&#43;08:00" />
+<meta property="article:modified_time" content="2021-03-28T20:07:31&#43;08:00" />
 
 <meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="5.中断和异常"/>
-<meta name="twitter:description" content="中断的概念和作用 发生中断就意味着需要操作系统介入，开展管理工作。 中断的概念： 1.当中断发生时，CPU立即进入核心态 2.当中断发生时，当前运行"/>
+<meta name="twitter:title" content="1.基础知识"/>
+<meta name="twitter:description" content="DB,DBMS和SQL DB(Data Base):数据库，指按数据结构存储在计算机内的仓库 DBMS(Data Base Management System):数据库管理系统 SQL(Structured Query Language):结构"/>
 <meta name="application-name" content="速冻小鹿包的博客">
-<meta name="apple-mobile-web-app-title" content="速冻小鹿包的博客"><link rel="icon" href="../../favicon.ico"><link rel="apple-touch-icon" sizes="180x180" href="../../apple-touch-icon.png"><link rel="manifest" href="../../site.webmanifest"><link rel="canonical" href="http://example.org/posts/caozuo5/" /><link rel="prev" href="http://example.org/posts/caozuo4/" /><link rel="next" href="http://example.org/posts/caozuo6/" /><link rel="stylesheet" href="../../lib/normalize/normalize.min.css"><link rel="stylesheet" href="../../css/style.min.css"><link rel="stylesheet" href="../../lib/fontawesome-free/all.min.css"><link rel="stylesheet" href="../../lib/animate/animate.min.css"><script type="application/ld+json">
+<meta name="apple-mobile-web-app-title" content="速冻小鹿包的博客"><link rel="icon" href="../../favicon.ico"><link rel="apple-touch-icon" sizes="180x180" href="../../apple-touch-icon.png"><link rel="manifest" href="../../site.webmanifest"><link rel="canonical" href="http://example.org/posts/sql01/" /><link rel="prev" href="http://example.org/posts/caozuo6/" /><link rel="next" href="http://example.org/posts/linux01/" /><link rel="stylesheet" href="../../lib/normalize/normalize.min.css"><link rel="stylesheet" href="../../css/style.min.css"><link rel="stylesheet" href="../../lib/fontawesome-free/all.min.css"><link rel="stylesheet" href="../../lib/animate/animate.min.css"><script type="application/ld+json">
     {
         "@context": "http://schema.org",
         "@type": "BlogPosting",
-        "headline": "5.中断和异常",
+        "headline": "1.基础知识",
         "inLanguage": "zh-CN",
         "mainEntityOfPage": {
             "@type": "WebPage",
-            "@id": "http:\/\/example.org\/posts\/caozuo5\/"
-        },"genre": "posts","wordcount":  437 ,
-        "url": "http:\/\/example.org\/posts\/caozuo5\/","datePublished": "2021-03-10T11:01:44+08:00","dateModified": "2021-03-10T11:01:44+08:00","publisher": {
+            "@id": "http:\/\/example.org\/posts\/sql01\/"
+        },"genre": "posts","wordcount":  433 ,
+        "url": "http:\/\/example.org\/posts\/sql01\/","datePublished": "2021-03-28T20:07:31+08:00","dateModified": "2021-03-28T20:07:31+08:00","publisher": {
             "@type": "Organization",
             "name": "作者"},"author": {
                 "@type": "Person",
@@ -114,9 +114,9 @@
                 <div class="container"><div class="toc" id="toc-auto">
             <h2 class="toc-title">目录</h2>
             <div class="toc-content" id="toc-content-auto"></div>
-        </div><article class="page single"><h1 class="single-title animated flipInX">5.中断和异常</h1><div class="post-meta">
-            <div class="post-meta-line"><span class="post-author"><a href="../../" title="Author" rel=" author" class="author"><i class="fas fa-user-circle fa-fw"></i>作者</a></span>&nbsp;<span class="post-category">收录于 <a href="../../categories/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E7%AC%94%E8%AE%B0/"><i class="far fa-folder fa-fw"></i>操作系统笔记</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2021-03-10">2021-03-10</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 437 字&nbsp;
+        </div><article class="page single"><h1 class="single-title animated flipInX">1.基础知识</h1><div class="post-meta">
+            <div class="post-meta-line"><span class="post-author"><a href="../../" title="Author" rel=" author" class="author"><i class="fas fa-user-circle fa-fw"></i>作者</a></span>&nbsp;<span class="post-category">收录于 <a href="../../categories/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%AC%94%E8%AE%B0/"><i class="far fa-folder fa-fw"></i>数据库笔记</a></span></div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2021-03-28">2021-03-28</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 433 字&nbsp;
                 <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 1 分钟&nbsp;</div>
         </div><div class="details toc" id="toc-static"  kept="true">
                 <div class="details-summary toc-title">
@@ -125,65 +125,34 @@
                 </div>
                 <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
   <ul>
-    <li><a href="#中断的概念和作用">中断的概念和作用</a>
-      <ul>
-        <li><a href="#发生中断就意味着需要操作系统介入开展管理工作">发生中断就意味着需要操作系统介入，开展管理工作。</a></li>
-      </ul>
-    </li>
-    <li><a href="#中断的分类未完成">中断的分类（未完成）</a></li>
-    <li><a href="#外部中断的处理过程">外部中断的处理过程</a></li>
+    <li><a href="#dbdbms和sql">DB,DBMS和SQL</a></li>
+    <li><a href="#对表的理解">对表的理解</a></li>
+    <li><a href="#sql语句的分类">SQL语句的分类</a></li>
   </ul>
 </nav></div>
-            </div><div class="content" id="content"><h2 id="中断的概念和作用">中断的概念和作用</h2>
-<h3 id="发生中断就意味着需要操作系统介入开展管理工作">发生中断就意味着需要操作系统介入，开展管理工作。</h3>
-<p><strong>中断的概念：</strong></p>
-<p>1.当中断发生时，CPU立即进入<strong>核心态</strong></p>
-<p>2.当中断发生时，当前运行的进程会暂停运行，并由操作系统内核对中断进行处理</p>
-<p>3.对于不同的中断信号，会进行不同的处理</p>
-<p><strong>中断的作用：</strong></p>
-<p>由于操作系统的管理工作（如进程切换、分配I/O设备等）需要使用特权指令，因此需要将CPU转为核心态。中断可以<strong>使CPU从用户态切换到核心态</strong> ，让操作系统获得计算机的控制权。<strong>有了中断，多道程序才能并发执行。</strong></p>
-<p><strong>中断是CPU从用户态进入核心态的唯一途径</strong></p>
-<h2 id="中断的分类未完成">中断的分类（未完成）</h2>
-<figure><a class="lightgallery" href="../../op-sys/cz115.png" title="/op-sys/cz115.png" data-thumbnail="/op-sys/cz115.png" data-sub-html="<h2>中断的分类</h2>">
-        <img
-            class="lazyload"
-            src="../../svg/loading.min.svg"
-            data-src="../../op-sys/cz115.png"
-            data-srcset="../../op-sys/cz115.png, ../../op-sys/cz115.png 1.5x, ../../op-sys/cz115.png 2x"
-            data-sizes="auto"
-            alt="/op-sys/cz115.png" />
-    </a><figcaption class="image-caption">中断的分类</figcaption>
-    </figure>
-<figure><a class="lightgallery" href="../../op-sys/cz116.png" title="/op-sys/cz116.png" data-thumbnail="/op-sys/cz116.png" data-sub-html="<h2>中断的另一种分类</h2>">
-        <img
-            class="lazyload"
-            src="../../svg/loading.min.svg"
-            data-src="../../op-sys/cz116.png"
-            data-srcset="../../op-sys/cz116.png, ../../op-sys/cz116.png 1.5x, ../../op-sys/cz116.png 2x"
-            data-sizes="auto"
-            alt="/op-sys/cz116.png" />
-    </a><figcaption class="image-caption">中断的另一种分类</figcaption>
-    </figure>
-<h2 id="外部中断的处理过程">外部中断的处理过程</h2>
-<p>1.系统在执行完每一条指令之后都会检查是否有外部中断信号</p>
-<p>2.若检测到外部中断信号，则需要保护被中断进程的CPU环境（如程序状态字PSW，程序计数器PC，各种通用寄存器）</p>
-<p>3.系统根据中断信号的类型转入相应的中断处理程序</p>
-<p>4.恢复原进程的CPU环境退出中断，返回原进程继续往下执行</p>
-<figure><a class="lightgallery" href="../../op-sys/cz117.png" title="/op-sys/cz117.png" data-thumbnail="/op-sys/cz117.png" data-sub-html="<h2>外部中断处理</h2>">
-        <img
-            class="lazyload"
-            src="../../svg/loading.min.svg"
-            data-src="../../op-sys/cz117.png"
-            data-srcset="../../op-sys/cz117.png, ../../op-sys/cz117.png 1.5x, ../../op-sys/cz117.png 2x"
-            data-sizes="auto"
-            alt="/op-sys/cz117.png" />
-    </a><figcaption class="image-caption">外部中断处理</figcaption>
-    </figure>
+            </div><div class="content" id="content"><h2 id="dbdbms和sql">DB,DBMS和SQL</h2>
+<p>DB(Data Base):数据库，指按数据结构存储在计算机内的仓库</p>
+<p>DBMS(Data Base Management System):数据库管理系统</p>
+<p>SQL(Structured Query Language):结构化查询语言，标准的sql语句适用于所有的数据库</p>
+<h2 id="对表的理解">对表的理解</h2>
+<p>表(Table)是数据库的基本组成单元，所有的数据都以表格的形式组织，目的是可读性强。</p>
+<p>表包含行和列：</p>
+<ul>
+<li>行：被称为数据/记录(data)</li>
+<li>列：被称为字段(column)</li>
+</ul>
+<p>每一个字段应该包含的内容：字段名，数据类型，相关的约束</p>
+<h2 id="sql语句的分类">SQL语句的分类</h2>
+<p>DQL（Data Query Language 数据查询语言）：查询语句，凡是select语句都是DQL</p>
+<p>DML（Data Manipulation Language 数据管理语言）：insert,delete,update，对表内的数据进行增删改</p>
+<p>DDL（Data Definition Language 数据定义语言）：create,drop,alter，对表的结构进行增删改</p>
+<p>TCL（Transaction Contorl Language 事务控制语言）：commit提交事务，rollback回滚事务</p>
+<p>DCL（Data Contorl Language 数据控制语言）：grant授权，revoke撤销权限等</p>
 </div><div class="post-footer" id="post-footer">
     <div class="post-info">
         <div class="post-info-line">
             <div class="post-info-mod">
-                <span>更新于 2021-03-10</span>
+                <span>更新于 2021-03-28</span>
             </div>
             <div class="post-info-license"></div>
         </div>
@@ -202,8 +171,8 @@
         </section>
     </div>
 
-    <div class="post-nav"><a href="../../posts/caozuo4/" class="prev" rel="prev" title="4.操作系统的运行机制和体系结构"><i class="fas fa-angle-left fa-fw"></i>4.操作系统的运行机制和体系结构</a>
-            <a href="../../posts/caozuo6/" class="next" rel="next" title="6.系统调用">6.系统调用<i class="fas fa-angle-right fa-fw"></i></a></div>
+    <div class="post-nav"><a href="../../posts/caozuo6/" class="prev" rel="prev" title="6.系统调用"><i class="fas fa-angle-left fa-fw"></i>6.系统调用</a>
+            <a href="../../posts/linux01/" class="next" rel="next" title="Linux基础命令">Linux基础命令<i class="fas fa-angle-right fa-fw"></i></a></div>
 </div>
 <div id="comments"></div></article></div>
             </main><footer class="footer">

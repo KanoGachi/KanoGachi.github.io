@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="robots" content="noodp" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
+        <title>【PIL库】Image类基础使用方法 - 速冻小鹿包的博客</title><meta name="Description" content="速冻小鹿包的博客"><meta property="og:title" content="【PIL库】Image类基础使用方法" />
+<meta property="og:description" content="前言 修改自CSDN博客,完整内容见： Python图像库PIL的类Image及其方法介绍 Image类介绍 Image类是PIL中的核心类，你有很" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://example.org/posts/pil/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2021-04-02T20:56:16&#43;08:00" />
+<meta property="article:modified_time" content="2021-04-02T20:56:16&#43;08:00" />
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="【PIL库】Image类基础使用方法"/>
+<meta name="twitter:description" content="前言 修改自CSDN博客,完整内容见： Python图像库PIL的类Image及其方法介绍 Image类介绍 Image类是PIL中的核心类，你有很"/>
+<meta name="application-name" content="速冻小鹿包的博客">
+<meta name="apple-mobile-web-app-title" content="速冻小鹿包的博客"><link rel="icon" href="../../favicon.ico"><link rel="apple-touch-icon" sizes="180x180" href="../../apple-touch-icon.png"><link rel="manifest" href="../../site.webmanifest"><link rel="canonical" href="http://example.org/posts/pil/" /><link rel="prev" href="http://example.org/posts/sql03/" /><link rel="next" href="http://example.org/posts/sql04/" /><link rel="stylesheet" href="../../lib/normalize/normalize.min.css"><link rel="stylesheet" href="../../css/style.min.css"><link rel="stylesheet" href="../../lib/fontawesome-free/all.min.css"><link rel="stylesheet" href="../../lib/animate/animate.min.css"><script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "headline": "【PIL库】Image类基础使用方法",
+        "inLanguage": "zh-CN",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "http:\/\/example.org\/posts\/pil\/"
+        },"genre": "posts","wordcount":  3411 ,
+        "url": "http:\/\/example.org\/posts\/pil\/","datePublished": "2021-04-02T20:56:16+08:00","dateModified": "2021-04-02T20:56:16+08:00","publisher": {
+            "@type": "Organization",
+            "name": "作者"},"author": {
+                "@type": "Person",
+                "name": "作者"
+            },"description": ""
+    }
+    </script></head>
+    <body header-desktop="fixed" header-mobile="fixed"><script type="text/javascript">(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('dark' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'dark' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
+
+        <div id="mask"></div><div class="wrapper"><header class="desktop" id="header-desktop">
+    <div class="header-wrapper">
+        <div class="header-title">
+            <a href="../../" title="速冻小鹿包的博客"><img
+        class="lazyload logo"
+        src="../../svg/loading.min.svg"
+        data-src="../../favicon.ico"
+        data-srcset="../../favicon.ico, ../../favicon.ico 1.5x, ../../favicon.ico 2x"
+        data-sizes="auto"
+        alt="/favicon.ico"
+        title="/favicon.ico" />Alice...</a>
+        </div>
+        <div class="menu">
+            <div class="menu-inner"><a class="menu-item" href="../../categories/"> 分类 </a><a class="menu-item" href="../../tags/"> 标签 </a><a class="menu-item" href="../../posts/"> 文章 </a><span class="menu-item delimiter"></span><span class="menu-item search" id="search-desktop">
+                        <input type="text" placeholder="LeetCode" id="search-input-desktop">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="搜索">
+                            <i class="fas fa-search fa-fw"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-desktop" title="清空">
+                            <i class="fas fa-times-circle fa-fw"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-desktop">
+                            <i class="fas fa-spinner fa-fw fa-spin"></i>
+                        </span>
+                    </span><a href="javascript:void(0);" class="menu-item theme-switch" title="切换主题">
+                    <i class="fas fa-adjust fa-fw"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+</header><header class="mobile" id="header-mobile">
+    <div class="header-container">
+        <div class="header-wrapper">
+            <div class="header-title">
+                <a href="../../" title="速冻小鹿包的博客"><img
+        class="lazyload logo"
+        src="../../svg/loading.min.svg"
+        data-src="../../favicon.ico"
+        data-srcset="../../favicon.ico, ../../favicon.ico 1.5x, ../../favicon.ico 2x"
+        data-sizes="auto"
+        alt="/favicon.ico"
+        title="/favicon.ico" />Alice...</a>
+            </div>
+            <div class="menu-toggle" id="menu-toggle-mobile">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+        <div class="menu" id="menu-mobile"><div class="search-wrapper">
+                    <div class="search mobile" id="search-mobile">
+                        <input type="text" placeholder="LeetCode" id="search-input-mobile">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-mobile" title="搜索">
+                            <i class="fas fa-search fa-fw"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-mobile" title="清空">
+                            <i class="fas fa-times-circle fa-fw"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-mobile">
+                            <i class="fas fa-spinner fa-fw fa-spin"></i>
+                        </span>
+                    </div>
+                    <a href="javascript:void(0);" class="search-cancel" id="search-cancel-mobile">
+                        取消
+                    </a>
+                </div><a class="menu-item" href="../../categories/" title="">分类</a><a class="menu-item" href="../../tags/" title="">标签</a><a class="menu-item" href="../../posts/" title="">文章</a><a href="javascript:void(0);" class="menu-item theme-switch" title="切换主题">
+                <i class="fas fa-adjust fa-fw"></i>
+            </a></div>
+    </div>
+</header>
+<div class="search-dropdown desktop">
+    <div id="search-dropdown-desktop"></div>
+</div>
+<div class="search-dropdown mobile">
+    <div id="search-dropdown-mobile"></div>
+</div>
+<main class="main">
+                <div class="container"><div class="toc" id="toc-auto">
+            <h2 class="toc-title">目录</h2>
+            <div class="toc-content" id="toc-content-auto"></div>
+        </div><article class="page single"><h1 class="single-title animated flipInX">【PIL库】Image类基础使用方法</h1><div class="post-meta">
+            <div class="post-meta-line"><span class="post-author"><a href="../../" title="Author" rel=" author" class="author"><i class="fas fa-user-circle fa-fw"></i>作者</a></span>&nbsp;<span class="post-category">收录于 <a href="../../categories/python%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86/"><i class="far fa-folder fa-fw"></i>Python图像处理</a></span></div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2021-04-02">2021-04-02</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 3411 字&nbsp;
+                <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 7 分钟&nbsp;</div>
+        </div><div class="details toc" id="toc-static"  kept="true">
+                <div class="details-summary toc-title">
+                    <span>目录</span>
+                    <span><i class="details-icon fas fa-angle-right"></i></span>
+                </div>
+                <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#前言">前言</a></li>
+    <li><a href="#image类介绍">Image类介绍</a></li>
+    <li><a href="#使用image类的注意事项">使用Image类的注意事项</a>
+      <ul>
+        <li><a href="#pillow">Pillow</a></li>
+        <li><a href="#调用方法">调用方法</a></li>
+        <li><a href="#智能补全问题">智能补全问题</a></li>
+      </ul>
+    </li>
+    <li><a href="#image类属性">Image类属性</a>
+      <ul>
+        <li><a href="#size">size</a></li>
+        <li><a href="#format">format</a></li>
+        <li><a href="#mode">mode</a></li>
+        <li><a href="#palette">palette</a></li>
+        <li><a href="#info">info</a></li>
+      </ul>
+    </li>
+    <li><a href="#image类方法">Image类方法</a>
+      <ul>
+        <li><a href="#new">new</a></li>
+        <li><a href="#open">open</a></li>
+        <li><a href="#save">save</a></li>
+        <li><a href="#getpixel">getpixel</a></li>
+        <li><a href="#load">load</a></li>
+        <li><a href="#getdata">getdata</a></li>
+        <li><a href="#corp">corp</a></li>
+        <li><a href="#copy">copy</a></li>
+        <li><a href="#paste">paste</a></li>
+        <li><a href="#convert">convert</a></li>
+        <li><a href="#blend">blend</a></li>
+        <li><a href="#fliter">fliter</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav></div>
+            </div><div class="content" id="content"><h2 id="前言">前言</h2>
+<p>修改自CSDN博客,完整内容见：</p>
+<a href="https://blog.csdn.net/leemboy/article/details/83792729" title="Image" target="_blank" rel="noopener noreffer">Python图像库PIL的类Image及其方法介绍</a>
+<h2 id="image类介绍">Image类介绍</h2>
+<p><strong>Image类</strong>是PIL中的核心类，你有很多种方式来对它进行初始化，比如从文件中加载一张图像，处理其他形式的图像，或者是从头创造一张图像等。Image模块操作的基本方法都包含于此模块内。</p>
+<h2 id="使用image类的注意事项">使用Image类的注意事项</h2>
+<h3 id="pillow">Pillow</h3>
+<p>由于PIL仅支持到Python 2.7，加上年久失修，于是一群志愿者在PIL的基础上创建了兼容的版本，名字叫Pillow，支持最新Python 3.x，又加入了许多新特性，因此，我们可以直接安装使用Pillow。</p>
+<p>如果安装了Anaconda，Pillow就已经可用了。否则，需要在命令行下通过pip安装：
+<code>$ pip install pillow</code></p>
+<h3 id="调用方法">调用方法</h3>
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="c1"># python2</span>
+<span class="kn">import</span> <span class="nn">Image</span>
+<span class="c1"># python3</span>
+<span class="kn">from</span> <span class="nn">PIL</span> <span class="kn">import</span> <span class="n">Image</span>
+</code></pre></div><h3 id="智能补全问题">智能补全问题</h3>
+<p>python是动态强类型语言，IDE无法判断Image.open(&ldquo;file.png&rdquo;)的返回值类型，无法根据参数类型自动补全。</p>
+<p>这个问题有以下解决方法：</p>
+<ul>
+<li>类型注释：加上<code># type: Image.Image</code>
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">img</span> <span class="o">=</span> <span class="n">Image</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="s1">&#39;file.png&#39;</span><span class="p">)</span> <span class="c1"># type: Image.Image</span>
+</code></pre></div></li>
+<li>使用<code>isinstance</code>进行指定
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">img</span> <span class="o">=</span> <span class="n">Image</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="s1">&#39;file.png&#39;</span><span class="p">)</span>
+<span class="k">assert</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">img</span><span class="p">,</span> <span class="n">Image</span><span class="o">.</span><span class="n">Image</span><span class="p">)</span>
+</code></pre></div></li>
+<li>指定类型
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">img</span> <span class="o">=</span> <span class="n">Image</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="s1">&#39;f15.png&#39;</span><span class="p">)</span>
+<span class="s2">&#34;&#34;&#34;:type: Image.Image&#34;&#34;&#34;</span>
+</code></pre></div></li>
+</ul>
+<h2 id="image类属性">Image类属性</h2>
+<h3 id="size">size</h3>
+<p><code>size</code>记录图像的尺寸，按照像素数计算。它的返回值为宽度和高度的二元组<code>(width, height)</code>。</p>
+<p><code>&lt;imname&gt;.size -&gt; (width,height)</code></p>
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">im</span> <span class="o">=</span> <span class="n">Image</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="s2">&#34;3d.jpg&#34;</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">im</span><span class="o">.</span><span class="n">size</span><span class="p">)</span> <span class="c1"># 打印图像尺寸</span>
+</code></pre></div><h3 id="format">format</h3>
+<p><code>format</code>属性标识了图像来源格式，如果图像没有读取文件，它的值就是<code>None</code>。</p>
+<p><code>&lt;imname&gt;.format -&gt; string or None</code></p>
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">im</span> <span class="o">=</span> <span class="n">Image</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="s2">&#34;3d.jpg&#34;</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">im</span><span class="o">.</span><span class="n">format</span><span class="p">)</span> <span class="c1"># 打印出格式信息</span>
+</code></pre></div><h3 id="mode">mode</h3>
+<p><code>mode</code>标识图像的模式。</p>
+<p><code>&lt;imname&gt;.mode -&gt; string</code></p>
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">im</span> <span class="o">=</span> <span class="n">Image</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="s2">&#34;3d.jpg&#34;</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">im</span><span class="o">.</span><span class="n">mode</span><span class="p">)</span> <span class="c1"># 打印出模式信息</span>
+</code></pre></div><p>常见的图像模式如下表：</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">Modes</th>
+<th style="text-align:left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">1</td>
+<td style="text-align:left">1位像素，黑白图像，存成8位像素</td>
+</tr>
+<tr>
+<td style="text-align:left">L</td>
+<td style="text-align:left">8位像素，黑白</td>
+</tr>
+<tr>
+<td style="text-align:left">P</td>
+<td style="text-align:left">9位像素，使用调色板映射到任何其他模式</td>
+</tr>
+<tr>
+<td style="text-align:left">RGB</td>
+<td style="text-align:left">3*8位像素，真彩</td>
+</tr>
+<tr>
+<td style="text-align:left">RGBA</td>
+<td style="text-align:left">4*8位像素，真彩+透明通道</td>
+</tr>
+<tr>
+<td style="text-align:left">CMYK</td>
+<td style="text-align:left">4*8位像素，印刷四色模式或彩色印刷模式</td>
+</tr>
+<tr>
+<td style="text-align:left">YCbCr</td>
+<td style="text-align:left">3*8位像素，色彩视频格式</td>
+</tr>
+<tr>
+<td style="text-align:left">I</td>
+<td style="text-align:left">32位整型像素</td>
+</tr>
+<tr>
+<td style="text-align:left">F</td>
+<td style="text-align:left">33位浮点型像素</td>
+</tr>
+</tbody>
+</table>
+<h3 id="palette">palette</h3>
+<p><code>palette</code>记录颜色调色板表格。如果图像的模式是“P”，则返回Image Palette类的实例；否则，将为None。</p>
+<p><code>&lt;imname&gt;.palette -&gt; palette or None</code></p>
+<h3 id="info">info</h3>
+<p><code>info</code>存储图像相关数据的字典。</p>
+<p>文件句柄使用该字典传递从文件中读取的各种非图像信息。大多数方法在返回新的图像时都会忽略这个字典；因为字典中的键并非标准化的，对于一个方法，它不知道自己的操作如何影响这个字典。如果用户需要这些信息，需要在方法<code>open()</code>返回时保存这个字典。</p>
+<p><code>&lt;imname&gt;.info -&gt; dictionary</code></p>
+<h2 id="image类方法">Image类方法</h2>
+<h3 id="new">new</h3>
+<p><code>new()</code>使用给定的变量mode和size生成新的图像。</p>
+<p><code>Image.new(mode,size) -&gt; image</code></p>
+<p><code>Image.new(mode, size,color) -&gt; image</code></p>
+<p><code>size</code>是给定的宽/高二元组，这是按照像素数来计算的。</p>
+<p>对于单通道图像，变量<code>color</code>只给定一个值；对于多通道图像，变量<code>color</code>给定一个元组（每个通道对应一个值）。</p>
+<p>在版本1.1.4及其之后，用户也可以用颜色的名称，比如给变量<code>color</code>赋值为<code>&quot;red&quot;</code>。如果没有对变量<code>color</code>赋值，图像内容将会被全部赋值为0（为黑色）。</p>
+<p>如果变量<code>color</code>是空，图像将不会被初始化，即图像的内容全为0。这对向该图像复制或绘制某些内容是有用的。</p>
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="c1"># 创建128*128全红图像</span>
+<span class="n">n_im</span><span class="o">=</span> <span class="n">Image</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="s2">&#34;RGB&#34;</span><span class="p">,</span> <span class="p">(</span><span class="mi">128</span><span class="p">,</span> <span class="mi">128</span><span class="p">),</span> <span class="s2">&#34;#FF0000&#34;</span><span class="p">)</span>
+</code></pre></div><h3 id="open">open</h3>
+<p>要从文件加载图像，使用<code>open()</code>函数：</p>
+<p><code>Image.open(file) -&gt; image</code></p>
+<div class="details admonition tip open">
+        <div class="details-summary admonition-title">
+            <i class="icon fas fa-lightbulb fa-fw"></i>Warning<i class="details-icon fas fa-angle-right fa-fw"></i>
+        </div>
+        <div class="details-content">
+            <div class="admonition-content">This is a lazy operation; this function identifies the file, but the file remains open and the actual image data is not read from the file until you try to process the data.</div>
+        </div>
+    </div>
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="kn">from</span> <span class="nn">PIL</span> <span class="kn">import</span> <span class="n">Image</span>
+<span class="n">im</span> <span class="o">=</span> <span class="n">Image</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="s1">&#39;./3d.jpg&#39;</span><span class="p">)</span> <span class="c1"># 打开当前路径下的3d.jpg文件</span>
+<span class="n">im</span><span class="o">.</span><span class="n">show</span><span class="p">()</span> <span class="c1"># 显示图片</span>
+</code></pre></div><h3 id="save">save</h3>
+<p><code>save()</code>方法可以用于保存文件，使用给定的文件名保存图像：<code>&lt;imname&gt;.save(outfile,format,options)</code></p>
+<p>如果变量<code>format</code>缺省，如果可能的话，则从文件名称的扩展名判断文件的格式。该方法返回为空。</p>
+<p>关键字<code>options</code>为文件编写器提供一些额外的指令。如果编写器不能识别某个选项，它将忽略它。用户可以使用文件对象代替文件名称。在这种情况下，用户必须指定文件格式。</p>
+<p>文件对象必须实现了<code>seek()</code>、<code>tell()</code>和<code>write()</code>方法，且其以二进制模式打开。如果方法<code>save()</code>因为某些原因失败，这个方法将产生一个异常（通常为<code>IOError</code>异常）。如果发生了异常，该方法也有可能已经创建了文件，并向文件写入了一些数据。如果需要的话，用户的应用程序可以删除这个不完整的文件。</p>
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="c1"># save()可以用于转换文件类型</span>
+<span class="n">im</span> <span class="o">=</span> <span class="n">Image</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="s2">&#34;3d.jpg&#34;</span><span class="p">)</span>
+<span class="n">im</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="s2">&#34;3d.png&#34;</span><span class="p">)</span> <span class="c1"># 将&#34;3d.jpg&#34;保存为3d.png&#34;</span>
+</code></pre></div><h3 id="getpixel">getpixel</h3>
+<p><code>getpixel()</code>返回给定位置的像素值。</p>
+<p><code>&lt;imname&gt;.getpixel(xy) -&gt; value or tuple</code></p>
+<p>如果图像为多通道，则返回一个元组。该方法执行比较慢；如果用户需要使用python处理图像中较大部分数据，可以使用像素访问对象<code>load()</code>，或者方法<code>getdata()</code>。</p>
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">im</span> <span class="o">=</span> <span class="n">Image</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="s2">&#34;3d.jpg&#34;</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">im</span><span class="o">.</span><span class="n">getpixel</span><span class="p">((</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">)))</span>
+</code></pre></div><h3 id="load">load</h3>
+<p><code>load()</code>为图像分配内存并从文件中加载它（或者从源图像）。正常情况下，用户不需要调用这个方法，因为在第一次访问图像时，Image类会自动地加载打开的图像。</p>
+<p><strong>目前的版本，方法load()返回一个用于读取和修改像素的像素访问对象。</strong>
+这个访问对象像一个二维队列，如：</p>
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">pix</span> <span class="o">=</span> <span class="n">im</span><span class="o">.</span><span class="n">load</span><span class="p">()</span>
+<span class="k">print</span><span class="p">(</span><span class="n">pix</span><span class="p">[</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">])</span> <span class="c1"># 读取pix中的像素</span>
+<span class="n">pix</span><span class="p">[</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">]</span> <span class="o">=</span> <span class="n">value</span> <span class="c1"># 修改pix中的像素</span>
+</code></pre></div><h3 id="getdata">getdata</h3>
+<p><code>getdata()</code>以包含像素值的sequence对象形式返回图像的内容。</p>
+<p><code>&lt;imname&gt;.getdata() -&gt; sequence</code></p>
+<p>这个sequence对象是扁平的，以便第一行的值直接跟在第零行的值后面，等等。</p>
+<p>这个方法返回的sequence对象是PIL内部数据类型，它只支持某些sequence操作，包括迭代和基础sequence访问。使用<code>list(im.getdata())</code>，将它转换为普通的sequence。</p>
+<p>sequence对象的每一个元素对应一个像素点的R、G和B三个值。</p>
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">im</span> <span class="o">=</span> <span class="n">Image</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="s2">&#34;3d.jpg&#34;</span><span class="p">)</span>
+<span class="n">sequ</span> <span class="o">=</span> <span class="n">im</span><span class="o">.</span><span class="n">getdata</span><span class="p">()</span>
+<span class="n">l_sequ</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">sequ</span><span class="p">)</span>
+</code></pre></div><h3 id="corp">corp</h3>
+<p><code>corp()</code>从当前的图像中返回一个矩形区域的拷贝。</p>
+<p>变量<code>box</code>是一个四元组，定义了左、上、右和下的像素坐标，用来表示在原始图像中截取的位置坐标。</p>
+<p>如<code>box = (100,100,200,200)</code>就表示在原始图像中以左上角为坐标原点，截取一个100*100（像素为单位）的图像，为方便理解，如下为示意图<code>box = (b1,a1,b2,a2)</code>。</p>
+<p><img
+        class="lazyload"
+        src="../../svg/loading.min.svg"
+        data-src="../../pypic/corp.png"
+        data-srcset="../../pypic/corp.png, ../../pypic/corp.png 1.5x, ../../pypic/corp.png 2x"
+        data-sizes="auto"
+        alt="/pypic/corp.png"
+        title="corp" /></p>
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">im</span> <span class="o">=</span> <span class="n">Image</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="s2">&#34;3d.jpg&#34;</span><span class="p">)</span>
+<span class="n">box</span> <span class="o">=</span> <span class="p">(</span><span class="mi">20</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="mi">300</span><span class="p">,</span> <span class="mi">200</span><span class="p">)</span> <span class="c1"># 确定拷贝区域大小</span>
+<span class="n">region</span> <span class="o">=</span> <span class="n">im</span><span class="o">.</span><span class="n">crop</span><span class="p">(</span><span class="n">box</span><span class="p">)</span> <span class="c1"># 将im表示的图片对象拷贝到region中，大小为box</span>
+</code></pre></div><h3 id="copy">copy</h3>
+<p><code>copy()</code>可以拷贝这个图像。如果用户想粘贴一些数据到这张图，可以使用这个方法，但是原始图像不会受到影响。</p>
+<p><code>&lt;imname&gt;.copy() -&gt; image</code></p>
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="c1"># im_copy和im完全相同</span>
+<span class="n">im</span> <span class="o">=</span> <span class="n">Image</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="s2">&#34;3d.jpg&#34;</span><span class="p">)</span>
+<span class="n">im_copy</span> <span class="o">=</span> <span class="n">im</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+</code></pre></div><h3 id="paste">paste</h3>
+<p><code>paste()</code>将一张图粘贴到另一张图像上。</p>
+<p><code>&lt;imname&gt;.paste(image,box)</code></p>
+<p>变量<code>box</code>或者是一个给定新图片中插入图像所在区域的左上角坐标的2元组，或者是定义了左，上，右和下像素坐标的4元组，或者为空（与（0，0）一样）。</p>
+<p>如果给定4元组，被粘贴的图像的尺寸必须与区域尺寸一样。如果模式不匹配，被粘贴的图像将被转换为当前图像的模式。</p>
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">im</span> <span class="o">=</span> <span class="n">Image</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="s2">&#34;3d.jpg&#34;</span><span class="p">)</span>
+<span class="n">box</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">100</span><span class="p">,</span><span class="mi">100</span><span class="p">]</span>
+<span class="n">im_crop</span> <span class="o">=</span> <span class="n">im</span><span class="o">.</span><span class="n">crop</span><span class="p">(</span><span class="n">box</span><span class="p">)</span>
+<span class="n">im</span><span class="o">.</span><span class="n">paste</span><span class="p">(</span><span class="n">im_crop</span><span class="p">,</span> <span class="p">(</span><span class="mi">100</span><span class="p">,</span><span class="mi">100</span><span class="p">))</span> <span class="c1">#(100,100)为im用于粘贴im_corp的区域的左上角像素坐标</span>
+<span class="n">im</span><span class="o">.</span><span class="n">paste</span><span class="p">(</span><span class="n">im_crop</span><span class="p">,</span> <span class="p">(</span><span class="mi">400</span><span class="p">,</span><span class="mi">400</span><span class="p">,</span><span class="mi">500</span><span class="p">,</span><span class="mi">500</span><span class="p">))</span>
+</code></pre></div><h3 id="convert">convert</h3>
+<p><code>convert()</code>将当前图像转换为其他模式，并且返回新的图像。</p>
+<p><code>&lt;imname&gt;.convert(mode) -&gt; image</code></p>
+<p>当从一个调色板图像转换时，这个方法通过这个调色板来转换像素。如果不对变量<code>mode</code>赋值，该方法将会选择一种模式，在没有调色板的情况下，使得图像和调色板中的所有信息都可以被表示出来。</p>
+<p><code>&lt;imname&gt;.convert(mode,matrix) -&gt; image</code>使用转换矩阵将一个“RGB”图像转换为“L”或者“RGB”图像。变量<code>matrix</code>为4或者16元组。</p>
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="c1"># 使用P模式转换图像</span>
+<span class="n">im</span> <span class="o">=</span> <span class="n">Image</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="s2">&#34;3d.jpg&#34;</span><span class="p">)</span>
+<span class="n">new_im</span> <span class="o">=</span> <span class="n">im</span><span class="o">.</span><span class="n">convert</span><span class="p">(</span><span class="s1">&#39;P&#39;</span><span class="p">)</span>
+<span class="c1"># 使用自定义矩阵转换图像</span>
+<span class="n">im</span> <span class="o">=</span> <span class="n">Image</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="s2">&#34;3d.jpg&#34;</span><span class="p">)</span>
+<span class="n">rgb2xyz</span> <span class="o">=</span> <span class="p">(</span><span class="mf">0.412453</span><span class="p">,</span><span class="mf">0.357580</span><span class="p">,</span> <span class="mf">0.180423</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span>
+           <span class="mf">0.212671</span><span class="p">,</span><span class="mf">0.715160</span><span class="p">,</span> <span class="mf">0.072169</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span>
+           <span class="mf">0.019334</span><span class="p">,</span><span class="mf">0.119193</span><span class="p">,</span> <span class="mf">0.950227</span><span class="p">,</span> <span class="mi">0</span> <span class="p">)</span>
+<span class="n">new_im</span> <span class="o">=</span> <span class="n">im</span><span class="o">.</span><span class="n">convert</span><span class="p">(</span><span class="s2">&#34;L&#34;</span><span class="p">,</span> <span class="n">rgb2xyz</span><span class="p">)</span>
+</code></pre></div><h3 id="blend">blend</h3>
+<p><code>blend()</code>使用给定的两张图像及透明度变量<code>alpha</code>，插值出一张新的图像。这两张图像必须有一样的尺寸和模式。</p>
+<p><code>Image.blend(image1,image2, alpha) -&gt; image</code></p>
+<p>合成公式为：$out = image1 (1.0 - alpha) + image2 (alpha)$</p>
+<p>若变量<code>alpha</code>为0.0，返回第一张图像的拷贝。若变量<code>alpha</code>为1.0，将返回第二张图像的拷贝。对变量<code>alpha</code>的值无限制。</p>
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="kn">from</span> <span class="nn">PIL</span> <span class="kn">import</span> <span class="n">Image</span>
+<span class="n">im1</span> <span class="o">=</span> <span class="n">Image</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="s2">&#34;3d.jpg&#34;</span><span class="p">)</span>
+<span class="n">im2</span> <span class="o">=</span> <span class="n">Image</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="s2">&#34;3dd.jpg&#34;</span><span class="p">)</span>
+<span class="n">im</span> <span class="o">=</span> <span class="n">Image</span><span class="o">.</span><span class="n">blend</span><span class="p">(</span><span class="n">im1</span><span class="p">,</span> <span class="n">im2</span><span class="p">,</span> <span class="mf">0.40</span><span class="p">)</span>
+</code></pre></div><h3 id="fliter">fliter</h3>
+<p><code>fliter()</code>返回一个使用给定滤波器处理过的图像的拷贝。</p>
+<p><code>&lt;imname&gt;.filter(filter) -&gt; image</code></p>
+<p><code>fliter()</code>具体参考图像滤波在<code>ImageFilter</code>模块的应用。在该模块中，预先定义了很多增强滤波器，可以通过<code>filter()</code>函数使用。</p>
+<p>预定义滤波器包括：BLUR、CONTOUR、DETAIL、EDGE_ENHANCE、EDGE_ENHANCE_MORE、EMBOSS、FIND_EDGES、SMOOTH、SMOOTH_MORE、SHARPEN。其中BLUR就是均值滤波，CONTOUR找轮廓，FIND_EDGES边缘检测，使用该模块时，需先导入。</p>
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="kn">from</span> <span class="nn">PIL</span> <span class="kn">import</span> <span class="n">Image</span>
+<span class="kn">from</span> <span class="nn">PIL</span> <span class="kn">import</span> <span class="n">ImageFilter</span> <span class="c1"># 调取ImageFilter</span>
+<span class="n">imgF</span> <span class="o">=</span> <span class="n">Image</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="s2">&#34;3d.jpg&#34;</span><span class="p">)</span>
+<span class="n">bluF</span> <span class="o">=</span> <span class="n">imgF</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">ImageFilter</span><span class="o">.</span><span class="n">BLUR</span><span class="p">)</span> <span class="c1"># 均值滤波</span>
+<span class="n">conF</span> <span class="o">=</span> <span class="n">imgF</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">ImageFilter</span><span class="o">.</span><span class="n">CONTOUR</span><span class="p">)</span> <span class="c1"># 找轮廓</span>
+<span class="n">edgeF</span> <span class="o">=</span> <span class="n">imgF</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">ImageFilter</span><span class="o">.</span><span class="n">FIND_EDGES</span><span class="p">)</span> <span class="c1"># 边缘检测</span>
+</code></pre></div></div><div class="post-footer" id="post-footer">
+    <div class="post-info">
+        <div class="post-info-line">
+            <div class="post-info-mod">
+                <span>更新于 2021-04-02</span>
+            </div>
+            <div class="post-info-license"></div>
+        </div>
+        <div class="post-info-line">
+            <div class="post-info-md"></div>
+            <div class="post-info-share">
+                <span></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="post-info-more">
+        <section class="post-tags"></section>
+        <section>
+            <span><a href="javascript:void(0);" onclick="window.history.back();">返回</a></span>&nbsp;|&nbsp;<span><a href="../../">主页</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav"><a href="../../posts/sql03/" class="prev" rel="prev" title="3.基础DQL语句的编写"><i class="fas fa-angle-left fa-fw"></i>3.基础DQL语句的编写</a>
+            <a href="../../posts/sql04/" class="next" rel="next" title="4.函数使用&amp;分组查询">4.函数使用&amp;分组查询<i class="fas fa-angle-right fa-fw"></i></a></div>
+</div>
+<div id="comments"></div></article></div>
+            </main><footer class="footer">
+        <div class="footer-container"><div class="footer-line">由 <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.81.0">Hugo</a> 强力驱动 | 主题 - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 0.2.10"><i class="far fa-kiss-wink-heart fa-fw"></i> LoveIt</a>
+                </div><div class="footer-line"><i class="far fa-copyright fa-fw"></i><span itemprop="copyrightYear">2021</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="../../" target="_blank"></a></span></div>
+        </div>
+    </footer></div>
+
+        <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="回到顶部">
+                <i class="fas fa-arrow-up fa-fw"></i>
+            </a><a href="#" id="view-comments" class="fixed-button" title="查看评论">
+                <i class="fas fa-comment fa-fw"></i>
+            </a>
+        </div><link rel="stylesheet" href="../../lib/katex/katex.min.css"><link rel="stylesheet" href="../../lib/katex/copy-tex.min.css"><script type="text/javascript" src="../../lib/smooth-scroll/smooth-scroll.min.js"></script><script type="text/javascript" src="../../lib/autocomplete/autocomplete.min.js"></script><script type="text/javascript" src="../../lib/lunr/lunr.min.js"></script><script type="text/javascript" src="../../lib/lunr/lunr.stemmer.support.min.js"></script><script type="text/javascript" src="../../lib/lunr/lunr.zh.min.js"></script><script type="text/javascript" src="../../lib/lazysizes/lazysizes.min.js"></script><script type="text/javascript" src="../../lib/clipboard/clipboard.min.js"></script><script type="text/javascript" src="../../lib/katex/katex.min.js"></script><script type="text/javascript" src="../../lib/katex/auto-render.min.js"></script><script type="text/javascript" src="../../lib/katex/copy-tex.min.js"></script><script type="text/javascript" src="../../lib/katex/mhchem.min.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"复制到剪贴板","maxShownLines":10},"comment":{},"math":{"delimiters":[{"display":true,"left":"$$","right":"$$"},{"display":true,"left":"\\[","right":"\\]"},{"display":false,"left":"$","right":"$"},{"display":false,"left":"\\(","right":"\\)"}],"strict":false},"search":{"highlightTag":"em","lunrLanguageCode":"zh","lunrSegmentitURL":"/lib/lunr/lunr.segmentit.js","maxResultLength":10,"noResultsFound":"没有找到结果","snippetLength":50}};</script><script type="text/javascript" src="../../js/theme.min.js"></script></body>
+</html>

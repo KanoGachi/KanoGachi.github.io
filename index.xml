@@ -3,9 +3,58 @@
         <title>速冻小鹿包的博客</title>
         <link>http://example.org/</link>
         <description>速冻小鹿包的博客</description>
-        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><lastBuildDate>Wed, 10 Mar 2021 11:02:44 &#43;0800</lastBuildDate>
+        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><lastBuildDate>Tue, 06 Apr 2021 17:18:56 &#43;0800</lastBuildDate>
             <atom:link href="http://example.org/index.xml" rel="self" type="application/rss+xml" />
         <item>
+    <title>图像处理基础方法</title>
+    <link>http://example.org/posts/pyimg/</link>
+    <pubDate>Tue, 06 Apr 2021 17:18:56 &#43;0800</pubDate>
+    <author>作者</author>
+    <guid>http://example.org/posts/pyimg/</guid>
+    <description><![CDATA[PIL基础使用 Python图像库PIL的类Image及其方法介绍 NumPy基础使用 NumPy教程 从Image到array的相互转换 PIL Imag]]></description>
+</item><item>
+    <title>4.函数使用&amp;分组查询</title>
+    <link>http://example.org/posts/sql04/</link>
+    <pubDate>Sat, 03 Apr 2021 22:09:33 &#43;0800</pubDate>
+    <author>作者</author>
+    <guid>http://example.org/posts/sql04/</guid>
+    <description><![CDATA[单行处理函数 单行处理函数的特点是输入一行，输出一行。 ifnull ifnull()用于处理值可能为NULL的数据，该函数接收两个参数，分别为需处理字段名]]></description>
+</item><item>
+    <title>【PIL库】Image类基础使用方法</title>
+    <link>http://example.org/posts/pil/</link>
+    <pubDate>Fri, 02 Apr 2021 20:56:16 &#43;0800</pubDate>
+    <author>作者</author>
+    <guid>http://example.org/posts/pil/</guid>
+    <description><![CDATA[前言 修改自CSDN博客,完整内容见： Python图像库PIL的类Image及其方法介绍 Image类介绍 Image类是PIL中的核心类，你有很]]></description>
+</item><item>
+    <title>3.基础DQL语句的编写</title>
+    <link>http://example.org/posts/sql03/</link>
+    <pubDate>Tue, 30 Mar 2021 14:55:17 &#43;0800</pubDate>
+    <author>作者</author>
+    <guid>http://example.org/posts/sql03/</guid>
+    <description><![CDATA[简单查询语句(DQL) 基础查询语句： SELECT col1,col2,col3,col4... FROM tbname; 从tbname表查询上述多个字段的值。 SELECT * FROM tbname; 从tbname表中查询所有数据。（实际开发中不建议]]></description>
+</item><item>
+    <title>2.基础MySql数据库操作</title>
+    <link>http://example.org/posts/sql02/</link>
+    <pubDate>Mon, 29 Mar 2021 20:42:49 &#43;0800</pubDate>
+    <author>作者</author>
+    <guid>http://example.org/posts/sql02/</guid>
+    <description><![CDATA[获取和修改数据库的基本命令（注意命令中的分号！） 1.连接到MySql数据库（必要）：mysql -u root -p 2.查看数据：show databases; 3.创建数据库：]]></description>
+</item><item>
+    <title>Linux基础命令</title>
+    <link>http://example.org/posts/linux01/</link>
+    <pubDate>Mon, 29 Mar 2021 16:58:05 &#43;0800</pubDate>
+    <author>作者</author>
+    <guid>http://example.org/posts/linux01/</guid>
+    <description><![CDATA[Linux基本操作 Tab补全 Tab补全是非常有用的一个功能，可以用来自动补全命令或文件名，省时准确。 未输入状态下连按两次 Tab 列出所有可用命令 已]]></description>
+</item><item>
+    <title>1.基础知识</title>
+    <link>http://example.org/posts/sql01/</link>
+    <pubDate>Sun, 28 Mar 2021 20:07:31 &#43;0800</pubDate>
+    <author>作者</author>
+    <guid>http://example.org/posts/sql01/</guid>
+    <description><![CDATA[DB,DBMS和SQL DB(Data Base):数据库，指按数据结构存储在计算机内的仓库 DBMS(Data Base Management System):数据库管理系统 SQL(Structured Query Language):结构]]></description>
+</item><item>
     <title>6.系统调用</title>
     <link>http://example.org/posts/caozuo6/</link>
     <pubDate>Wed, 10 Mar 2021 11:02:44 &#43;0800</pubDate>
@@ -26,54 +75,5 @@
     <author>作者</author>
     <guid>http://example.org/posts/caozuo4/</guid>
     <description><![CDATA[运行机制 系统运行机制 可以概括为两种指令、两种程序、两种处理器状态，其中： 两种指令： 特权指令 非特权指令 两种程序： 内核程序 应用程序 两种处理器状态]]></description>
-</item><item>
-    <title>3.操作系统的发展和分类</title>
-    <link>http://example.org/posts/caozuo3/</link>
-    <pubDate>Tue, 09 Mar 2021 10:35:44 &#43;0800</pubDate>
-    <author>作者</author>
-    <guid>http://example.org/posts/caozuo3/</guid>
-    <description><![CDATA[操作系统的发展和分类 补充 单道和多道批处理系统： 单道的处理流程" 单道的处理流程 多道的处理流程" 多道的处理流程 相比于单道批处理系统，多道批处理系]]></description>
-</item><item>
-    <title>2.操作系统的四个特征</title>
-    <link>http://example.org/posts/caozuo2/</link>
-    <pubDate>Mon, 08 Mar 2021 20:35:44 &#43;0800</pubDate>
-    <author>作者</author>
-    <guid>http://example.org/posts/caozuo2/</guid>
-    <description><![CDATA[操作系统的特征 并发 并发 ：指两个或者多个事件在同一时间间隔内发生 ，这些事件在宏观上看是同时发生 ，但微观上是交替发生的。 易混淆概念：并行 - 指两个]]></description>
-</item><item>
-    <title>1.操作系统的概念、功能、目标</title>
-    <link>http://example.org/posts/caozuo1/</link>
-    <pubDate>Sat, 06 Mar 2021 17:00:57 &#43;0800</pubDate>
-    <author>作者</author>
-    <guid>http://example.org/posts/caozuo1/</guid>
-    <description><![CDATA[计算机系统的层次结构 计算机系统的层次" 计算机系统的层次 操作系统 的层次位于 用户、应用程序 和 裸机之间。操作系统可以直接和用户，应用和硬件进行交互]]></description>
-</item><item>
-    <title>【模板类】Map &amp; Unordered_Map</title>
-    <link>http://example.org/posts/map/</link>
-    <pubDate>Thu, 04 Mar 2021 11:11:57 &#43;0800</pubDate>
-    <author>作者</author>
-    <guid>http://example.org/posts/map/</guid>
-    <description><![CDATA[Map &amp; Unordered_map Map使用红黑树组织数据，Unordered_map使用哈希表组织数据。 对于Map而言： 存储数据占用内存比哈希表更小，构造速度更快，但]]></description>
-</item><item>
-    <title>338. Counting Bits</title>
-    <link>http://example.org/posts/338/</link>
-    <pubDate>Wed, 03 Mar 2021 20:22:45 &#43;0800</pubDate>
-    <author>作者</author>
-    <guid>http://example.org/posts/338/</guid>
-    <description><![CDATA[位运算 对于[0,n]的每个数字x，我们使用位运算对其进行二进制下1的个数的计算。 计算某个数字x二进制下1的个数count有以下方法： 1.用x]]></description>
-</item><item>
-    <title>【模板类】Vector</title>
-    <link>http://example.org/posts/vector/</link>
-    <pubDate>Tue, 02 Mar 2021 22:11:29 &#43;0800</pubDate>
-    <author>作者</author>
-    <guid>http://example.org/posts/vector/</guid>
-    <description><![CDATA[Vector简介 向量（Vector） 是一个封装了动态大小数组的顺序容器（Sequence Container）。跟任意其它类型容器一样，它能够]]></description>
-</item><item>
-    <title>1. Two Sum</title>
-    <link>http://example.org/posts/my_first_post/</link>
-    <pubDate>Tue, 02 Mar 2021 15:15:35 &#43;0800</pubDate>
-    <author>作者</author>
-    <guid>http://example.org/posts/my_first_post/</guid>
-    <description><![CDATA[暴力解法【时间：$O(n^2)$ 空间：$O(1)$】 思路 对于数组中的每一个位置的数字x，寻找位于该数字后方的所有数字中，是否有能与它匹配的数]]></description>
 </item></channel>
 </rss>

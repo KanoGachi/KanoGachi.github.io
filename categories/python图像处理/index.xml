@@ -1,0 +1,21 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>Python图像处理 - 分类 - 速冻小鹿包的博客</title>
+        <link>http://example.org/categories/python%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86/</link>
+        <description>Python图像处理 - 分类 - 速冻小鹿包的博客</description>
+        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><lastBuildDate>Tue, 06 Apr 2021 17:18:56 &#43;0800</lastBuildDate><atom:link href="http://example.org/categories/python%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86/" rel="self" type="application/rss+xml" /><item>
+    <title>图像处理基础方法</title>
+    <link>http://example.org/posts/pyimg/</link>
+    <pubDate>Tue, 06 Apr 2021 17:18:56 &#43;0800</pubDate>
+    <author>作者</author>
+    <guid>http://example.org/posts/pyimg/</guid>
+    <description><![CDATA[PIL基础使用 Python图像库PIL的类Image及其方法介绍 NumPy基础使用 NumPy教程 从Image到array的相互转换 PIL Imag]]></description>
+</item><item>
+    <title>【PIL库】Image类基础使用方法</title>
+    <link>http://example.org/posts/pil/</link>
+    <pubDate>Fri, 02 Apr 2021 20:56:16 &#43;0800</pubDate>
+    <author>作者</author>
+    <guid>http://example.org/posts/pil/</guid>
+    <description><![CDATA[前言 修改自CSDN博客,完整内容见： Python图像库PIL的类Image及其方法介绍 Image类介绍 Image类是PIL中的核心类，你有很]]></description>
+</item></channel>
+</rss>

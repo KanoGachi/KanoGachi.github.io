@@ -1,0 +1,14 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>Linux笔记 - 分类 - 速冻小鹿包的博客</title>
+        <link>http://example.org/categories/linux%E7%AC%94%E8%AE%B0/</link>
+        <description>Linux笔记 - 分类 - 速冻小鹿包的博客</description>
+        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><lastBuildDate>Mon, 29 Mar 2021 16:58:05 &#43;0800</lastBuildDate><atom:link href="http://example.org/categories/linux%E7%AC%94%E8%AE%B0/" rel="self" type="application/rss+xml" /><item>
+    <title>Linux基础命令</title>
+    <link>http://example.org/posts/linux01/</link>
+    <pubDate>Mon, 29 Mar 2021 16:58:05 &#43;0800</pubDate>
+    <author>作者</author>
+    <guid>http://example.org/posts/linux01/</guid>
+    <description><![CDATA[Linux基本操作 Tab补全 Tab补全是非常有用的一个功能，可以用来自动补全命令或文件名，省时准确。 未输入状态下连按两次 Tab 列出所有可用命令 已]]></description>
+</item></channel>
+</rss>
