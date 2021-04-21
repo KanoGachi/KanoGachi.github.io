@@ -3,19 +3,19 @@
         <title>Categories - 分类 - 速冻小鹿包的博客</title>
         <link>http://example.org/categories/</link>
         <description>Categories - 分类 - 速冻小鹿包的博客</description>
-        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><lastBuildDate>Tue, 06 Apr 2021 17:18:56 &#43;0800</lastBuildDate><atom:link href="http://example.org/categories/" rel="self" type="application/rss+xml" /><item>
+        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><lastBuildDate>Fri, 16 Apr 2021 15:30:17 &#43;0800</lastBuildDate><atom:link href="http://example.org/categories/" rel="self" type="application/rss+xml" /><item>
+    <title>数据库笔记</title>
+    <link>http://example.org/categories/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%AC%94%E8%AE%B0/</link>
+    <pubDate>Fri, 16 Apr 2021 15:30:17 &#43;0800</pubDate>
+    <author>作者</author>
+    <guid>http://example.org/categories/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%AC%94%E8%AE%B0/</guid>
+    <description><![CDATA[]]></description>
+</item><item>
     <title>Python图像处理</title>
     <link>http://example.org/categories/python%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86/</link>
     <pubDate>Tue, 06 Apr 2021 17:18:56 &#43;0800</pubDate>
     <author>作者</author>
     <guid>http://example.org/categories/python%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86/</guid>
-    <description><![CDATA[]]></description>
-</item><item>
-    <title>数据库笔记</title>
-    <link>http://example.org/categories/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%AC%94%E8%AE%B0/</link>
-    <pubDate>Sat, 03 Apr 2021 22:09:33 &#43;0800</pubDate>
-    <author>作者</author>
-    <guid>http://example.org/categories/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%AC%94%E8%AE%B0/</guid>
     <description><![CDATA[]]></description>
 </item><item>
     <title>Linux笔记</title>

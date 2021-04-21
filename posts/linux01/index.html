@@ -6,7 +6,7 @@
         <meta name="robots" content="noodp" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
         <title>Linux基础命令 - 速冻小鹿包的博客</title><meta name="Description" content="速冻小鹿包的博客"><meta property="og:title" content="Linux基础命令" />
-<meta property="og:description" content="Linux基本操作 Tab补全 Tab补全是非常有用的一个功能，可以用来自动补全命令或文件名，省时准确。 未输入状态下连按两次 Tab 列出所有可用命令 已" />
+<meta property="og:description" content="学习网站 本篇博客改自CSDN：Linux命令行基础入门 帮助文档 Linux命令大全（★★★） ，可以在上面找到你要查找的linux命令 Linux" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="http://example.org/posts/linux01/" /><meta property="article:section" content="posts" />
 <meta property="article:published_time" content="2021-03-29T16:58:05&#43;08:00" />
@@ -14,7 +14,7 @@
 
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Linux基础命令"/>
-<meta name="twitter:description" content="Linux基本操作 Tab补全 Tab补全是非常有用的一个功能，可以用来自动补全命令或文件名，省时准确。 未输入状态下连按两次 Tab 列出所有可用命令 已"/>
+<meta name="twitter:description" content="学习网站 本篇博客改自CSDN：Linux命令行基础入门 帮助文档 Linux命令大全（★★★） ，可以在上面找到你要查找的linux命令 Linux"/>
 <meta name="application-name" content="速冻小鹿包的博客">
 <meta name="apple-mobile-web-app-title" content="速冻小鹿包的博客"><link rel="icon" href="../../favicon.ico"><link rel="apple-touch-icon" sizes="180x180" href="../../apple-touch-icon.png"><link rel="manifest" href="../../site.webmanifest"><link rel="canonical" href="http://example.org/posts/linux01/" /><link rel="prev" href="http://example.org/posts/sql01/" /><link rel="next" href="http://example.org/posts/sql02/" /><link rel="stylesheet" href="../../lib/normalize/normalize.min.css"><link rel="stylesheet" href="../../css/style.min.css"><link rel="stylesheet" href="../../lib/fontawesome-free/all.min.css"><link rel="stylesheet" href="../../lib/animate/animate.min.css"><script type="application/ld+json">
     {
@@ -25,7 +25,7 @@
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "http:\/\/example.org\/posts\/linux01\/"
-        },"genre": "posts","wordcount":  2360 ,
+        },"genre": "posts","wordcount":  2826 ,
         "url": "http:\/\/example.org\/posts\/linux01\/","datePublished": "2021-03-29T16:58:05+08:00","dateModified": "2021-03-29T16:58:05+08:00","publisher": {
             "@type": "Organization",
             "name": "作者"},"author": {
@@ -116,8 +116,8 @@
             <div class="toc-content" id="toc-content-auto"></div>
         </div><article class="page single"><h1 class="single-title animated flipInX">Linux基础命令</h1><div class="post-meta">
             <div class="post-meta-line"><span class="post-author"><a href="../../" title="Author" rel=" author" class="author"><i class="fas fa-user-circle fa-fw"></i>作者</a></span>&nbsp;<span class="post-category">收录于 <a href="../../categories/linux%E7%AC%94%E8%AE%B0/"><i class="far fa-folder fa-fw"></i>Linux笔记</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2021-03-29">2021-03-29</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 2360 字&nbsp;
-                <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 5 分钟&nbsp;</div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2021-03-29">2021-03-29</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 2826 字&nbsp;
+                <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 6 分钟&nbsp;</div>
         </div><div class="details toc" id="toc-static"  kept="true">
                 <div class="details-summary toc-title">
                     <span>目录</span>
@@ -125,6 +125,7 @@
                 </div>
                 <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
   <ul>
+    <li><a href="#学习网站">学习网站</a></li>
     <li><a href="#linux基本操作">Linux基本操作</a>
       <ul>
         <li><a href="#tab补全">Tab补全</a></li>
@@ -146,7 +147,7 @@
         <li><a href="#wget">wget</a></li>
       </ul>
     </li>
-    <li><a href="#用户权限设置">用户权限设置</a></li>
+    <li><a href="#用户权限设置chmod">用户权限设置(chmod)</a></li>
     <li><a href="#vivimnano">vi/vim,nano</a>
       <ul>
         <li><a href="#vivim">vi/vim</a></li>
@@ -155,7 +156,15 @@
     </li>
   </ul>
 </nav></div>
-            </div><div class="content" id="content"><h2 id="linux基本操作">Linux基本操作</h2>
+            </div><div class="content" id="content"><h2 id="学习网站">学习网站</h2>
+<p>本篇博客改自CSDN：<a href="https://blog.csdn.net/u012104219/article/details/79125771" target="_blank" rel="noopener noreffer">Linux命令行基础入门</a></p>
+<p>帮助文档</p>
+<ul>
+<li><a href="http://man.linuxde.net/" target="_blank" rel="noopener noreffer">Linux命令大全（★★★）</a> ，可以在上面找到你要查找的linux命令</li>
+<li><a href="http://www.runoob.com/linux/linux-command-manual.html" target="_blank" rel="noopener noreffer">Linux命令大全</a> | 菜鸟教程</li>
+<li><a href="http://www.runoob.com/linux/linux-tutorial.html" target="_blank" rel="noopener noreffer">Linux教程</a> | 菜鸟教程</li>
+</ul>
+<h2 id="linux基本操作">Linux基本操作</h2>
 <h3 id="tab补全">Tab补全</h3>
 <p><strong>Tab补全</strong>是非常有用的一个功能，可以用来自动补全命令或文件名，省时准确。</p>
 <ul>
@@ -263,11 +272,32 @@
 <span class="o">[</span>root@localhost ~<span class="o">]</span> wget --spider URL
 <span class="c1"># 下载多个文件(filelist.txt保存了url信息，每行一个URL链接)</span>
 <span class="o">[</span>root@localhost ~<span class="o">]</span> wget -i filelist.txt
-</code></pre></div><h2 id="用户权限设置">用户权限设置</h2>
+</code></pre></div><h2 id="用户权限设置chmod">用户权限设置(chmod)</h2>
+<p><code>chmod</code>：<code>chmod</code>命令用来变更文件或目录的权限。在UNIX系统家族里，文件或目录权限的控制分别以<strong>读取、写入、执行</strong>3种一般权限来区分，另有3种特殊权限可供运用。用户可以使用chmod指令去变更文件与目录的权限，设置方式采用文字或数字代号皆可。符号连接的权限无法变更，如果用户对符号连接修改权限，其改变会作用在被连接的原始文件。</p>
+<p>权限范围的表示法如下：</p>
+<ul>
+<li><code>u</code>：User，即文件或目录的拥有者；</li>
+<li><code>g</code>：Group，即文件或目录的所属群组；</li>
+<li><code>o</code>：Other，除了文件或目录拥有者或所属群组之外，其他用户皆属于这个范围；</li>
+<li><code>a</code>：All，即全部的用户，包含拥有者，所属群组以及其他用户；</li>
+<li><code>r</code>：读取权限，数字代号为“4”;</li>
+<li><code>w</code>：写入权限，数字代号为“2”；</li>
+<li><code>x</code>：执行或切换权限，数字代号为“1”；</li>
+<li><code>-</code>：不具任何权限，数字代号为“0”；</li>
+<li><code>s</code>：特殊功能说明：变更文件或目录的权限。</li>
+</ul>
+<p><img
+        class="lazyload"
+        src="../../svg/loading.min.svg"
+        data-src="../../lin/chm.png"
+        data-srcset="../../lin/chm.png, ../../lin/chm.png 1.5x, ../../lin/chm.png 2x"
+        data-sizes="auto"
+        alt="/lin/chm.png"
+        title="Linux文件权限分析图" /></p>
 <h2 id="vivimnano">vi/vim,nano</h2>
 <h3 id="vivim">vi/vim</h3>
 <p>它们都是多模式编辑器，不同的是vim是vi的升级版本，它不仅兼容vi的所有指令，而且还有一些新的特性在里面。</p>
-<a href="https://www.runoob.com/linux/linux-vim.html" title="vim学习页面" target="_blank" rel="noopener noreffer">LinuxVim学习-runoob</a>
+<p><a href="https://www.runoob.com/linux/linux-vim.html" title="vim学习页面" target="_blank" rel="noopener noreffer">LinuxVim学习</a> | 菜鸟教程</p>
 <h3 id="nano">nano</h3>
 <p>nano是一个字符终端的文本编辑器，有点像DOS下的editor程序。它比vi/vim要简单得多，比较适合Linux初学者使用。某些Linux发行版的默认编辑器就是nano。</p>
 <p>如果你没有安装nano编辑器的话，可以使用yum进行安装：<code>yum -y install nano</code></p>

@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="robots" content="noodp" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
+        <title>5.连接查询 - 速冻小鹿包的博客</title><meta name="Description" content="速冻小鹿包的博客"><meta property="og:title" content="5.连接查询" />
+<meta property="og:description" content="连接查询完整学习 连接查询-菜鸟教程 连接查询的含义 连接查询指使用多张表联合查询选取出最终的结果。实际开发中，一般一个业务都会对应多张表。 连接查" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://example.org/posts/sql05/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2021-04-09T11:55:00&#43;08:00" />
+<meta property="article:modified_time" content="2021-04-09T11:55:00&#43;08:00" />
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="5.连接查询"/>
+<meta name="twitter:description" content="连接查询完整学习 连接查询-菜鸟教程 连接查询的含义 连接查询指使用多张表联合查询选取出最终的结果。实际开发中，一般一个业务都会对应多张表。 连接查"/>
+<meta name="application-name" content="速冻小鹿包的博客">
+<meta name="apple-mobile-web-app-title" content="速冻小鹿包的博客"><link rel="icon" href="../../favicon.ico"><link rel="apple-touch-icon" sizes="180x180" href="../../apple-touch-icon.png"><link rel="manifest" href="../../site.webmanifest"><link rel="canonical" href="http://example.org/posts/sql05/" /><link rel="prev" href="http://example.org/posts/pyimg/" /><link rel="next" href="http://example.org/posts/nsql01/" /><link rel="stylesheet" href="../../lib/normalize/normalize.min.css"><link rel="stylesheet" href="../../css/style.min.css"><link rel="stylesheet" href="../../lib/fontawesome-free/all.min.css"><link rel="stylesheet" href="../../lib/animate/animate.min.css"><script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "headline": "5.连接查询",
+        "inLanguage": "zh-CN",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "http:\/\/example.org\/posts\/sql05\/"
+        },"genre": "posts","wordcount":  600 ,
+        "url": "http:\/\/example.org\/posts\/sql05\/","datePublished": "2021-04-09T11:55:00+08:00","dateModified": "2021-04-09T11:55:00+08:00","publisher": {
+            "@type": "Organization",
+            "name": "作者"},"author": {
+                "@type": "Person",
+                "name": "作者"
+            },"description": ""
+    }
+    </script></head>
+    <body header-desktop="fixed" header-mobile="fixed"><script type="text/javascript">(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('dark' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'dark' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
+
+        <div id="mask"></div><div class="wrapper"><header class="desktop" id="header-desktop">
+    <div class="header-wrapper">
+        <div class="header-title">
+            <a href="../../" title="速冻小鹿包的博客"><img
+        class="lazyload logo"
+        src="../../svg/loading.min.svg"
+        data-src="../../favicon.ico"
+        data-srcset="../../favicon.ico, ../../favicon.ico 1.5x, ../../favicon.ico 2x"
+        data-sizes="auto"
+        alt="/favicon.ico"
+        title="/favicon.ico" />Alice...</a>
+        </div>
+        <div class="menu">
+            <div class="menu-inner"><a class="menu-item" href="../../categories/"> 分类 </a><a class="menu-item" href="../../tags/"> 标签 </a><a class="menu-item" href="../../posts/"> 文章 </a><span class="menu-item delimiter"></span><span class="menu-item search" id="search-desktop">
+                        <input type="text" placeholder="LeetCode" id="search-input-desktop">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="搜索">
+                            <i class="fas fa-search fa-fw"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-desktop" title="清空">
+                            <i class="fas fa-times-circle fa-fw"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-desktop">
+                            <i class="fas fa-spinner fa-fw fa-spin"></i>
+                        </span>
+                    </span><a href="javascript:void(0);" class="menu-item theme-switch" title="切换主题">
+                    <i class="fas fa-adjust fa-fw"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+</header><header class="mobile" id="header-mobile">
+    <div class="header-container">
+        <div class="header-wrapper">
+            <div class="header-title">
+                <a href="../../" title="速冻小鹿包的博客"><img
+        class="lazyload logo"
+        src="../../svg/loading.min.svg"
+        data-src="../../favicon.ico"
+        data-srcset="../../favicon.ico, ../../favicon.ico 1.5x, ../../favicon.ico 2x"
+        data-sizes="auto"
+        alt="/favicon.ico"
+        title="/favicon.ico" />Alice...</a>
+            </div>
+            <div class="menu-toggle" id="menu-toggle-mobile">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+        <div class="menu" id="menu-mobile"><div class="search-wrapper">
+                    <div class="search mobile" id="search-mobile">
+                        <input type="text" placeholder="LeetCode" id="search-input-mobile">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-mobile" title="搜索">
+                            <i class="fas fa-search fa-fw"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-mobile" title="清空">
+                            <i class="fas fa-times-circle fa-fw"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-mobile">
+                            <i class="fas fa-spinner fa-fw fa-spin"></i>
+                        </span>
+                    </div>
+                    <a href="javascript:void(0);" class="search-cancel" id="search-cancel-mobile">
+                        取消
+                    </a>
+                </div><a class="menu-item" href="../../categories/" title="">分类</a><a class="menu-item" href="../../tags/" title="">标签</a><a class="menu-item" href="../../posts/" title="">文章</a><a href="javascript:void(0);" class="menu-item theme-switch" title="切换主题">
+                <i class="fas fa-adjust fa-fw"></i>
+            </a></div>
+    </div>
+</header>
+<div class="search-dropdown desktop">
+    <div id="search-dropdown-desktop"></div>
+</div>
+<div class="search-dropdown mobile">
+    <div id="search-dropdown-mobile"></div>
+</div>
+<main class="main">
+                <div class="container"><div class="toc" id="toc-auto">
+            <h2 class="toc-title">目录</h2>
+            <div class="toc-content" id="toc-content-auto"></div>
+        </div><article class="page single"><h1 class="single-title animated flipInX">5.连接查询</h1><div class="post-meta">
+            <div class="post-meta-line"><span class="post-author"><a href="../../" title="Author" rel=" author" class="author"><i class="fas fa-user-circle fa-fw"></i>作者</a></span>&nbsp;<span class="post-category">收录于 <a href="../../categories/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%AC%94%E8%AE%B0/"><i class="far fa-folder fa-fw"></i>数据库笔记</a></span></div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2021-04-09">2021-04-09</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 600 字&nbsp;
+                <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 2 分钟&nbsp;</div>
+        </div><div class="details toc" id="toc-static"  kept="true">
+                <div class="details-summary toc-title">
+                    <span>目录</span>
+                    <span><i class="details-icon fas fa-angle-right"></i></span>
+                </div>
+                <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#连接查询完整学习">连接查询完整学习</a></li>
+    <li><a href="#连接查询的含义">连接查询的含义</a></li>
+    <li><a href="#连接查询的分类">连接查询的分类</a></li>
+    <li><a href="#笛卡尔积现象">笛卡尔积现象</a></li>
+    <li><a href="#内连接inner-join">内连接(Inner Join)</a>
+      <ul>
+        <li><a href="#等值连接">等值连接</a></li>
+        <li><a href="#非等值连接">非等值连接</a></li>
+        <li><a href="#自连接">自连接</a></li>
+      </ul>
+    </li>
+    <li><a href="#外连接outer-join">外连接(Outer Join)</a>
+      <ul>
+        <li><a href="#左外连接">左外连接</a></li>
+        <li><a href="#右外连接">右外连接</a></li>
+      </ul>
+    </li>
+    <li><a href="#全连接">全连接</a></li>
+  </ul>
+</nav></div>
+            </div><div class="content" id="content"><h2 id="连接查询完整学习">连接查询完整学习</h2>
+<a href="https://www.runoob.com/sql/sql-join.html" title="资料" target="_blank" rel="noopener noreffer">连接查询-菜鸟教程</a>
+<h2 id="连接查询的含义">连接查询的含义</h2>
+<p>连接查询指使用多张表联合查询选取出最终的结果。实际开发中，一般一个业务都会对应多张表。</p>
+<h2 id="连接查询的分类">连接查询的分类</h2>
+<p><img
+        class="lazyload"
+        src="../../svg/loading.min.svg"
+        data-src="../../sql/sql-join.png"
+        data-srcset="../../sql/sql-join.png, ../../sql/sql-join.png 1.5x, ../../sql/sql-join.png 2x"
+        data-sizes="auto"
+        alt="/sql/sql-join.png"
+        title="连接查询分类" /></p>
+<p>根据表的连接方式来划分可以将连接查询划分为：</p>
+<ul>
+<li><strong>内连接(Inner Join)</strong>
+<ul>
+<li>等值连接</li>
+<li>非等值连接</li>
+<li>自连接</li>
+</ul>
+</li>
+<li><strong>外连接(Outer Join)</strong>
+<ul>
+<li>左外连接</li>
+<li>右外连接</li>
+</ul>
+</li>
+<li><strong>全连接(Full Join)</strong></li>
+</ul>
+<h2 id="笛卡尔积现象">笛卡尔积现象</h2>
+<a href="https://baike.baidu.com/item/%E7%AC%9B%E5%8D%A1%E5%B0%94%E4%B9%98%E7%A7%AF/6323173?fromtitle=%E7%AC%9B%E5%8D%A1%E5%B0%94%E7%A7%AF&amp;fromid=1434391&amp;fr=aladdin" title="资料" target="_blank" rel="noopener noreffer">百度百科：笛卡尔积</a>
+<p>若两张表的连接查询没有任何条件限制，查询到的数据条数将是两张表数据条数的乘积。</p>
+<p>若要避免最终结果的笛卡尔积现象，需要在联合查询时增加条件。（获取结果需要对数据进行比对的次数仍然是笛卡尔积次）</p>
+<h2 id="内连接inner-join">内连接(Inner Join)</h2>
+<p>查出的所有数据记录在<code>table1</code>和<code>table2</code>都能够被匹配上。</p>
+<div class="highlight"><pre class="chroma"><code class="language-sql" data-lang="sql"><span class="k">SELECT</span> <span class="p">...</span>
+<span class="k">FROM</span> <span class="o">&lt;</span><span class="n">table1</span><span class="o">&gt;</span>
+<span class="k">INNER</span> <span class="k">JOIN</span> <span class="o">&lt;</span><span class="n">table2</span><span class="o">&gt;</span>
+<span class="k">ON</span> <span class="o">&lt;</span><span class="n">condition</span><span class="o">&gt;</span>
+</code></pre></div><h3 id="等值连接">等值连接</h3>
+<p>等值连接的最大特点是<strong>条件为等量关系</strong></p>
+<h3 id="非等值连接">非等值连接</h3>
+<p>非等值连接的最大特点在于连接的条件是<strong>非等量关系</strong></p>
+<h3 id="自连接">自连接</h3>
+<p>自连接的最大特点在于<strong>将一张表看成两张表，表和自己进行连接</strong></p>
+<h2 id="外连接outer-join">外连接(Outer Join)</h2>
+<p>外连接中，连接的两张表有主副两表之分，其中，主表中的所有数据会被无条件的查找出来。</p>
+<h3 id="左外连接">左外连接</h3>
+<p><code>table1</code>是主表。</p>
+<p>查出的数据必须和<code>table1</code>可以匹配上，但不一定要和<code>table2</code>匹配上。在<code>table2</code>中无法匹配的数据缺失字段会自动设置为<code>NULL</code></p>
+<div class="highlight"><pre class="chroma"><code class="language-sql" data-lang="sql"><span class="k">SELECT</span> <span class="p">...</span>
+<span class="k">FROM</span> <span class="o">&lt;</span><span class="n">table1</span><span class="o">&gt;</span>
+<span class="k">LEFT</span> <span class="k">JOIN</span> <span class="o">&lt;</span><span class="n">table2</span><span class="o">&gt;</span>
+<span class="k">ON</span> <span class="o">&lt;</span><span class="n">condition</span><span class="o">&gt;</span>
+</code></pre></div><h3 id="右外连接">右外连接</h3>
+<p>和上述相似，主表变为<code>table2</code></p>
+<div class="highlight"><pre class="chroma"><code class="language-sql" data-lang="sql"><span class="k">SELECT</span> <span class="p">...</span>
+<span class="k">FROM</span> <span class="o">&lt;</span><span class="n">table1</span><span class="o">&gt;</span>
+<span class="k">RIGHT</span> <span class="k">JOIN</span> <span class="o">&lt;</span><span class="n">table2</span><span class="o">&gt;</span>
+<span class="k">ON</span> <span class="o">&lt;</span><span class="n">condition</span><span class="o">&gt;</span>
+</code></pre></div><h2 id="全连接">全连接</h2>
+<p>全连接中两张表都是主表，只要数据能在任意一张表匹配上，就可以输出数据。</p>
+<div class="highlight"><pre class="chroma"><code class="language-sql" data-lang="sql"><span class="k">SELECT</span> <span class="p">...</span>
+<span class="k">FROM</span> <span class="o">&lt;</span><span class="n">table1</span><span class="o">&gt;</span>
+<span class="k">FULL</span> <span class="k">OUTER</span> <span class="k">JOIN</span> <span class="o">&lt;</span><span class="n">table2</span><span class="o">&gt;</span>
+<span class="k">ON</span> <span class="o">&lt;</span><span class="n">condition</span><span class="o">&gt;</span>
+</code></pre></div></div><div class="post-footer" id="post-footer">
+    <div class="post-info">
+        <div class="post-info-line">
+            <div class="post-info-mod">
+                <span>更新于 2021-04-09</span>
+            </div>
+            <div class="post-info-license"></div>
+        </div>
+        <div class="post-info-line">
+            <div class="post-info-md"></div>
+            <div class="post-info-share">
+                <span></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="post-info-more">
+        <section class="post-tags"></section>
+        <section>
+            <span><a href="javascript:void(0);" onclick="window.history.back();">返回</a></span>&nbsp;|&nbsp;<span><a href="../../">主页</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav"><a href="../../posts/pyimg/" class="prev" rel="prev" title="图像处理基础方法"><i class="fas fa-angle-left fa-fw"></i>图像处理基础方法</a>
+            <a href="../../posts/nsql01/" class="next" rel="next" title="数据库笔记：窗口函数介绍">数据库笔记：窗口函数介绍<i class="fas fa-angle-right fa-fw"></i></a></div>
+</div>
+<div id="comments"></div></article></div>
+            </main><footer class="footer">
+        <div class="footer-container"><div class="footer-line">由 <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.81.0">Hugo</a> 强力驱动 | 主题 - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 0.2.10"><i class="far fa-kiss-wink-heart fa-fw"></i> LoveIt</a>
+                </div><div class="footer-line"><i class="far fa-copyright fa-fw"></i><span itemprop="copyrightYear">2021</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="../../" target="_blank"></a></span></div>
+        </div>
+    </footer></div>
+
+        <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="回到顶部">
+                <i class="fas fa-arrow-up fa-fw"></i>
+            </a><a href="#" id="view-comments" class="fixed-button" title="查看评论">
+                <i class="fas fa-comment fa-fw"></i>
+            </a>
+        </div><link rel="stylesheet" href="../../lib/katex/katex.min.css"><link rel="stylesheet" href="../../lib/katex/copy-tex.min.css"><script type="text/javascript" src="../../lib/smooth-scroll/smooth-scroll.min.js"></script><script type="text/javascript" src="../../lib/autocomplete/autocomplete.min.js"></script><script type="text/javascript" src="../../lib/lunr/lunr.min.js"></script><script type="text/javascript" src="../../lib/lunr/lunr.stemmer.support.min.js"></script><script type="text/javascript" src="../../lib/lunr/lunr.zh.min.js"></script><script type="text/javascript" src="../../lib/lazysizes/lazysizes.min.js"></script><script type="text/javascript" src="../../lib/clipboard/clipboard.min.js"></script><script type="text/javascript" src="../../lib/katex/katex.min.js"></script><script type="text/javascript" src="../../lib/katex/auto-render.min.js"></script><script type="text/javascript" src="../../lib/katex/copy-tex.min.js"></script><script type="text/javascript" src="../../lib/katex/mhchem.min.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"复制到剪贴板","maxShownLines":10},"comment":{},"math":{"delimiters":[{"display":true,"left":"$$","right":"$$"},{"display":true,"left":"\\[","right":"\\]"},{"display":false,"left":"$","right":"$"},{"display":false,"left":"\\(","right":"\\)"}],"strict":false},"search":{"highlightTag":"em","lunrLanguageCode":"zh","lunrSegmentitURL":"/lib/lunr/lunr.segmentit.js","maxResultLength":10,"noResultsFound":"没有找到结果","snippetLength":50}};</script><script type="text/javascript" src="../../js/theme.min.js"></script></body>
+</html>

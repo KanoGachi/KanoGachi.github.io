@@ -3,7 +3,28 @@
         <title>所有文章 - 速冻小鹿包的博客</title>
         <link>http://example.org/posts/</link>
         <description>所有文章 | 速冻小鹿包的博客</description>
-        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><lastBuildDate>Tue, 06 Apr 2021 17:18:56 &#43;0800</lastBuildDate><atom:link href="http://example.org/posts/" rel="self" type="application/rss+xml" /><item>
+        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><lastBuildDate>Fri, 16 Apr 2021 15:30:17 &#43;0800</lastBuildDate><atom:link href="http://example.org/posts/" rel="self" type="application/rss+xml" /><item>
+    <title>6.表格创建和数据增删改</title>
+    <link>http://example.org/posts/sql6/</link>
+    <pubDate>Fri, 16 Apr 2021 15:30:17 &#43;0800</pubDate>
+    <author>作者</author>
+    <guid>http://example.org/posts/sql6/</guid>
+    <description><![CDATA[表格创建（CREATE TABLE) 建表语句的语法格式： --新建表格 DROP TABLE IF EXISTS table_name; CREATE TABLE table_name ( column_name1 data_type(size), column_name2 data_type(size), column_name3 data_type(size), .... ); --以查询结果创建表格 CREATE TABLE table_name AS SELECT语句； t]]></description>
+</item><item>
+    <title>数据库笔记：窗口函数介绍</title>
+    <link>http://example.org/posts/nsql01/</link>
+    <pubDate>Tue, 13 Apr 2021 14:59:55 &#43;0800</pubDate>
+    <author>作者</author>
+    <guid>http://example.org/posts/nsql01/</guid>
+    <description><![CDATA[前言 文章改编自CSDN博客，完整内容见：MYSQL操作实战-窗口函数 窗口函数分类 窗口：记录集合 窗口函数：在满足某些条件的记录集合上执行的特殊]]></description>
+</item><item>
+    <title>5.连接查询</title>
+    <link>http://example.org/posts/sql05/</link>
+    <pubDate>Fri, 09 Apr 2021 11:55:00 &#43;0800</pubDate>
+    <author>作者</author>
+    <guid>http://example.org/posts/sql05/</guid>
+    <description><![CDATA[连接查询完整学习 连接查询-菜鸟教程 连接查询的含义 连接查询指使用多张表联合查询选取出最终的结果。实际开发中，一般一个业务都会对应多张表。 连接查]]></description>
+</item><item>
     <title>图像处理基础方法</title>
     <link>http://example.org/posts/pyimg/</link>
     <pubDate>Tue, 06 Apr 2021 17:18:56 &#43;0800</pubDate>
@@ -30,7 +51,7 @@
     <pubDate>Tue, 30 Mar 2021 14:55:17 &#43;0800</pubDate>
     <author>作者</author>
     <guid>http://example.org/posts/sql03/</guid>
-    <description><![CDATA[简单查询语句(DQL) 基础查询语句： SELECT col1,col2,col3,col4... FROM tbname; 从tbname表查询上述多个字段的值。 SELECT * FROM tbname; 从tbname表中查询所有数据。（实际开发中不建议]]></description>
+    <description><![CDATA[查询语句的结构 SELECT ... FROM ... WHERE ... GROUP BY ... HAVING ... ORDER BY ... 简单查询语句(DQL) 基础查询语句： SELECT col1,col2,col3,col4... FROM tbname; 从tbname表查询上述多个字段的值。 SELECT * FROM tbname; 从tbn]]></description>
 </item><item>
     <title>2.基础MySql数据库操作</title>
     <link>http://example.org/posts/sql02/</link>
@@ -44,7 +65,7 @@
     <pubDate>Mon, 29 Mar 2021 16:58:05 &#43;0800</pubDate>
     <author>作者</author>
     <guid>http://example.org/posts/linux01/</guid>
-    <description><![CDATA[Linux基本操作 Tab补全 Tab补全是非常有用的一个功能，可以用来自动补全命令或文件名，省时准确。 未输入状态下连按两次 Tab 列出所有可用命令 已]]></description>
+    <description><![CDATA[学习网站 本篇博客改自CSDN：Linux命令行基础入门 帮助文档 Linux命令大全（★★★） ，可以在上面找到你要查找的linux命令 Linux]]></description>
 </item><item>
     <title>1.基础知识</title>
     <link>http://example.org/posts/sql01/</link>
@@ -52,26 +73,5 @@
     <author>作者</author>
     <guid>http://example.org/posts/sql01/</guid>
     <description><![CDATA[DB,DBMS和SQL DB(Data Base):数据库，指按数据结构存储在计算机内的仓库 DBMS(Data Base Management System):数据库管理系统 SQL(Structured Query Language):结构]]></description>
-</item><item>
-    <title>6.系统调用</title>
-    <link>http://example.org/posts/caozuo6/</link>
-    <pubDate>Wed, 10 Mar 2021 11:02:44 &#43;0800</pubDate>
-    <author>作者</author>
-    <guid>http://example.org/posts/caozuo6/</guid>
-    <description><![CDATA[什么是系统调用，有什么作用？ 为了避免程序随意调用共享资源导致混乱，操作系统提供系统调用功能。 用户进程想要使用某种共享资源时，只能通过系统调用]]></description>
-</item><item>
-    <title>5.中断和异常</title>
-    <link>http://example.org/posts/caozuo5/</link>
-    <pubDate>Wed, 10 Mar 2021 11:01:44 &#43;0800</pubDate>
-    <author>作者</author>
-    <guid>http://example.org/posts/caozuo5/</guid>
-    <description><![CDATA[中断的概念和作用 发生中断就意味着需要操作系统介入，开展管理工作。 中断的概念： 1.当中断发生时，CPU立即进入核心态 2.当中断发生时，当前运行]]></description>
-</item><item>
-    <title>4.操作系统的运行机制和体系结构</title>
-    <link>http://example.org/posts/caozuo4/</link>
-    <pubDate>Tue, 09 Mar 2021 11:01:44 &#43;0800</pubDate>
-    <author>作者</author>
-    <guid>http://example.org/posts/caozuo4/</guid>
-    <description><![CDATA[运行机制 系统运行机制 可以概括为两种指令、两种程序、两种处理器状态，其中： 两种指令： 特权指令 非特权指令 两种程序： 内核程序 应用程序 两种处理器状态]]></description>
 </item></channel>
 </rss>
