@@ -3,7 +3,14 @@
         <title>所有文章 - 速冻小鹿包的博客</title>
         <link>http://example.org/posts/</link>
         <description>所有文章 | 速冻小鹿包的博客</description>
-        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><lastBuildDate>Fri, 16 Apr 2021 15:30:17 &#43;0800</lastBuildDate><atom:link href="http://example.org/posts/" rel="self" type="application/rss+xml" /><item>
+        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><lastBuildDate>Sat, 08 May 2021 16:45:18 &#43;0800</lastBuildDate><atom:link href="http://example.org/posts/" rel="self" type="application/rss+xml" /><item>
+    <title>Python中List初始化和切片的雷区</title>
+    <link>http://example.org/posts/pylist01/</link>
+    <pubDate>Sat, 08 May 2021 16:45:18 &#43;0800</pubDate>
+    <author>作者</author>
+    <guid>http://example.org/posts/pylist01/</guid>
+    <description><![CDATA[列表的初始化 使用*对列表进行复制初始化，实际上复制的是被复制元素的引用 # 元素为数字（安全） test = [0]*3 # test = [0,0,0] test[0] = 1 # test变为[1,0,0] #]]></description>
+</item><item>
     <title>6.表格创建和数据增删改</title>
     <link>http://example.org/posts/sql6/</link>
     <pubDate>Fri, 16 Apr 2021 15:30:17 &#43;0800</pubDate>
@@ -66,12 +73,5 @@
     <author>作者</author>
     <guid>http://example.org/posts/linux01/</guid>
     <description><![CDATA[学习网站 本篇博客改自CSDN：Linux命令行基础入门 帮助文档 Linux命令大全（★★★） ，可以在上面找到你要查找的linux命令 Linux]]></description>
-</item><item>
-    <title>1.基础知识</title>
-    <link>http://example.org/posts/sql01/</link>
-    <pubDate>Sun, 28 Mar 2021 20:07:31 &#43;0800</pubDate>
-    <author>作者</author>
-    <guid>http://example.org/posts/sql01/</guid>
-    <description><![CDATA[DB,DBMS和SQL DB(Data Base):数据库，指按数据结构存储在计算机内的仓库 DBMS(Data Base Management System):数据库管理系统 SQL(Structured Query Language):结构]]></description>
 </item></channel>
 </rss>
