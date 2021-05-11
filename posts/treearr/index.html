@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="robots" content="noodp" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
+        <title>【数据结构】树状数组详解 - 速冻小鹿包的博客</title><meta name="Description" content="速冻小鹿包的博客"><meta property="og:title" content="【数据结构】树状数组详解" />
+<meta property="og:description" content="写在前面 本文改编自：树状数组详解 什么是树状数组？ 树状数组，顾名思义，就是用数组来模拟树形结构。那么衍生出一个问题，为什么不直接建树？答案是没" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://example.org/posts/treearr/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2021-05-11T10:50:01&#43;08:00" />
+<meta property="article:modified_time" content="2021-05-11T10:50:01&#43;08:00" />
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="【数据结构】树状数组详解"/>
+<meta name="twitter:description" content="写在前面 本文改编自：树状数组详解 什么是树状数组？ 树状数组，顾名思义，就是用数组来模拟树形结构。那么衍生出一个问题，为什么不直接建树？答案是没"/>
+<meta name="application-name" content="速冻小鹿包的博客">
+<meta name="apple-mobile-web-app-title" content="速冻小鹿包的博客"><link rel="icon" href="../../favicon.ico"><link rel="apple-touch-icon" sizes="180x180" href="../../apple-touch-icon.png"><link rel="manifest" href="../../site.webmanifest"><link rel="canonical" href="http://example.org/posts/treearr/" /><link rel="prev" href="http://example.org/posts/pylist01/" /><link rel="stylesheet" href="../../lib/normalize/normalize.min.css"><link rel="stylesheet" href="../../css/style.min.css"><link rel="stylesheet" href="../../lib/fontawesome-free/all.min.css"><link rel="stylesheet" href="../../lib/animate/animate.min.css"><script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "headline": "【数据结构】树状数组详解",
+        "inLanguage": "zh-CN",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "http:\/\/example.org\/posts\/treearr\/"
+        },"genre": "posts","wordcount":  1890 ,
+        "url": "http:\/\/example.org\/posts\/treearr\/","datePublished": "2021-05-11T10:50:01+08:00","dateModified": "2021-05-11T10:50:01+08:00","publisher": {
+            "@type": "Organization",
+            "name": "作者"},"author": {
+                "@type": "Person",
+                "name": "作者"
+            },"description": ""
+    }
+    </script></head>
+    <body header-desktop="fixed" header-mobile="fixed"><script type="text/javascript">(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('dark' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'dark' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
+
+        <div id="mask"></div><div class="wrapper"><header class="desktop" id="header-desktop">
+    <div class="header-wrapper">
+        <div class="header-title">
+            <a href="../../" title="速冻小鹿包的博客"><img
+        class="lazyload logo"
+        src="../../svg/loading.min.svg"
+        data-src="../../favicon.ico"
+        data-srcset="../../favicon.ico, ../../favicon.ico 1.5x, ../../favicon.ico 2x"
+        data-sizes="auto"
+        alt="/favicon.ico"
+        title="/favicon.ico" />Alice...</a>
+        </div>
+        <div class="menu">
+            <div class="menu-inner"><a class="menu-item" href="../../categories/"> 分类 </a><a class="menu-item" href="../../tags/"> 标签 </a><a class="menu-item" href="../../posts/"> 文章 </a><span class="menu-item delimiter"></span><span class="menu-item search" id="search-desktop">
+                        <input type="text" placeholder="LeetCode" id="search-input-desktop">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="搜索">
+                            <i class="fas fa-search fa-fw"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-desktop" title="清空">
+                            <i class="fas fa-times-circle fa-fw"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-desktop">
+                            <i class="fas fa-spinner fa-fw fa-spin"></i>
+                        </span>
+                    </span><a href="javascript:void(0);" class="menu-item theme-switch" title="切换主题">
+                    <i class="fas fa-adjust fa-fw"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+</header><header class="mobile" id="header-mobile">
+    <div class="header-container">
+        <div class="header-wrapper">
+            <div class="header-title">
+                <a href="../../" title="速冻小鹿包的博客"><img
+        class="lazyload logo"
+        src="../../svg/loading.min.svg"
+        data-src="../../favicon.ico"
+        data-srcset="../../favicon.ico, ../../favicon.ico 1.5x, ../../favicon.ico 2x"
+        data-sizes="auto"
+        alt="/favicon.ico"
+        title="/favicon.ico" />Alice...</a>
+            </div>
+            <div class="menu-toggle" id="menu-toggle-mobile">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+        <div class="menu" id="menu-mobile"><div class="search-wrapper">
+                    <div class="search mobile" id="search-mobile">
+                        <input type="text" placeholder="LeetCode" id="search-input-mobile">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-mobile" title="搜索">
+                            <i class="fas fa-search fa-fw"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-mobile" title="清空">
+                            <i class="fas fa-times-circle fa-fw"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-mobile">
+                            <i class="fas fa-spinner fa-fw fa-spin"></i>
+                        </span>
+                    </div>
+                    <a href="javascript:void(0);" class="search-cancel" id="search-cancel-mobile">
+                        取消
+                    </a>
+                </div><a class="menu-item" href="../../categories/" title="">分类</a><a class="menu-item" href="../../tags/" title="">标签</a><a class="menu-item" href="../../posts/" title="">文章</a><a href="javascript:void(0);" class="menu-item theme-switch" title="切换主题">
+                <i class="fas fa-adjust fa-fw"></i>
+            </a></div>
+    </div>
+</header>
+<div class="search-dropdown desktop">
+    <div id="search-dropdown-desktop"></div>
+</div>
+<div class="search-dropdown mobile">
+    <div id="search-dropdown-mobile"></div>
+</div>
+<main class="main">
+                <div class="container"><div class="toc" id="toc-auto">
+            <h2 class="toc-title">目录</h2>
+            <div class="toc-content" id="toc-content-auto"></div>
+        </div><article class="page single"><h1 class="single-title animated flipInX">【数据结构】树状数组详解</h1><div class="post-meta">
+            <div class="post-meta-line"><span class="post-author"><a href="../../" title="Author" rel=" author" class="author"><i class="fas fa-user-circle fa-fw"></i>作者</a></span>&nbsp;<span class="post-category">收录于 <a href="../../categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"><i class="far fa-folder fa-fw"></i>数据结构</a></span></div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2021-05-11">2021-05-11</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 1890 字&nbsp;
+                <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 4 分钟&nbsp;</div>
+        </div><div class="details toc" id="toc-static"  kept="true">
+                <div class="details-summary toc-title">
+                    <span>目录</span>
+                    <span><i class="details-icon fas fa-angle-right"></i></span>
+                </div>
+                <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#写在前面">写在前面</a></li>
+    <li><a href="#什么是树状数组">什么是树状数组？</a></li>
+    <li><a href="#树状数组介绍">树状数组介绍</a>
+      <ul>
+        <li><a href="#树状数组的特性和求和方法">树状数组的特性和求和方法</a></li>
+        <li><a href="#正整数的lowbit二进制只保留最低位1得到的值">正整数的lowbit(二进制只保留最低位1得到的值)</a></li>
+        <li><a href="#树状数组的点更新">树状数组的点更新</a></li>
+        <li><a href="#树状数组的代码实现">树状数组的代码实现</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav></div>
+            </div><div class="content" id="content"><h2 id="写在前面">写在前面</h2>
+<p>本文改编自：<a href="https://www.cnblogs.com/xenny/p/9739600.html" target="_blank" rel="noopener noreffer">树状数组详解</a></p>
+<h2 id="什么是树状数组">什么是树状数组？</h2>
+<p><strong>树状数组</strong>，顾名思义，就是用数组来模拟树形结构。那么衍生出一个问题，为什么不直接建树？答案是没必要，因为树状数组能处理的问题就没必要建树。和Trie树的构造方式有类似之处。</p>
+<p>树状数组可以<strong>解决大部分基于区间上的更新以及求和问题</strong>。树状数组修改和查询的复杂度都是O(logN)，而且相比线段树系数要少很多，比传统数组要快，而且容易写。</p>
+<h2 id="树状数组介绍">树状数组介绍</h2>
+<p>二叉树大家一定都知道，如下图：</p>
+<p><img
+        class="lazyload"
+        src="../../svg/loading.min.svg"
+        data-src="../../tree-arr/bintree.png"
+        data-srcset="../../tree-arr/bintree.png, ../../tree-arr/bintree.png 1.5x, ../../tree-arr/bintree.png 2x"
+        data-sizes="auto"
+        alt="/tree-arr/bintree.png"
+        title="二叉树、线段树" /></p>
+<p>如果每个父亲都存的是两个儿子的值，是不是就可以解决这类区间问题了呢。是的没错，但是这样的树形结构，叫做线段树。</p>
+<p>那真的的树形结构是怎样的，和上图类似，但省去了一些节点，以达到用数组建树的效果。</p>
+<p><img
+        class="lazyload"
+        src="../../svg/loading.min.svg"
+        data-src="../../tree-arr/treearr.png"
+        data-srcset="../../tree-arr/treearr.png, ../../tree-arr/treearr.png 1.5x, ../../tree-arr/treearr.png 2x"
+        data-sizes="auto"
+        alt="/tree-arr/treearr.png"
+        title="树状数组" /></p>
+<p>黑色数组代表原来的数组（下面用$A[i]$代替），红色结构代表我们的树状数组(下面用$C[i]$代替)，发现没有，每个位置只有一个方框，令每个位置存的就是子节点的值的和，则有：</p>
+<ul>
+<li>$C[1] = A[1]$</li>
+<li>$C[2] = A[1] + A[2]$</li>
+<li>$C[3] = A[3]$</li>
+<li>$C[4] = A[1] + A[2] + A[3] + A[4]$</li>
+<li>$C[5] = A[5]$</li>
+<li>$C[6] = A[5] + A[6]$</li>
+<li>$C[7] = A[7]$</li>
+<li>$C[8] = A[1] + A[2] + A[3] + A[4] + A[5] + A[6] + A[7] + A[8]$</li>
+</ul>
+<h3 id="树状数组的特性和求和方法">树状数组的特性和求和方法</h3>
+<p>承接上文，每个<strong>树状数组中的元素$C[i]$存储的值</strong>可以用如下公式写出：
+$$C[i] = A[i - 2^k+1] + A[i - 2^k+2] + &hellip; + A[i]$$
+即
+$$C[i] = \sum_{n=i-2^k+1}^{i} A[n]$$</p>
+<p><strong>其中$k$为$i$的二进制中从最低位到高位连续零的长度（也可以解释为$i$的二进制的最低位$1$位于其二进制的第$k$位）</strong></p>
+<p>可以发现，树状数组第$i$项的值为原数组从第$i-2^k+1$项到第$i$项所有的值的累加求和所得。</p>
+<p>因此，当我们需要<strong>求解原数组$A$第$1$到第$i$项所有值的和$Sum_i$时，我们只需要用如下公式计算</strong>：</p>
+<p>$$Sum_i = C[i] + C[i-2^{k1}] + C[(i - 2^{k1}) - 2^{k2}] + &hellip;..$$</p>
+<p>举个例子，如我们需要求前$7(0b111)$项的和，我们可以得到:</p>
+<p>$$
+Sum_7 = C[0b111]+C[0b110]+C[0b100]
+$$
+$$
+\qquad \qquad \qquad \quad = \sum_{i_0=0b111}^{0b111} A[i_0]+
+\sum_{i_1=0b101}^{0b110} A[i_1]+
+\sum_{i_2=0b001}^{0b100} A[i_2]
+$$</p>
+<h3 id="正整数的lowbit二进制只保留最低位1得到的值">正整数的lowbit(二进制只保留最低位1得到的值)</h3>
+<p>现在新的问题来了，<strong>对于每个正整数$i$的$2^k$要怎么求呢？</strong></p>
+<p>不难得出，$2^k=i\ and(i\ xor\ (i-1))$，但这个还不够简洁，有另一种更巧妙的计算方法：$$2^k = i\ and \ (-i)$$</p>
+<p>这个方法利用了<strong>负数的存储特性</strong>，负数是在计算机中是以<strong>补码</strong>存储的。</p>
+<p>在补码下，对于二进制为$n$位的有符号正整数$x$，正数$x$的表示和原码相同，负数$-x$的表示则可以用以下方法得到：</p>
+<p>$$[-x]_补=2^n-[x]_原$$</p>
+<p>举个例子，对于$8$位存储的单符号位正整数$50$二进制原码表示为$0b 0011 0010$，其中最高位为符号位。则转换为补码，$50$和原码相同，为$0b00110010$，$-50$的补码带入公式计算：</p>
+<p>$$[-50]_补 = 2^8(0b1 0000 0000) - [50]_原(0b 0011 0010)$$
+$$\qquad \qquad \qquad \quad =(2^8-1)(0b 1111 1111) - [50]_原(0b 0011 0010) + 1$$
+$$\quad \  =(2^8-1-[50]_原)(0b 1100 1101)+ 1$$
+$$\quad \  =(2^8-1-[50]_原+1)(0b 1100 1110)$$</p>
+<p>知道了怎么求补码之后，将$-50$补码$0b 1100 1110$和$50$的补码$0b00110010$求位与，发现最后结果为$2$，二进制表示为$0b 0000 0010$，只保留了$50(0b00110010)$最低位的$1$。对于$i=50$，这正是我们要求的$2^k$的值：$2^1$。</p>
+<h3 id="树状数组的点更新">树状数组的点更新</h3>
+<p>上面已经解释了如何用树状数组求区间和，那么如果我们要更新某一个点的值呢，还是一样的，上面说了$C[i] = A[i - 2k+1] + A[i - 2k+2] + &hellip; + A[i]$，那么<strong>如果我们更新某个$A[i]$的值，则会影响到所有包含有$A[i]$的位置，更新时需要将每个被影响的值都一起进行更新</strong>。</p>
+<p><strong>如何求$A[i]$被包含在哪些位置里呢？</strong></p>
+<p>要找$A[i]$被包含于哪些可能的位置$C[i_1]$，可以从$i$和$i_1$的需要满足的条件入手求解。</p>
+<p>因为$C[i_1]=\sum_{n=i_1-2^k1+1}^{i1} A[n]$，若$A[i]$被包含在$C[i_1]$，则需要满足：
+$$i_1&gt;=i&gt;(i_1-2^{k1})$$</p>
+<p>举个例子，分析$A[50(0b110010)]$被包含在哪些位置中：</p>
+<p>从$0b110010$开始，可以发现合理的数字有：</p>
+<ul>
+<li>$0b11 0010$、$0b11 0100$、$0b11 1000$、$0b100 0000$ &hellip;</li>
+</ul>
+<p>即，可以得到$A[i]$被包含于$C[i]$、$C[i + 2^k]$、$C[(i + 2^k) + 2^{k1}]$&hellip;；</p>
+<p>搞清楚了更新和求和之后，就可以来建树状数组了。如果上面的求和、更新或者lowbit步骤还没搞懂的化，建议再思考弄懂再往下看。</p>
+<h3 id="树状数组的代码实现">树状数组的代码实现</h3>
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="k">class</span> <span class="nc">BinaryIndexedTree</span><span class="p">:</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">k</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="bp">None</span><span class="p">:</span>
+        <span class="s1">&#39;&#39;&#39;
+</span><span class="s1">        See BinaryIndexedTree as an ordinary Array~
+</span><span class="s1">        Build:A = [0]*k,index from 1 to k
+</span><span class="s1">        &#39;&#39;&#39;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">arr</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="n">k</span>  <span class="c1"># self.arr = C[1:k+1]; self.arr[i] = C[i+1]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">size</span> <span class="o">=</span> <span class="n">k</span>
+
+    <span class="k">def</span> <span class="nf">lowbit</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">i</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">i</span> <span class="o">&amp;</span> <span class="p">(</span><span class="o">-</span><span class="n">i</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">update</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">i</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="bp">None</span><span class="p">:</span>
+        <span class="s1">&#39;&#39;&#39;
+</span><span class="s1">        Operation:A[i] += x
+</span><span class="s1">        &#39;&#39;&#39;</span>
+        <span class="k">while</span> <span class="n">i</span> <span class="o">&lt;=</span> <span class="bp">self</span><span class="o">.</span><span class="n">size</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">arr</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">+=</span> <span class="n">x</span>  <span class="c1"># C[i] = C[i]+x</span>
+            <span class="n">i</span> <span class="o">+=</span> <span class="bp">self</span><span class="o">.</span><span class="n">lowbit</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>  <span class="c1"># i = i+2^k</span>
+        <span class="k">return</span>
+
+    <span class="k">def</span> <span class="nf">get_sum</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">i</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
+        <span class="s1">&#39;&#39;&#39;
+</span><span class="s1">        Return:sum of A[:i+1]
+</span><span class="s1">        &#39;&#39;&#39;</span>
+        <span class="n">ans</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="k">while</span> <span class="n">i</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="n">ans</span> <span class="o">+=</span> <span class="bp">self</span><span class="o">.</span><span class="n">arr</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>  <span class="c1"># ans = ans+C[i]</span>
+            <span class="n">i</span> <span class="o">-=</span> <span class="bp">self</span><span class="o">.</span><span class="n">lowbit</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>  <span class="c1"># i = i-2^k</span>
+        <span class="k">return</span> <span class="n">ans</span>
+</code></pre></div></div><div class="post-footer" id="post-footer">
+    <div class="post-info">
+        <div class="post-info-line">
+            <div class="post-info-mod">
+                <span>更新于 2021-05-11</span>
+            </div>
+            <div class="post-info-license"></div>
+        </div>
+        <div class="post-info-line">
+            <div class="post-info-md"></div>
+            <div class="post-info-share">
+                <span></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="post-info-more">
+        <section class="post-tags"></section>
+        <section>
+            <span><a href="javascript:void(0);" onclick="window.history.back();">返回</a></span>&nbsp;|&nbsp;<span><a href="../../">主页</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav"><a href="../../posts/pylist01/" class="prev" rel="prev" title="Python中List初始化和切片的雷区"><i class="fas fa-angle-left fa-fw"></i>Python中List初始化和切片的雷区</a></div>
+</div>
+</article></div>
+            </main><footer class="footer">
+        <div class="footer-container"><div class="footer-line">由 <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.81.0">Hugo</a> 强力驱动 | 主题 - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 0.2.10"><i class="far fa-kiss-wink-heart fa-fw"></i> LoveIt</a>
+                </div><div class="footer-line"><i class="far fa-copyright fa-fw"></i><span itemprop="copyrightYear">2021</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="../../" target="_blank"></a></span></div>
+        </div>
+    </footer></div>
+
+        <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="回到顶部">
+                <i class="fas fa-arrow-up fa-fw"></i>
+            </a><a href="#" id="view-comments" class="fixed-button" title="查看评论">
+                <i class="fas fa-comment fa-fw"></i>
+            </a>
+        </div><link rel="stylesheet" href="../../lib/katex/katex.min.css"><link rel="stylesheet" href="../../lib/katex/copy-tex.min.css"><script type="text/javascript" src="../../lib/smooth-scroll/smooth-scroll.min.js"></script><script type="text/javascript" src="../../lib/autocomplete/autocomplete.min.js"></script><script type="text/javascript" src="../../lib/lunr/lunr.min.js"></script><script type="text/javascript" src="../../lib/lunr/lunr.stemmer.support.min.js"></script><script type="text/javascript" src="../../lib/lunr/lunr.zh.min.js"></script><script type="text/javascript" src="../../lib/lazysizes/lazysizes.min.js"></script><script type="text/javascript" src="../../lib/clipboard/clipboard.min.js"></script><script type="text/javascript" src="../../lib/katex/katex.min.js"></script><script type="text/javascript" src="../../lib/katex/auto-render.min.js"></script><script type="text/javascript" src="../../lib/katex/copy-tex.min.js"></script><script type="text/javascript" src="../../lib/katex/mhchem.min.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"复制到剪贴板","maxShownLines":50},"comment":{},"math":{"delimiters":[{"display":true,"left":"$$","right":"$$"},{"display":true,"left":"\\[","right":"\\]"},{"display":false,"left":"$","right":"$"},{"display":false,"left":"\\(","right":"\\)"}],"strict":false},"search":{"highlightTag":"em","lunrLanguageCode":"zh","lunrSegmentitURL":"/lib/lunr/lunr.segmentit.js","maxResultLength":10,"noResultsFound":"没有找到结果","snippetLength":50}};</script><script type="text/javascript" src="../../js/theme.min.js"></script></body>
+</html>
