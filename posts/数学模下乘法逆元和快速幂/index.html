@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="robots" content="noodp" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
+        <title>【数学】模下乘法逆元和快速幂 - 速冻小鹿包的博客</title><meta name="Description" content="速冻小鹿包的博客"><meta property="og:title" content="【数学】模下乘法逆元和快速幂" />
+<meta property="og:description" content="乘法逆元介绍 乘法逆元的定义 设模数为 $m$（如常用的模数 $m=10^9&#43;7$），对于一个整数 $a$，如果存在另一个整数 $a^{-1}~(0 &lt; a^{-1} &lt; m)$，满足 $$ a" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://example.org/posts/%E6%95%B0%E5%AD%A6%E6%A8%A1%E4%B8%8B%E4%B9%98%E6%B3%95%E9%80%86%E5%85%83%E5%92%8C%E5%BF%AB%E9%80%9F%E5%B9%82/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2021-06-28T10:50:01&#43;08:00" />
+<meta property="article:modified_time" content="2021-06-28T10:50:01&#43;08:00" />
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="【数学】模下乘法逆元和快速幂"/>
+<meta name="twitter:description" content="乘法逆元介绍 乘法逆元的定义 设模数为 $m$（如常用的模数 $m=10^9&#43;7$），对于一个整数 $a$，如果存在另一个整数 $a^{-1}~(0 &lt; a^{-1} &lt; m)$，满足 $$ a"/>
+<meta name="application-name" content="速冻小鹿包的博客">
+<meta name="apple-mobile-web-app-title" content="速冻小鹿包的博客"><link rel="icon" href="../../favicon.ico"><link rel="apple-touch-icon" sizes="180x180" href="../../apple-touch-icon.png"><link rel="manifest" href="../../site.webmanifest"><link rel="canonical" href="http://example.org/posts/%E6%95%B0%E5%AD%A6%E6%A8%A1%E4%B8%8B%E4%B9%98%E6%B3%95%E9%80%86%E5%85%83%E5%92%8C%E5%BF%AB%E9%80%9F%E5%B9%82/" /><link rel="prev" href="http://example.org/posts/%E6%95%B0%E5%AD%A6%E8%B4%9D%E7%A5%96%E5%AE%9A%E7%90%86%E5%92%8C%E6%89%A9%E5%B1%95%E6%AC%A7%E5%87%A0%E9%87%8C%E5%BE%97%E7%AE%97%E6%B3%95/" /><link rel="stylesheet" href="../../lib/normalize/normalize.min.css"><link rel="stylesheet" href="../../css/style.min.css"><link rel="stylesheet" href="../../lib/fontawesome-free/all.min.css"><link rel="stylesheet" href="../../lib/animate/animate.min.css"><script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "headline": "【数学】模下乘法逆元和快速幂",
+        "inLanguage": "zh-CN",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "http:\/\/example.org\/posts\/%E6%95%B0%E5%AD%A6%E6%A8%A1%E4%B8%8B%E4%B9%98%E6%B3%95%E9%80%86%E5%85%83%E5%92%8C%E5%BF%AB%E9%80%9F%E5%B9%82\/"
+        },"genre": "posts","wordcount":  1093 ,
+        "url": "http:\/\/example.org\/posts\/%E6%95%B0%E5%AD%A6%E6%A8%A1%E4%B8%8B%E4%B9%98%E6%B3%95%E9%80%86%E5%85%83%E5%92%8C%E5%BF%AB%E9%80%9F%E5%B9%82\/","datePublished": "2021-06-28T10:50:01+08:00","dateModified": "2021-06-28T10:50:01+08:00","publisher": {
+            "@type": "Organization",
+            "name": "作者"},"author": {
+                "@type": "Person",
+                "name": "作者"
+            },"description": ""
+    }
+    </script></head>
+    <body header-desktop="fixed" header-mobile="fixed"><script type="text/javascript">(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('dark' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'dark' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
+
+        <div id="mask"></div><div class="wrapper"><header class="desktop" id="header-desktop">
+    <div class="header-wrapper">
+        <div class="header-title">
+            <a href="../../" title="速冻小鹿包的博客"><img
+        class="lazyload logo"
+        src="../../svg/loading.min.svg"
+        data-src="../../favicon.ico"
+        data-srcset="../../favicon.ico, ../../favicon.ico 1.5x, ../../favicon.ico 2x"
+        data-sizes="auto"
+        alt="/favicon.ico"
+        title="/favicon.ico" />Alice...</a>
+        </div>
+        <div class="menu">
+            <div class="menu-inner"><a class="menu-item" href="../../categories/"> 分类 </a><a class="menu-item" href="../../tags/"> 标签 </a><a class="menu-item" href="../../posts/"> 文章 </a><span class="menu-item delimiter"></span><span class="menu-item search" id="search-desktop">
+                        <input type="text" placeholder="LeetCode" id="search-input-desktop">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="搜索">
+                            <i class="fas fa-search fa-fw"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-desktop" title="清空">
+                            <i class="fas fa-times-circle fa-fw"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-desktop">
+                            <i class="fas fa-spinner fa-fw fa-spin"></i>
+                        </span>
+                    </span><a href="javascript:void(0);" class="menu-item theme-switch" title="切换主题">
+                    <i class="fas fa-adjust fa-fw"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+</header><header class="mobile" id="header-mobile">
+    <div class="header-container">
+        <div class="header-wrapper">
+            <div class="header-title">
+                <a href="../../" title="速冻小鹿包的博客"><img
+        class="lazyload logo"
+        src="../../svg/loading.min.svg"
+        data-src="../../favicon.ico"
+        data-srcset="../../favicon.ico, ../../favicon.ico 1.5x, ../../favicon.ico 2x"
+        data-sizes="auto"
+        alt="/favicon.ico"
+        title="/favicon.ico" />Alice...</a>
+            </div>
+            <div class="menu-toggle" id="menu-toggle-mobile">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+        <div class="menu" id="menu-mobile"><div class="search-wrapper">
+                    <div class="search mobile" id="search-mobile">
+                        <input type="text" placeholder="LeetCode" id="search-input-mobile">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-mobile" title="搜索">
+                            <i class="fas fa-search fa-fw"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-mobile" title="清空">
+                            <i class="fas fa-times-circle fa-fw"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-mobile">
+                            <i class="fas fa-spinner fa-fw fa-spin"></i>
+                        </span>
+                    </div>
+                    <a href="javascript:void(0);" class="search-cancel" id="search-cancel-mobile">
+                        取消
+                    </a>
+                </div><a class="menu-item" href="../../categories/" title="">分类</a><a class="menu-item" href="../../tags/" title="">标签</a><a class="menu-item" href="../../posts/" title="">文章</a><a href="javascript:void(0);" class="menu-item theme-switch" title="切换主题">
+                <i class="fas fa-adjust fa-fw"></i>
+            </a></div>
+    </div>
+</header>
+<div class="search-dropdown desktop">
+    <div id="search-dropdown-desktop"></div>
+</div>
+<div class="search-dropdown mobile">
+    <div id="search-dropdown-mobile"></div>
+</div>
+<main class="main">
+                <div class="container"><div class="toc" id="toc-auto">
+            <h2 class="toc-title">目录</h2>
+            <div class="toc-content" id="toc-content-auto"></div>
+        </div><article class="page single"><h1 class="single-title animated flipInX">【数学】模下乘法逆元和快速幂</h1><div class="post-meta">
+            <div class="post-meta-line"><span class="post-author"><a href="../../" title="Author" rel=" author" class="author"><i class="fas fa-user-circle fa-fw"></i>作者</a></span>&nbsp;<span class="post-category">收录于 <a href="../../categories/%E7%AE%97%E6%B3%95/"><i class="far fa-folder fa-fw"></i>算法</a></span></div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2021-06-28">2021-06-28</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 1093 字&nbsp;
+                <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 3 分钟&nbsp;</div>
+        </div><div class="details toc" id="toc-static"  kept="true">
+                <div class="details-summary toc-title">
+                    <span>目录</span>
+                    <span><i class="details-icon fas fa-angle-right"></i></span>
+                </div>
+                <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#乘法逆元介绍">乘法逆元介绍</a></li>
+        <li><a href="#乘法逆元计算">乘法逆元计算</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav></div>
+            </div><div class="content" id="content"><h3 id="乘法逆元介绍">乘法逆元介绍</h3>
+<h4 id="乘法逆元的定义">乘法逆元的定义</h4>
+<p>设模数为 $m$（如常用的模数 $m=10^9+7$），对于一个整数 $a$，如果存在另一个<strong>整数</strong> $a^{-1}~(0 &lt; a^{-1} &lt; m)$，满足
+$$
+a a^{-1} \equiv 1 ~ (\bmod ~ m)
+$$
+那么我们称 $a^{-1}$是 $a$ 的**「乘法逆元」**（也被称为模逆元或模反元素）。</p>
+<h4 id="为什么需要乘法逆元">为什么需要乘法逆元？</h4>
+<p><strong>乘法逆元可以使得我们在取模的意义下，化除法为乘法。<strong>例如当我们需要求出$ \dfrac{b}{a} $对 $m$ 取模的结果，那么可以使用乘法逆元转换为：
+$$
+\frac{b}{a} \equiv b⋅a^{−1}(\bmod m)
+$$
+来帮助我们求解。因为</strong>乘法在取模的意义下满足分配律</strong>，即：
+$$
+(a×b)\bmod m=((a \bmod m)×(b \bmod m))\bmod m
+$$
+但除法在取模的意义下并不满足分配率。因此，当$a$或$b$的求解过程中本身就包含取模运算时，使用乘法逆元，我们仍然可以得到正确的$ \dfrac{b}{a} $对 $m$ 取模的结果。</p>
+<h3 id="乘法逆元计算">乘法逆元计算</h3>
+<p>对于某个数$a$，要获得模$m$下的乘法逆元$a^{-1}~(0 &lt; a^{-1} &lt; m)$，使得$a a^{-1} \equiv 1 ~ (\bmod ~ m)$:</p>
+<ul>
+<li>
+<p><strong>当$m$是$a$的约数时</strong>，$a=km$，此时显然<strong>不存在</strong>满足条件的$a^{-1}$</p>
+</li>
+<li>
+<p><strong>当$m$不是$a$的约数时：</strong></p>
+<ul>
+<li>
+<p><strong>若$m$为质数</strong>，则此时$a$和$m$互质。由贝祖定理可得，一定存在整数$x,y$，使$ax+my\equiv1$，即$a^{-1}$存在。</p>
+<p>求解$a^{-1}$可以使用<strong>费马小定理</strong> ，即
+$$
+a^{m−1}\equiv 1 (\bmod m)
+$$
+那么有
+$$
+a^{m−1}a^{−1} \equiv a^{−1} (\bmod m)
+$$
+$$
+a^{m−2}aa^{−1} \equiv a^{−1} (\bmod m)
+$$
+$$
+a^{m−2} \equiv a^{−1} (\bmod m)
+$$
+<strong>因此，$m$为质数时，$a^{-1}$就等于$a^{m-2}$对 $m$取模的结果。</strong></p>
+<p>计算 $a^{m-2}$的方法相对简单，我们可以使用**「快速幂」**，时间复杂度为 $O(\log m)$</p>
+</li>
+<li>
+<p><strong>若$m$不是质数</strong> ，因为$m$不是质数，$a$和$m$不一定互质。<strong>若$a$和$m$不互质，无法求出乘法逆元</strong>。</p>
+<p>若存在乘法逆元$a^{-1}$，可以使用<strong>扩展欧几里得算法</strong> 求出。
+$$
+aa^{−1} \equiv 1 (\bmod m)
+$$
+$$
+aa^{-1}+km \equiv 1
+$$
+即使用扩展欧几里得算法求$ax+my \equiv 1$的一个整数特解$(x_0,y_0)$，其中$0 &lt; x_0 &lt; m$，就是$a^{-1}$。</p>
+</li>
+</ul>
+</li>
+</ul>
+<h4 id="1-模数m为质数使用费马小定理和快速幂">1. 模数$m$为质数：使用费马小定理和快速幂</h4>
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="c1"># 使用这种方法时，模数mod必须是质数</span>
+<span class="n">mod</span> <span class="o">=</span> <span class="mi">10</span><span class="o">**</span><span class="mi">9</span><span class="o">+</span><span class="mi">7</span>
+<span class="c1"># 模下快速幂</span>
+<span class="k">def</span> <span class="nf">quickPow</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">n</span><span class="p">):</span>
+    <span class="n">res</span><span class="p">,</span> <span class="n">cur</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="n">x</span>
+    <span class="k">while</span> <span class="n">n</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">n</span> <span class="o">&amp;</span> <span class="mi">1</span><span class="p">:</span>
+            <span class="n">res</span> <span class="o">=</span> <span class="p">(</span><span class="n">res</span><span class="o">*</span><span class="n">cur</span><span class="p">)</span> <span class="o">%</span> <span class="n">mod</span>
+        <span class="n">cur</span> <span class="o">=</span> <span class="n">cur</span><span class="o">*</span><span class="n">cur</span> <span class="o">%</span> <span class="n">mod</span>
+        <span class="n">n</span> <span class="o">&gt;&gt;=</span> <span class="mi">1</span>
+    <span class="k">return</span> <span class="n">res</span>
+<span class="c1"># mod下的乘法逆元</span>
+<span class="k">def</span> <span class="nf">inv</span><span class="p">(</span><span class="n">num</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">quickPow</span><span class="p">(</span><span class="n">num</span><span class="p">,</span> <span class="n">mod</span><span class="o">-</span><span class="mi">2</span><span class="p">)</span>
+</code></pre></div><h4 id="2-模数m为任意正整数使用扩展欧几里得算法">2. 模数$m$为任意正整数：使用扩展欧几里得算法</h4>
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="c1"># 模数mod，可以不是质数</span>
+<span class="n">mod</span> <span class="o">=</span> <span class="mi">10</span><span class="o">**</span><span class="mi">9</span>
+<span class="c1"># 扩展欧几里得算法</span>
+<span class="k">def</span> <span class="nf">exEuclid</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Tuple</span><span class="p">:</span>
+    <span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span> <span class="o">=</span> <span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span> <span class="k">if</span> <span class="n">a</span> <span class="o">&gt;=</span> <span class="n">b</span> <span class="k">else</span> <span class="p">(</span><span class="n">b</span><span class="p">,</span> <span class="n">a</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">b</span> <span class="o">==</span> <span class="mi">0</span> <span class="ow">or</span> <span class="n">a</span> <span class="o">%</span> <span class="n">b</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="k">return</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span>
+    <span class="p">(</span><span class="n">x1</span><span class="p">,</span> <span class="n">y1</span><span class="p">,</span> <span class="n">gcd</span><span class="p">)</span> <span class="o">=</span> <span class="n">exEuclid</span><span class="p">(</span><span class="n">b</span><span class="p">,</span> <span class="n">a</span> <span class="o">%</span> <span class="n">b</span><span class="p">)</span>
+    <span class="n">x0</span><span class="p">,</span> <span class="n">y0</span> <span class="o">=</span> <span class="n">y1</span><span class="p">,</span> <span class="n">x1</span><span class="o">-</span><span class="p">(</span><span class="n">a</span><span class="o">//</span><span class="n">b</span><span class="p">)</span><span class="o">*</span><span class="n">y1</span>
+    <span class="k">return</span> <span class="p">(</span><span class="n">x0</span><span class="p">,</span> <span class="n">y0</span><span class="p">,</span> <span class="n">gcd</span><span class="p">)</span>
+<span class="c1"># mod下的乘法逆元，逆元不一定存在</span>
+<span class="k">def</span> <span class="nf">inv</span><span class="p">(</span><span class="n">num</span><span class="p">):</span>
+    <span class="n">_</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">gcd</span> <span class="o">=</span> <span class="n">exEuclid</span><span class="p">(</span><span class="n">mod</span><span class="p">,</span> <span class="n">num</span> <span class="o">%</span> <span class="n">mod</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">x</span> <span class="o">%</span> <span class="n">mod</span> <span class="k">if</span> <span class="n">gcd</span> <span class="o">==</span> <span class="mi">1</span> <span class="k">else</span> <span class="bp">None</span>
+</code></pre></div></div><div class="post-footer" id="post-footer">
+    <div class="post-info">
+        <div class="post-info-line">
+            <div class="post-info-mod">
+                <span>更新于 2021-06-28</span>
+            </div>
+            <div class="post-info-license"></div>
+        </div>
+        <div class="post-info-line">
+            <div class="post-info-md"></div>
+            <div class="post-info-share">
+                <span></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="post-info-more">
+        <section class="post-tags"></section>
+        <section>
+            <span><a href="javascript:void(0);" onclick="window.history.back();">返回</a></span>&nbsp;|&nbsp;<span><a href="../../">主页</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav"><a href="../../posts/%E6%95%B0%E5%AD%A6%E8%B4%9D%E7%A5%96%E5%AE%9A%E7%90%86%E5%92%8C%E6%89%A9%E5%B1%95%E6%AC%A7%E5%87%A0%E9%87%8C%E5%BE%97%E7%AE%97%E6%B3%95/" class="prev" rel="prev" title="【数学】贝祖定理和扩展欧几里得算法"><i class="fas fa-angle-left fa-fw"></i>【数学】贝祖定理和扩展欧几里得算法</a></div>
+</div>
+</article></div>
+            </main><footer class="footer">
+        <div class="footer-container"><div class="footer-line">由 <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.81.0">Hugo</a> 强力驱动 | 主题 - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 0.2.10"><i class="far fa-kiss-wink-heart fa-fw"></i> LoveIt</a>
+                </div><div class="footer-line"><i class="far fa-copyright fa-fw"></i><span itemprop="copyrightYear">2021</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="../../" target="_blank"></a></span></div>
+        </div>
+    </footer></div>
+
+        <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="回到顶部">
+                <i class="fas fa-arrow-up fa-fw"></i>
+            </a><a href="#" id="view-comments" class="fixed-button" title="查看评论">
+                <i class="fas fa-comment fa-fw"></i>
+            </a>
+        </div><link rel="stylesheet" href="../../lib/katex/katex.min.css"><link rel="stylesheet" href="../../lib/katex/copy-tex.min.css"><script type="text/javascript" src="../../lib/smooth-scroll/smooth-scroll.min.js"></script><script type="text/javascript" src="../../lib/autocomplete/autocomplete.min.js"></script><script type="text/javascript" src="../../lib/lunr/lunr.min.js"></script><script type="text/javascript" src="../../lib/lunr/lunr.stemmer.support.min.js"></script><script type="text/javascript" src="../../lib/lunr/lunr.zh.min.js"></script><script type="text/javascript" src="../../lib/lazysizes/lazysizes.min.js"></script><script type="text/javascript" src="../../lib/clipboard/clipboard.min.js"></script><script type="text/javascript" src="../../lib/katex/katex.min.js"></script><script type="text/javascript" src="../../lib/katex/auto-render.min.js"></script><script type="text/javascript" src="../../lib/katex/copy-tex.min.js"></script><script type="text/javascript" src="../../lib/katex/mhchem.min.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"复制到剪贴板","maxShownLines":50},"comment":{},"math":{"delimiters":[{"display":true,"left":"$$","right":"$$"},{"display":true,"left":"\\[","right":"\\]"},{"display":false,"left":"$","right":"$"},{"display":false,"left":"\\(","right":"\\)"}],"strict":false},"search":{"highlightTag":"em","lunrLanguageCode":"zh","lunrSegmentitURL":"/lib/lunr/lunr.segmentit.js","maxResultLength":10,"noResultsFound":"没有找到结果","snippetLength":50}};</script><script type="text/javascript" src="../../js/theme.min.js"></script></body>
+</html>

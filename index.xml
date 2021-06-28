@@ -3,9 +3,30 @@
         <title>速冻小鹿包的博客</title>
         <link>http://example.org/</link>
         <description>速冻小鹿包的博客</description>
-        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><lastBuildDate>Tue, 11 May 2021 10:50:01 &#43;0800</lastBuildDate>
+        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><lastBuildDate>Mon, 28 Jun 2021 10:50:01 &#43;0800</lastBuildDate>
             <atom:link href="http://example.org/index.xml" rel="self" type="application/rss+xml" />
         <item>
+    <title>【数学】模下乘法逆元和快速幂</title>
+    <link>http://example.org/posts/%E6%95%B0%E5%AD%A6%E6%A8%A1%E4%B8%8B%E4%B9%98%E6%B3%95%E9%80%86%E5%85%83%E5%92%8C%E5%BF%AB%E9%80%9F%E5%B9%82/</link>
+    <pubDate>Mon, 28 Jun 2021 10:50:01 &#43;0800</pubDate>
+    <author>作者</author>
+    <guid>http://example.org/posts/%E6%95%B0%E5%AD%A6%E6%A8%A1%E4%B8%8B%E4%B9%98%E6%B3%95%E9%80%86%E5%85%83%E5%92%8C%E5%BF%AB%E9%80%9F%E5%B9%82/</guid>
+    <description><![CDATA[乘法逆元介绍 乘法逆元的定义 设模数为 $m$（如常用的模数 $m=10^9+7$），对于一个整数 $a$，如果存在另一个整数 $a^{-1}~(0 &lt; a^{-1} &lt; m)$，满足 $$ a]]></description>
+</item><item>
+    <title>【数学】贝祖定理和扩展欧几里得算法</title>
+    <link>http://example.org/posts/%E6%95%B0%E5%AD%A6%E8%B4%9D%E7%A5%96%E5%AE%9A%E7%90%86%E5%92%8C%E6%89%A9%E5%B1%95%E6%AC%A7%E5%87%A0%E9%87%8C%E5%BE%97%E7%AE%97%E6%B3%95/</link>
+    <pubDate>Mon, 28 Jun 2021 10:20:01 &#43;0800</pubDate>
+    <author>作者</author>
+    <guid>http://example.org/posts/%E6%95%B0%E5%AD%A6%E8%B4%9D%E7%A5%96%E5%AE%9A%E7%90%86%E5%92%8C%E6%89%A9%E5%B1%95%E6%AC%A7%E5%87%A0%E9%87%8C%E5%BE%97%E7%AE%97%E6%B3%95/</guid>
+    <description><![CDATA[贝祖定理（裴蜀定理） 在数论中，裴蜀定理是一个关于最大公约数（或最大公约式）的定理，裴蜀定理得名于法国数学家艾蒂安·裴蜀。裴蜀定理说明了对任何]]></description>
+</item><item>
+    <title>【数学】最大公约数gcd</title>
+    <link>http://example.org/posts/%E6%95%B0%E5%AD%A6%E6%9C%80%E5%A4%A7%E5%85%AC%E7%BA%A6%E6%95%B0gcd/</link>
+    <pubDate>Mon, 28 Jun 2021 10:10:01 &#43;0800</pubDate>
+    <author>作者</author>
+    <guid>http://example.org/posts/%E6%95%B0%E5%AD%A6%E6%9C%80%E5%A4%A7%E5%85%AC%E7%BA%A6%E6%95%B0gcd/</guid>
+    <description><![CDATA[最大公约数的定义 约数定义： 如果一个整数能被另一个整数整除,那么第二个整数就是第一个整数的约数。即$a%b==0$，且$(a!=0,b!=0)]]></description>
+</item><item>
     <title>【数据结构】树状数组详解</title>
     <link>http://example.org/posts/treearr/</link>
     <pubDate>Tue, 11 May 2021 10:50:01 &#43;0800</pubDate>
@@ -54,26 +75,5 @@
     <author>作者</author>
     <guid>http://example.org/posts/sql04/</guid>
     <description><![CDATA[单行处理函数 单行处理函数的特点是输入一行，输出一行。 ifnull ifnull()用于处理值可能为NULL的数据，该函数接收两个参数，分别为需处理字段名]]></description>
-</item><item>
-    <title>【PIL库】Image类基础使用方法</title>
-    <link>http://example.org/posts/pil/</link>
-    <pubDate>Fri, 02 Apr 2021 20:56:16 &#43;0800</pubDate>
-    <author>作者</author>
-    <guid>http://example.org/posts/pil/</guid>
-    <description><![CDATA[前言 修改自CSDN博客,完整内容见： Python图像库PIL的类Image及其方法介绍 Image类介绍 Image类是PIL中的核心类，你有很]]></description>
-</item><item>
-    <title>3.基础DQL语句的编写</title>
-    <link>http://example.org/posts/sql03/</link>
-    <pubDate>Tue, 30 Mar 2021 14:55:17 &#43;0800</pubDate>
-    <author>作者</author>
-    <guid>http://example.org/posts/sql03/</guid>
-    <description><![CDATA[查询语句的结构 SELECT ... FROM ... WHERE ... GROUP BY ... HAVING ... ORDER BY ... 简单查询语句(DQL) 基础查询语句： SELECT col1,col2,col3,col4... FROM tbname; 从tbname表查询上述多个字段的值。 SELECT * FROM tbname; 从tbn]]></description>
-</item><item>
-    <title>2.基础MySql数据库操作</title>
-    <link>http://example.org/posts/sql02/</link>
-    <pubDate>Mon, 29 Mar 2021 20:42:49 &#43;0800</pubDate>
-    <author>作者</author>
-    <guid>http://example.org/posts/sql02/</guid>
-    <description><![CDATA[获取和修改数据库的基本命令（注意命令中的分号！） 1.连接到MySql数据库（必要）：mysql -u root -p 2.查看数据：show databases; 3.创建数据库：]]></description>
 </item></channel>
 </rss>
