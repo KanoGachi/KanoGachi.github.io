@@ -4,14 +4,14 @@
         <link>http://example.org/categories/leetcode/</link>
         <description>LeetCode - 分类 - 速冻小鹿包的博客</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><lastBuildDate>Wed, 03 Mar 2021 20:22:45 &#43;0800</lastBuildDate><atom:link href="http://example.org/categories/leetcode/" rel="self" type="application/rss+xml" /><item>
-    <title>338. Counting Bits</title>
+    <title>【LeetCode】338. Counting Bits</title>
     <link>http://example.org/posts/338/</link>
     <pubDate>Wed, 03 Mar 2021 20:22:45 &#43;0800</pubDate>
     <author>作者</author>
     <guid>http://example.org/posts/338/</guid>
     <description><![CDATA[位运算 对于[0,n]的每个数字x，我们使用位运算对其进行二进制下1的个数的计算。 计算某个数字x二进制下1的个数count有以下方法： 1.用x]]></description>
 </item><item>
-    <title>1. Two Sum</title>
+    <title>【LeetCode】1. Two Sum</title>
     <link>http://example.org/posts/my_first_post/</link>
     <pubDate>Tue, 02 Mar 2021 15:15:35 &#43;0800</pubDate>
     <author>作者</author>

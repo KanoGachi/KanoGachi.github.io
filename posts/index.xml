@@ -32,42 +32,42 @@
     <guid>http://example.org/posts/treearr/</guid>
     <description><![CDATA[写在前面 本文改编自：树状数组详解 什么是树状数组？ 树状数组，顾名思义，就是用数组来模拟树形结构。那么衍生出一个问题，为什么不直接建树？答案是没]]></description>
 </item><item>
-    <title>Python中List初始化和切片的雷区</title>
+    <title>【Python】Python中List初始化和切片的雷区</title>
     <link>http://example.org/posts/pylist01/</link>
     <pubDate>Sat, 08 May 2021 16:45:18 &#43;0800</pubDate>
     <author>作者</author>
     <guid>http://example.org/posts/pylist01/</guid>
     <description><![CDATA[列表的初始化 使用*对列表进行复制初始化，实际上复制的是被复制元素的引用 # 元素为数字（安全） test = [0]*3 # test = [0,0,0] test[0] = 1 # test变为[1,0,0] #]]></description>
 </item><item>
-    <title>6.表格创建和数据增删改</title>
+    <title>【数据库】6.表格创建和数据增删改</title>
     <link>http://example.org/posts/sql6/</link>
     <pubDate>Fri, 16 Apr 2021 15:30:17 &#43;0800</pubDate>
     <author>作者</author>
     <guid>http://example.org/posts/sql6/</guid>
     <description><![CDATA[表格创建（CREATE TABLE) 建表语句的语法格式： --新建表格 DROP TABLE IF EXISTS table_name; CREATE TABLE table_name ( column_name1 data_type(size), column_name2 data_type(size), column_name3 data_type(size), .... ); --以查询结果创建表格 CREATE TABLE table_name AS SELECT语句； t]]></description>
 </item><item>
-    <title>数据库笔记：窗口函数介绍</title>
+    <title>【数据库】窗口函数介绍</title>
     <link>http://example.org/posts/nsql01/</link>
     <pubDate>Tue, 13 Apr 2021 14:59:55 &#43;0800</pubDate>
     <author>作者</author>
     <guid>http://example.org/posts/nsql01/</guid>
     <description><![CDATA[前言 文章改编自CSDN博客，完整内容见：MYSQL操作实战-窗口函数 窗口函数分类 窗口：记录集合 窗口函数：在满足某些条件的记录集合上执行的特殊]]></description>
 </item><item>
-    <title>5.连接查询</title>
+    <title>【数据库】5.连接查询</title>
     <link>http://example.org/posts/sql05/</link>
     <pubDate>Fri, 09 Apr 2021 11:55:00 &#43;0800</pubDate>
     <author>作者</author>
     <guid>http://example.org/posts/sql05/</guid>
     <description><![CDATA[连接查询完整学习 连接查询-菜鸟教程 连接查询的含义 连接查询指使用多张表联合查询选取出最终的结果。实际开发中，一般一个业务都会对应多张表。 连接查]]></description>
 </item><item>
-    <title>图像处理基础方法</title>
+    <title>【图像处理】图像处理基础方法</title>
     <link>http://example.org/posts/pyimg/</link>
     <pubDate>Tue, 06 Apr 2021 17:18:56 &#43;0800</pubDate>
     <author>作者</author>
     <guid>http://example.org/posts/pyimg/</guid>
     <description><![CDATA[PIL基础使用 Python图像库PIL的类Image及其方法介绍 NumPy基础使用 NumPy教程 从Image到array的相互转换 PIL Imag]]></description>
 </item><item>
-    <title>4.函数使用&amp;分组查询</title>
+    <title>【数据库】4.函数使用&amp;分组查询</title>
     <link>http://example.org/posts/sql04/</link>
     <pubDate>Sat, 03 Apr 2021 22:09:33 &#43;0800</pubDate>
     <author>作者</author>
